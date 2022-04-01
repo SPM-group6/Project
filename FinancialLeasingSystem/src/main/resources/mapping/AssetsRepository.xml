@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.hwadee.core.repository.AssetsRepository">
+    <!--    <cache eviction="LRU" flushInterval="100000" readOnly="true" size="1024"></cache>-->
+    <!--这个mapper使用cache会导致queryProjectDisposal在数据有更改后仍访问缓存，页面不能更新，因此禁用了缓存-->
+    <select id="queryProcessedItems" resultType="AssetsDisposal">
+        select *
+        from assets_disposal
+        where if_passed is not null
+    </select>
+
+    <insert id="insertCheck">
+        insert into assets_check values(#{check.projectId},#{check.checkTime},#{check.checkObject},#{check.checkResult},#{check.ps})
+    </insert>
+
+    <select id="queryAssetsCheckById" resultType="AssetsCheck" parameterType="java.lang.Integer">
+        select *
+        from assets_check
+        where project_id = #{id}
+    </select>
+
+    <select id="queryProjectDisposal" resultType="ProjectDisposal">
+        select project_info.project_id,project_info.project_name,project_info.leased_asset,project_info.pawn_name,assets_disposal.pawn_disposal,assets_disposal.lease_disposal,assets_disposal.appraised_value
+        from assets_disposal join project_info on assets_disposal.project_id=project_info.project_id
+        where project_info.state_id =14
+    </select>
+
+    <select id="queryAssetsDisposalById" parameterType="java.lang.Integer" resultType="AssetsDisposal">
+        select *
+        from assets_disposal
+        where project_id = #{id};
+    </select>
+
+    <select id="queryProjectDisposalById" parameterType="java.lang.Integer" resultType="ProjectDisposal">
+        select project_info.project_id,project_info.project_name,project_info.leased_asset,project_info.pawn_name,assets_disposal.pawn_disposal,assets_disposal.lease_disposal,assets_disposal.appraised_value
+        from assets_disposal join project_info on assets_disposal.project_id=project_info.project_id
+        where assets_disposal.project_id = #{id}
+    </select>
+
+    <update id="updateFinanceOpinions">
+        update assets_disposal
+        set finance_evaluator_id = #{financeEvaluatorId},
+            finance_opinions = #{financeOpinions}
+        where project_id = #{id}
+    </update>
+
+    <update id="updateAssetsDisposal">
+        update assets_disposal
+        set manager_id = #{managerId},
+            manager_opinions = #{managerOpinions},
+            if_passed = #{ifPassed}
+        where project_id = #{id}
+    </update>
+
+    <insert id="insertAssetsApplication">
+        insert into assets_disposal(project_id,pawn_disposal,lease_disposal,appraised_value)
+        values(#{application.projectId},#{application.pawnDisposal},#{application.leaseDisposal},#{application.appraisedValue})
+    </insert>
+
+
+</mapper>

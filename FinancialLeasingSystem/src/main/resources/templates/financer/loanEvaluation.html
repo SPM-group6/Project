@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>华迪租赁融资系统-财务部职员中心</title>
+
+    <!-- Bootstrap -->
+    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
+
+    <!-- bootstrap-wysiwyg -->
+    <link href="vendors/google-code-prettify/bin/prettify.min.css" rel="stylesheet">
+    <!-- Select2 -->
+    <link href="vendors/select2/dist/css/select2.min.css" rel="stylesheet">
+    <!-- Switchery -->
+    <link href="vendors/switchery/dist/switchery.min.css" rel="stylesheet">
+    <!-- starrr -->
+    <link href="vendors/starrr/dist/starrr.css" rel="stylesheet">
+    <!-- bootstrap-daterangepicker -->
+    <link href="vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="build/css/custom.min.css" rel="stylesheet">
+</head>
+
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <div class="col-md-3 left_col">
+            <div class="left_col scroll-view">
+                <div class="navbar nav_title" style="border: 0;">
+                    <a href="/index" class="site_title"><i class="fa fa-leaf"></i> <span>财务处中心</span></a>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <!-- menu profile quick info -->
+                <div class="profile clearfix">
+                    <div class="profile_pic">
+                        <img alt="..." class="img-circle profile_img" src="production/images/img.jpg">
+                    </div>
+                    <div class="profile_info">
+                        <span>欢迎,</span>
+                        <h2>小钟</h2>
+                    </div>
+                </div>
+                <!-- /menu profile quick info -->
+
+                <br/>
+
+                <!-- sidebar menu -->
+                <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                    <div class="menu_section">
+                        <h3>工作列表</h3>
+                        <ul class="nav side-menu">
+                            <li>
+                                <a href="/hwadee/quoteList"><i class="fa fa-file"></i>报价审核<span
+                                        class="fa fa-chevron-right"></span></a>
+                            </li>
+                            <li>
+                                <a href="/hwadee/loanList"><i class="fa fa-edit"></i>放款审批<span
+                                        class="fa fa-chevron-right"></span></a>
+                            </li>
+                            <li>
+                                <a href="/hwadee/alterList"><i class="fa fa-desktop"></i>变更审批<span
+                                        class="fa fa-chevron-right"></span></a>
+                            </li>
+                            <li>
+                                <a href="/hwadee/assetsList"><i class="fa fa-table"></i>资产处置项目<span
+                                        class="fa fa-chevron-right"></span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- sidebar menu -->
+
+                <!-- /menu footer buttons -->
+                <div class="sidebar-footer hidden-small">
+                    <a data-toggle="tooltip" data-placement="top" title="Settings">
+                        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                    </a>
+                    <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                        <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                    </a>
+                    <a data-toggle="tooltip" data-placement="top" title="Lock">
+                        <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+                    </a>
+                    <a data-toggle="tooltip" data-placement="top" title="Logout" href="/hwadee/login">
+                        <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                    </a>
+                </div>
+                <!-- /menu footer buttons -->
+            </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+            <div class="nav_menu">
+                <nav>
+                    <div class="nav toggle">
+                        <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                    </div>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="">
+                            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown"
+                               aria-expanded="false">
+                                <img src="production/images/img.jpg" alt="">小钟
+                                <span class=" fa fa-angle-down"></span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                <li>
+                                    <a href="javascript:;">
+                                        <span class="badge bg-red pull-right">50%</span>
+                                        <span>Settings</span>
+                                    </a>
+                                </li>
+                                <li><a href="/hwadee/login"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="">
+                <div class="clearfix"></div>
+            </div>
+            <div class="row">
+                <!--项目信息表格-->
+                <div class="col-md-6 col-xs-12">
+                    <!--项目信息模块-->
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <!--                            <h2>报价审核表单 <small>填写完毕后请点击提交</small></h2>-->
+                            <h2>项目审核信息 <small>只读信息 不可修改 点击右上角箭头收起</small></h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>
+                                <!--                                <li class="dropdown">-->
+                                <!--                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"-->
+                                <!--                                       aria-expanded="false"><i class="fa fa-wrench"></i></a>-->
+                                <!--                                    <ul class="dropdown-menu" role="menu">-->
+                                <!--                                        <li><a href="#">Settings 1</a>-->
+                                <!--                                        </li>-->
+                                <!--                                        <li><a href="#">Settings 2</a>-->
+                                <!--                                        </li>-->
+                                <!--                                    </ul>-->
+                                <!--                                </li>-->
+                                <!--                                <li><a class="close-link"><i class="fa fa-close"></i></a>-->
+                                <!--                                </li>-->
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <br>
+                            <form id="demo-form1" data-parsley-validate="" class="form-horizontal form-label-left"
+                                  novalidate="">
+                                <!--项目信息提示标签-->
+                                <label class="control-label">项目申请基本信息</label>
+                                <div class="divider-dashed"></div>
+                                <br>
+                                <!--项目信息表项-->
+                                <div class="row">
+                                    <!--                            <div class="divider-dashed"></div>-->
+                                    <div class="form-group">
+                                        <label for="project-name"
+                                               class="control-label col-md-3 col-sm-3 col-xs-12">项目名称</label>
+                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                            <input id="project-name" readonly="readonly"
+                                                   class="form-control col-md-9 col-sm-9 col-xs-12" placeholder=""
+                                                   type="text" name="project-name"
+                                                   th:value="${project.projectName}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="project-time"
+                                               class="control-label col-md-3 col-sm-3 col-xs-12">立项时间</label>
+                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                            <input id="project-time" readonly="readonly"
+                                                   class="form-control col-md-9 col-sm-9 col-xs-12" placeholder=""
+                                                   type="text" name="project-time"
+                                                   th:value="${project.projectTime}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="leased-asset"
+                                               class="control-label col-md-3 col-sm-3 col-xs-12">租赁物</label>
+                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                            <input id="leased-asset" readonly="readonly"
+                                                   class="form-control col-md-9 col-sm-9 col-xs-12" placeholder=""
+                                                   type="text" name="leased-asset"
+                                                   th:value="${project.leasedAsset}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="supplier"
+                                               class="control-label col-md-3 col-sm-3 col-xs-12">供应商</label>
+                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                            <input id="supplier" readonly="readonly"
+                                                   class="form-control col-md-9 col-sm-9 col-xs-12" placeholder=""
+                                                   type="text" name="supplier"
+                                                   th:value="${project.supplier}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="price"
+                                               class="control-label col-md-3 col-sm-3 col-xs-12">价格</label>
+                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                            <input id="price" readonly="readonly"
+                                                   class="form-control col-md-9 col-sm-9 col-xs-12" placeholder=""
+                                                   type="text" name="price"
+                                                   th:value="${project.price}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--项目方案提示标签-->
+                                <label class="control-label">项目申请方案</label>
+                                <div class="divider-dashed"></div>
+                                <br>
+                                <div class="row">
+                                    <!--                                <div class="divider-dashed"></div>-->
+                                    <div class="form-group">
+                                        <label for="unit-price"
+                                               class="control-label col-md-3 col-sm-3 col-xs-12">单位价格</label>
+                                        <div class="col-md-3 col-sm-12 col-xs-12">
+                                            <!--col-md-6 col-sm-6 col-xs-12  col-md-7 col-xs-12-->
+                                            <input id="unit-price" readonly="readonly"
+                                                   class="form-control col-md-9 col-sm-9 col-xs-12" placeholder="单位：元"
+                                                   type="text" name="unit-price"
+                                                   th:value="${project.leaseScheduleUnitPrice}">单位：元
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="unit-time"
+                                               class="control-label col-md-3 col-sm-3 col-xs-12">单位时间</label>
+                                        <div class="col-md-3 col-sm-12 col-xs-12">
+                                            <input id="unit-time" readonly="readonly"
+                                                   class="form-control col-md-9 col-sm-9 col-xs-12" placeholder="年/月/日"
+                                                   type="text" name="unit-time"
+                                                   th:value="${project.leaseScheduleUnitTime}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="duration"
+                                               class="control-label col-md-3 col-sm-3 col-xs-12">期数</label>
+                                        <div class="col-md-3 col-sm-12 col-xs-12">
+                                            <input id="duration" readonly="readonly"
+                                                   class="form-control col-md-9 col-sm-9 col-xs-12" placeholder="单位：期"
+                                                   type="text" name="duration"
+                                                   th:value="${project.leaseScheduleDuration}">单位：期次
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!--风险评估模块-->
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <!--                            <h2>报价审核表单 <small>填写完毕后请点击提交</small></h2>-->
+                            <h2>风险评估结果 <small>只读信息 不可修改 点击右上角箭头收起</small></h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>
+                                <!--                                <li class="dropdown">-->
+                                <!--                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"-->
+                                <!--                                       aria-expanded="false"><i class="fa fa-wrench"></i></a>-->
+                                <!--                                    <ul class="dropdown-menu" role="menu">-->
+                                <!--                                        <li><a href="#">Settings 1</a>-->
+                                <!--                                        </li>-->
+                                <!--                                        <li><a href="#">Settings 2</a>-->
+                                <!--                                        </li>-->
+                                <!--                                    </ul>-->
+                                <!--                                </li>-->
+                                <!--                                <li><a class="close-link"><i class="fa fa-close"></i></a>-->
+                                <!--                                </li>-->
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <br>
+                            <form id="demo-form3" data-parsley-validate="" class="form-horizontal form-label-left"
+                                  novalidate="">
+                                <!--风险评估结果提示标签-->
+                                <label class="control-label">风险评估结果</label>
+                                <div class="divider-dashed"></div>
+                                <br>
+                                <div class="row">
+                                    <!--                                <div class="divider-dashed"></div>-->
+                                    <div class="form-group">
+                                        <label for="unit-price"
+                                               class="control-label col-md-3 col-sm-3 col-xs-12">风险等级</label>
+                                        <div class="col-md-3 col-sm-12 col-xs-12">
+                                            <!--col-md-6 col-sm-6 col-xs-12  col-md-7 col-xs-12-->
+                                            <input id="risk-grade-id" readonly="readonly"
+                                                   class="form-control col-md-9 col-sm-9 col-xs-12"
+                                                   type="text" name="risk-grade-id"
+                                                   th:value="${riskEvaluation.riskGradeId}">
+                                        </div>
+                                    </div>
+                                    <!--                                    <div class="form-group">-->
+                                    <!--                                        <label for="unit-time"-->
+                                    <!--                                               class="control-label col-md-3 col-sm-3 col-xs-12">风险评估意见</label>-->
+                                    <!--                                        <div class="col-md-3 col-sm-12 col-xs-12">-->
+                                    <!--                                            <input id="risk-evaluation-opinions" readonly="readonly"-->
+                                    <!--                                                   class="form-control col-md-9 col-sm-9 col-xs-12"-->
+                                    <!--                                                   type="text" name="risk-evaluation-opinions"-->
+                                    <!--                                                   th:value="${riskEvaluation.riskEvaluationOpinions}">-->
+                                    <!--                                        </div>-->
+                                    <!--                                    </div>-->
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">风险评估意见 <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <textarea class="form-control" rows="3" readonly="readonly"
+                                                      th:text="${riskEvaluation.riskEvaluationOpinions}"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="unit-time"
+                                               class="control-label col-md-3 col-sm-3 col-xs-12">风险评估员</label>
+                                        <div class="col-md-3 col-sm-12 col-xs-12">
+                                            <input id="risk-evaluator-id" readonly="readonly"
+                                                   class="form-control col-md-9 col-sm-9 col-xs-12"
+                                                   type="text" name="risk-evaluator-id"
+                                                   th:value="${riskEvaluation.evaluatorId}">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!--报价评估模块-->
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <!--                            <h2>报价审核表单 <small>填写完毕后请点击提交</small></h2>-->
+                            <h2>报价审核结果 <small>只读信息 不可修改 点击右上角箭头收起</small></h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>
+                                <!--                                <li class="dropdown">-->
+                                <!--                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"-->
+                                <!--                                       aria-expanded="false"><i class="fa fa-wrench"></i></a>-->
+                                <!--                                    <ul class="dropdown-menu" role="menu">-->
+                                <!--                                        <li><a href="#">Settings 1</a>-->
+                                <!--                                        </li>-->
+                                <!--                                        <li><a href="#">Settings 2</a>-->
+                                <!--                                        </li>-->
+                                <!--                                    </ul>-->
+                                <!--                                </li>-->
+                                <!--                                <li><a class="close-link"><i class="fa fa-close"></i></a>-->
+                                <!--                                </li>-->
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <br>
+                            <form id="demo-form4" data-parsley-validate="" class="form-horizontal form-label-left"
+                                  novalidate="">
+                                <!--报价评估结果提示标签-->
+                                <label class="control-label">报价评估结果</label>
+                                <div class="divider-dashed"></div>
+                                <br>
+                                <div class="row">
+                                    <!--                                <div class="divider-dashed"></div>-->
+                                    <div class="form-group">
+                                        <label for="unit-price"
+                                               class="control-label col-md-3 col-sm-3 col-xs-12">市场售价调查</label>
+                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                            <!--col-md-6 col-sm-6 col-xs-12  col-md-7 col-xs-12-->
+                                            <input id="lease-value" readonly="readonly"
+                                                   class="form-control col-md-9 col-sm-9 col-xs-12"
+                                                   type="text" name="lease-value"
+                                                   th:value="${quoteEvaluation.leaseValue}">单位：元
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="unit-time"
+                                               class="control-label col-md-3 col-sm-3 col-xs-12">市场租价调查</label>
+                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                            <input id="lease-rent-cost" readonly="readonly"
+                                                   class="form-control col-md-9 col-sm-9 col-xs-12"
+                                                   type="text" name="lease-rent-cost"
+                                                   th:value="${quoteEvaluation.leaseRentCost}">单位：元
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="unit-time"
+                                               class="control-label col-md-3 col-sm-3 col-xs-12">建议放款时间</label>
+                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                            <input id="loan-time" readonly="readonly"
+                                                   class="form-control col-md-9 col-sm-9 col-xs-12"
+                                                   type="text" name="loan-time"
+                                                   th:value="${loanTime}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="unit-time"
+                                               class="control-label col-md-3 col-sm-3 col-xs-12">报价评估员</label>
+                                        <div class="col-md-3 col-sm-12 col-xs-12">
+                                            <input id="quote-evaluator-id" readonly="readonly"
+                                                   class="form-control col-md-9 col-sm-9 col-xs-12"
+                                                   type="text" name="quote-evaluator-id"
+                                                   th:value="${quoteEvaluation.evaluatorId}">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!--审核表单-->
+                <div class="col-md-6 col-xs-12"><!--"col-md-12 col-sm-12 col-xs-12"-->
+                    <!--审核表单填写-->
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>放款审核表单 <small>填写完毕后请点击提交</small></h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>
+                                <!--                                <li class="dropdown">-->
+                                <!--                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"-->
+                                <!--                                       aria-expanded="false"><i class="fa fa-wrench"></i></a>-->
+                                <!--                                    <ul class="dropdown-menu" role="menu">-->
+                                <!--                                        <li><a href="#">Settings 1</a>-->
+                                <!--                                        </li>-->
+                                <!--                                        <li><a href="#">Settings 2</a>-->
+                                <!--                                        </li>-->
+                                <!--                                    </ul>-->
+                                <!--                                </li>-->
+                                <!--                                <li><a class="close-link"><i class="fa fa-close"></i></a>-->
+                                <!--                                </li>-->
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <br>
+                            <!--表单-->
+                            <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left"
+                                  novalidate="" action="/hwadee/addLoanEvaluation" method="get">
+                                <!--项目id/项目的开始时间/项目的一期时长/项目的期数-->
+                                <input id="pId" name="pId" th:value="${project.projectId}" type="hidden">
+                                <input id="pTime" name="pTime" th:value="${project.projectTime}" type="hidden">
+                                <input id="pUTime" name="pUTime" th:value="${project.leaseScheduleUnitTime}" type="hidden">
+                                <input id="pDuration" name="pDuration" th:value="${project.leaseScheduleDuration}" type="hidden">
+                                <input id="pUnitPrice" name="pUnitPrice" th:value="${project.leaseScheduleUnitPrice}" type="hidden">
+                                <input id="aId" name="aId" th:value="${project.applicantId}" type="hidden">
+                                <input id="pPrice" name="pPrice"  th:value="${project.price}" type="hidden">
+                                <!--放款评估-->
+                                <label class="control-label"放款评估></label>
+                                <div class="divider-dashed"></div>
+                                <br>
+                                <!--放款评估表项-->
+                                <div class="row">
+                                    <!--放款评估结果-->
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">是否同意 <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6">
+                                        <div id="gender2" class="btn-group" data-toggle="buttons">
+                                            <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                                <input type="radio" name="auditOpinionBoolean" value="true"> &nbsp; 同意 &nbsp;
+                                            </label>
+                                            <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                                <input type="radio" name="auditOpinionBoolean" value="false" checked=""> 不同意
+                                            </label>
+                                        </div>
+                                    </div>
+                                    </div>
+                                <!--放款意见-->
+                                    <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">放款评估意见 <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-9 col-sm-9 col-xs-12">
+<!--                                            <textarea class="form-control" rows="3"></textarea>-->
+<!--                                        <input id="auditOpinions" name="auditOpinions" class="form-control" rows="3">-->
+                                        <textarea id="loanAuditOpinions" name="loanAuditOpinions" required="required" class="form-control"  data-parsley-trigger="keyup"
+                                                  data-parsley-minlength="0" data-parsley-maxlength="100" data-parsley-validation-threshold="10"></textarea>
+                                    </div>
+                                </div>
+                                <!--表单按钮-->
+                                    <div class="form-group">
+                                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                        <button class="btn btn-primary" type="reset">重置</button>
+                                        <button type="submit" class="btn btn-success">保存</button>
+                                        <button type="submit" class="btn btn-success">提交</button>
+                                    </div>
+                                </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- footer content -->
+        <footer>
+            <div class="pull-right">
+                hwadee实训第六小组
+            </div>
+            <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+    </div>
+</div>
+
+<!-- jQuery -->
+<script src="vendors/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="vendors/fastclick/lib/fastclick.js"></script>
+<!-- NProgress -->
+<script src="vendors/nprogress/nprogress.js"></script>
+<!-- bootstrap-progressbar -->
+<script src="vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+
+<!-- bootstrap-daterangepicker -->
+<script src="vendors/moment/min/moment.min.js"></script>
+<script src="vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+<!-- bootstrap-wysiwyg -->
+<script src="vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
+<script src="vendors/jquery.hotkeys/jquery.hotkeys.js"></script>
+<script src="vendors/google-code-prettify/src/prettify.js"></script>
+<!-- jQuery Tags Input -->
+<script src="vendors/jquery.tagsinput/src/jquery.tagsinput.js"></script>
+<!-- Switchery -->
+<script src="vendors/switchery/dist/switchery.min.js"></script>
+<!-- Select2 -->
+<script src="vendors/select2/dist/js/select2.full.min.js"></script>
+<!-- Parsley -->
+<script src="vendors/parsleyjs/dist/parsley.min.js"></script>
+<!-- Autosize -->
+<script src="vendors/autosize/dist/autosize.min.js"></script>
+<!-- jQuery autocomplete -->
+<script src="vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"></script>
+<!-- starrr -->
+<script src="vendors/starrr/dist/starrr.js"></script>
+<!-- Custom Theme Scripts -->
+<script src="build/js/custom.min.js"></script>
+
+</body>
+</html>

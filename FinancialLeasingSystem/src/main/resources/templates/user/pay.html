@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>华迪租赁融资系统</title>
+
+    <!-- Bootstrap -->
+    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- bootstrap-wysiwyg -->
+    <link href="../vendors/google-code-prettify/bin/prettify.min.css" rel="stylesheet">
+    <!-- Select2 -->
+    <link href="../vendors/select2/dist/css/select2.min.css" rel="stylesheet">
+    <!-- Switchery -->
+    <link href="../vendors/switchery/dist/switchery.min.css" rel="stylesheet">
+    <!-- starrr -->
+    <link href="../vendors/starrr/dist/starrr.css" rel="stylesheet">
+    <!-- bootstrap-daterangepicker -->
+    <link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <!-- Custom Theme Style -->
+    <link href="../build/css/custom.min.css" rel="stylesheet">
+</head>
+
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <div class="col-md-3 left_col">
+            <div class="left_col scroll-view">
+                <div class="navbar nav_title" style="border: 0;">
+                    <a class="site_title"><i class="fa fa-leaf"></i> <span>承租人中心</span></a>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <!-- menu profile quick info -->
+                <div class="profile clearfix">
+                    <div class="profile_pic">
+                        <img alt="..." class="img-circle profile_img" src="../production/images/img.jpg">
+                    </div>
+                    <div class="profile_info">
+                        <span>欢迎您,</span>
+                        <h2 th:text="${user.name}"></h2>
+                    </div>
+                </div>
+                <!-- /menu profile quick info -->
+
+                <!-- sidebar menu -->
+                <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                    <div class="menu_section">
+                        <ul class="nav side-menu">
+                            <li>
+                                <a th:href="@{/userIndex(userId=${user.id})}"><i class="fa fa-file"></i>项目总览<span class="fa fa-chevron-right"></span></a>
+                            </li>
+                            <li>
+                                <a th:href="@{/user/contactSales(userId=${user.id})}"><i class="fa fa-edit"></i>联系业务员<span class="fa fa-chevron-right"></span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- sidebar menu -->
+
+                <!-- /menu footer buttons -->
+                <div class="sidebar-footer hidden-small">
+                    <a data-toggle="tooltip" data-placement="top" title="个人中心" th:href="@{/user/personalCenter(userId=${user.id})}">
+                        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                    </a>
+                    <a data-toggle="tooltip" data-placement="top" title="修改密码" th:href="@{/user/changePwd(userId=${user.id})}">
+                        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                    </a>
+                    <a data-toggle="tooltip" data-placement="top" title="退出登录" href="/hwadee/userLogin">
+                        <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                    </a>
+
+                </div>
+                <!-- /menu footer buttons -->
+            </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+            <div class="nav_menu">
+                <nav>
+                    <div class="nav toggle">
+                        <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                    </div>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="">
+                            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <img src="../production/images/img.jpg" alt="">
+                                <span th:text="${user.name}"></span>
+                                <input hidden id="userId" th:value="${user.id}">
+                                <span class=" fa fa-angle-down"></span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                <li>
+                                    <a th:href="@{/user/personalCenter(userId=${user.id})}">
+                                        <i class="dropdown-menu dropdown-usermenu pull-right"></i>个人中心
+                                    </a>
+                                </li>
+                                <li><a th:href="@{/user/changePwd(userId=${user.id})}"><i class="dropdown-menu dropdown-usermenu pull-right"></i>修改密码</a></li>
+                                <li><a href="/hwadee/userLogin"><i class="fa fa-sign-out pull-right"></i>退出登录</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="">
+                <div class="page-title">
+                    <div class="title_left">
+                        <h3>进行中项目-缴租</h3>
+                    </div>
+
+<!--                    <div class="title_right">-->
+<!--                        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">-->
+<!--                            <div class="input-group">-->
+<!--                                <input type="text" class="form-control" placeholder="Search for...">-->
+<!--                                <span class="input-group-btn">-->
+<!--                      <button class="btn btn-default" type="button">搜索</button>-->
+<!--                    </span>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2 th:text="${project.projectName}"></h2>
+                        <input hidden id="pId" th:value="${project.projectId}">
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="x_content">
+                        <div class="table-responsive">
+                            <table class="table table-striped jambo_table bulk_action">
+                                <thead>
+                                <tr class="headings">
+                                    <th class="column-title">应缴时间</th>
+                                    <th class="column-title">应缴金额</th>
+                                    <th class="column-title">缴费状态</th>
+                                    <th class="column-title">缴费类型</th>
+                                    <th class="column-title">一键缴租</th>
+                                    </th>
+                                </tr>
+                                </thead>
+
+                                <tbody>
+                                <tr class="odd pointer" th:each="cashFlow:${cashs}">
+                                    <td type="datetime-local" th:text="${cashFlow.flowTime}"></td>
+                                    <td class=" " th:text="${cashFlow.amount}"></td>
+                                    <th th:switch="${cashFlow.ifPaid}">
+                                        <div th:case=false>未缴</div>
+                                        <div th:case=true>已缴</div>
+                                    </th>
+                                    <th th:switch="${cashFlow.payTypeId}">
+                                        <div th:case="1">按时缴租</div>
+                                        <div th:case="2">提前缴租</div>
+                                        <div th:case="3">补缴</div>
+                                    </th>
+                                    <th th:switch="${cashFlow.ifPaid}">
+                                        <div th:case=false class=" last"><button th:onclick="pay([[${cashFlow.flowTime}]])" >缴租</button></div>
+                                        <div th:case=true class=" last"></div>
+                                    </th>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+            <div class="pull-right">
+                hwadee实训第六小组
+            </div>
+            <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+    </div>
+</div>
+
+<!-- jQuery -->
+<script src="../vendors/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="../vendors/fastclick/lib/fastclick.js"></script>
+<!-- NProgress -->
+<script src="../vendors/nprogress/nprogress.js"></script>
+<!-- bootstrap-progressbar -->
+<script src="../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+
+<!-- bootstrap-daterangepicker -->
+<script src="../vendors/moment/min/moment.min.js"></script>
+<script src="../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+<!-- bootstrap-wysiwyg -->
+<script src="../vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
+<script src="../vendors/jquery.hotkeys/jquery.hotkeys.js"></script>
+<script src="../vendors/google-code-prettify/src/prettify.js"></script>
+<!-- jQuery Tags Input -->
+<script src="../vendors/jquery.tagsinput/src/jquery.tagsinput.js"></script>
+<!-- Switchery -->
+<script src="../vendors/switchery/dist/switchery.min.js"></script>
+<!-- Select2 -->
+<script src="../vendors/select2/dist/js/select2.full.min.js"></script>
+<!-- Parsley -->
+<script src="../vendors/parsleyjs/dist/parsley.min.js"></script>
+<!-- Autosize -->
+<script src="../vendors/autosize/dist/autosize.min.js"></script>
+<!-- jQuery autocomplete -->
+<script src="../vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"></script>
+<!-- starrr -->
+<script src="../vendors/starrr/dist/starrr.js"></script>
+<!-- Custom Theme Scripts -->
+<script src="../build/js/custom.min.js"></script>
+<script>
+    //用于input类型为Datetime-Local的值传递到后台对象中的timestamp类型字段
+    function formatterDatetimeLocalToApprication(time){
+        var date=time;
+        var n=date.split("T");
+        date= n[0]+" "+(n[1].split("+"))[0];
+        return date;
+    }
+</script>
+<script>
+    function pay(time){
+        if (!confirm("确定缴租吗?")) return;
+        var userId=$('#userId').val();
+        var pId=$('#pId').val();
+        var data={};//分配内存空间
+        //构造post数据
+        data["userId"]=userId;
+        data["pId"]=pId;
+        data["time"]=formatterDatetimeLocalToApprication(time);
+        //转换成json格式
+        data=JSON.stringify(data);
+        //发送请求
+        $.ajax({
+            type:"post",
+            url:"/hwadee/user/pay/submit",
+            dataType:'json',
+            data:data,
+            async:false,//是否开启异步，true表明异步
+            processData:false,
+            contentType:'application/json',
+            //请求发送成功的回调函数 response为后端返回的响应数据
+            success:function(response){
+                if(response.change == "0"){ //数据库更新修改失败
+                    alert("由于服务器异常，缴租失败！请稍后再试");
+                }
+                else{
+                    alert("缴租成功！");
+                }
+                window.location.reload();
+            },
+            error:function (e){
+                alert("由于服务器异常，请求失败！请稍后再试");
+                console.log(e);
+                window.location.reload();//刷新页面
+            }
+        })
+    }
+</script>
+
+
+</body>
+</html>

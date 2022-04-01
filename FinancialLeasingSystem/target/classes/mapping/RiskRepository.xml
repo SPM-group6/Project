@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.hwadee.core.repository.RiskRepository">
+    <cache eviction="LRU" flushInterval="100000" readOnly="true" size="1024"></cache>
+
+    <select id="queryRiskEvaluationById" parameterType="java.lang.Integer" resultType="RiskEvaluation">
+        select *
+        from risk_evaluation
+        where project_id = #{id}
+    </select>
+
+    <update id="updateRiskEvaluationById" parameterType="RiskEvaluation">
+        UPDATE risk_evaluation
+        SET risk_grade_id = #{riskGradeId},
+            risk_evaluation_opinions = #{riskEvaluationOpinions},
+            evaluator_id = #{evaluatorId}
+        WHERE project_id = #{projectId}
+    </update>
+
+    <select id="queryRiskEvaluationItems" resultType="RiskEvaluation">
+        select *
+        from risk_evaluation
+    </select>
+
+    <insert id = "insertEvaluationItem" parameterType="RiskEvaluation">
+        insert
+        into risk_evaluation(project_id,risk_grade_id,risk_evaluation_opinions,evaluator_id)
+        values(#{projectId},#{riskGradeId},#{riskEvaluationOpinions},#{evaluatorId})
+    </insert>
+
+
+</mapper>

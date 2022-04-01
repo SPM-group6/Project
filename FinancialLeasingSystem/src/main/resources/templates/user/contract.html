@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>上传合同Demo</title>
+</head>
+<body>
+<div class="col-md-6 col-sm-6 col-xs-12">
+<!--    使用model传递合同上传结果：1--成功   0--失败-->
+    <input hidden id="change" th:value="${change}"></input>
+
+    <form id="uploadFile" enctype="multipart/form-data" method="post" action="/hwadee/user/submitContract">
+        <input hidden id="pId" name="projectId" th:value="${pId}">
+        <label for="legalStaffId">合同制定员id</label>
+        <input type="number" required id="legalStaffId" name="legalStaffId" class="optional form-control col-md-7 col-xs-12">
+        <label for="file">上传合同（仅支持PDF格式）</label>
+        <input id="file" type="file" name="contractFile" class="optional form-control col-md-7 col-xs-12">
+        <input type="reset" value="重置">
+        <input type="submit" value="提交">
+    </form>
+
+</div>
+</body>
+<!-- jQuery -->
+<script src="../vendors/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="../vendors/fastclick/lib/fastclick.js"></script>
+<!-- NProgress -->
+<script src="../vendors/nprogress/nprogress.js"></script>
+<!-- validator -->
+<script src="../vendors/validator/validator.js"></script>
+
+<!-- Custom Theme Scripts -->
+<script src="../build/js/custom.min.js"></script>
+
+<!--页面加载时首先判断是否成功上传合同-->
+<script>
+    window.onload = function(){
+        var change=$("#change")
+        if (change == '0'){
+            alert("合同上传失败！请稍后再试");
+        }
+        else if(change == '1'){
+            alert("上传成功！");
+        }
+    }
+</script>
+
+<!--尝试用js提交表单，这样可以在不跳转页面前提下展示合同上传结果  失败-->
+<!--<script type="text/javascript">-->
+<!--    function sub() {-->
+<!--        // jquery 表单提交-->
+<!--        $("#uploadFile").ajaxSubmit(function(message) {-->
+<!--            // 对于表单提交成功后处理，message为返回内容-->
+<!--            if (message.change == "0"){-->
+<!--                alert("合同上传失败！请稍后再试");-->
+<!--                window.location.reload();-->
+<!--            }else{-->
+<!--                alert("上传成功！")-->
+<!--                window.location.reload();-->
+<!--            }-->
+<!--        });-->
+<!--        return false; // 必须返回false，否则表单会自己再做一次提交操作，并且页面跳转-->
+<!--    }-->
+
+<!--</script>-->
+
+</html>

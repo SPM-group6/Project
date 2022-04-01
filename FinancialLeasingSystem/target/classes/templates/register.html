@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Meta, title, CSS, favicons, etc. -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>华迪融资租赁中心</title>
+
+  <!-- Bootstrap -->
+  <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <!-- NProgress -->
+  <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
+
+  <!-- Custom Theme Style -->
+  <link href="build/css/custom.min.css" rel="stylesheet">
+</head>
+
+<body class="login">
+<div>
+  <div class="login_wrapper">
+    <div class="animate form login_form">
+        <section class="login_content">
+                <h1>华迪融资租赁系统</h1>
+                <div>
+                    <form id="form1" enctype="multipart/form-data" method="post" action="/hwadee/register/submit" onsubmit="return validateForm(this)">
+                        <div>
+                            <lable  for="name">姓名*</lable>
+                            <input id="name" name="name" class="form-control" autofocus required="required" type="text">
+                            <lable  for="idCard">身份证号码*</lable>
+                            <input type="text" id="idCard" name="idCard" required="required" class="form-control">
+                        </div>
+                        <div>
+                            <lable for="pwd">密码*</lable>
+                            <input type="password" id="pwd" name="pwd" required="required" class="form-control">
+
+                            <lable for="pwd">再次确认密码*</lable>
+                            <input type="password" id="pwd2" data-validate-linked="pwd" name="pwd2" required="required" class="form-control">
+                        </div>
+                        <div>
+                            <lable  for="career">职业*</lable>
+                            <select class="form-control" id="career" name="career" required>
+                                <option>公务员</option>
+                                <option>个体经商户</option>
+                                <option>企业员工</option>
+                                <option>农民</option>
+                                <option>其他</option>
+                            </select>
+                        </div>
+                        <div>
+                            <lable  for="salary">平均月收入（人民币：元）*</lable>
+                            <input id="salary" type="number" required name="salary" class="form-control">
+
+                            <lable  for="assets">总资产（人民币：元）*</lable>
+                            <input id="assets" type="number" name="assets" required class="form-control">
+                        </div>
+                        <div>
+                            <lable  for="recentBill">近三个月的银行流水</lable>
+                            <input id="recentBill" type="file" name="recentBill" class="form-control">
+                        </div>
+                        <div>
+                            <input type="reset" value="重置">
+                            <input type="submit" value="提交">
+                        </div>
+                    </form>
+                </div>
+        </section>
+    </div>
+  </div>
+</div>
+</body>
+
+<!-- jQuery -->
+<script src="vendors/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="vendors/fastclick/lib/fastclick.js"></script>
+<!-- NProgress -->
+<script src="vendors/nprogress/nprogress.js"></script>
+<!-- validator -->
+<script src="vendors/validator/validator.js"></script>
+
+<!-- Custom Theme Scripts -->
+<script src="build/js/custom.min.js"></script>
+
+<script>
+    /**
+     * 表单验证
+     * 为便于测试这里暂不加入对实名验证的数据合法性检查
+     */
+    function validate_required(field,alerttxt)
+    {
+        with (field)
+        {
+            if (value==null||value=="")
+            {alert(alerttxt);return false}
+            else {return true}
+        }
+    }
+    function validateForm(thisform){
+        with (thisform)
+        {
+            if(pwd.value!=pwd2.value){
+                alert("两次密码不一致！");
+                pwd.focus();return false;
+            }
+        }
+    }
+</script>
+
+</body>
+</html>

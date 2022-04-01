@@ -1,0 +1,495 @@
+
+<!--业务员-资产处理申请页面-->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>华迪融资租赁系统</title>
+
+    <!-- Bootstrap -->
+    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="build/css/custom.min.css" rel="stylesheet">
+  </head>
+
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+              <a href="../index.html" class="site_title"><i class="fa fa-paw"></i> <span>华迪融资租赁系统</span></a>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <div class="profile clearfix">
+              <div class="profile_pic">
+                <img src="production/images/img.jpg" alt="..." class="img-circle profile_img">
+              </div>
+              <div class="profile_info">
+                <span>欢迎您,</span>
+                <h2>业务员</h2>
+              </div>
+            </div>
+            <!-- /menu profile quick info -->
+
+            <br />
+
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+              <div class="menu_section">
+                <ul class="nav side-menu">
+                  <li><a href="allProjects"><i class="fa fa-table"></i> 项目总览 </a>
+                  </li>
+                  <li><a><i class="fa fa-edit"></i> 成立中项目 <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="application">立项申请</a></li>
+                      <li><a href="riskEvaluate">风险评估</a></li>
+                      <li><a href="quoteEvaluate">报价评估</a></li>
+                      <li><a href="finalAudit">项目终审</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-spinner"></i> 启动中项目<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="contract">合同签约</a></li>
+                      <li><a href="loan">放款审批</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-adjust"></i> 进行中项目 <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="assetsCheck">资产检查</a></li>
+                      <li><a href="mCheck">资金流检查</a></li>
+                      <li><a href="alterApplication">申请变更</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-check-square-o"></i> 清算中项目 <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="assetsApplication">申请资产处置</a></li>
+                      <li><a href="execute">执行资产处置</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="end"><i class="fa fa-folder-o"></i>已结束项目 </a>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+            <!-- /sidebar menu -->
+
+            <!-- /menu footer buttons -->
+            <div class="sidebar-footer hidden-small">
+              <a data-toggle="tooltip" data-placement="top" title="Settings">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Lock">
+                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="../login.html">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+              </a>
+            </div>
+            <!-- /menu footer buttons -->
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+          <div class="nav_menu">
+            <nav>
+              <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+              </div>
+
+              <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <img src="production/images/img.jpg" alt="">业务员
+                    <span class=" fa fa-angle-down"></span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-usermenu pull-right">
+                    <li>
+                      <a href="javascript:;">
+<!--                        <span class="badge bg-red pull-right">50%</span>-->
+                        <span>个人中心</span>
+                      </a>
+                    </li>
+                    <li><a href="javascript:;">帮助</a></li>
+                    <li><a href="../login.html"><i class="fa fa-sign-out pull-right"></i>退出登录</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+          <div class="">
+
+            <!--            页面顶部标题和搜索框-->
+            <div class="page-title">
+              <div class="title_left">
+                <h3>清算中项目-申请资产处置</h3>
+              </div>
+
+              <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--            页面顶部标题和搜索框-->
+            
+            <div class="clearfix"></div>
+
+
+
+            <!--可申请资产处置项目            完整表格组件-->
+            <div class="row">
+              <div class="col-md-12">
+                <div class="x_panel">
+
+                  <!--                  表格标题栏和关闭、收起按钮-->
+                  <div class="x_title">
+                    <h2>待资产处置项目</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <!--                  表格标题栏和关闭、收起按钮-->
+
+                  <!-- start project list -->
+                  <div class="x_content">
+                    <table class="table table-striped projects">
+                      <thead>
+                      <tr>
+                        <th style="width: 10%" >项目编号</th>
+                        <th style="width: 15%">项目名称</th>
+                        <th style="width: 15%" >租赁物</th>
+                        <th style="width: 15%" >抵押物</th>
+                        <th style="width: 15%" >承租人</th>
+                        <th >项目状态</th>
+                        <th style="width: 10%">操作</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr th:each="project:${projectsON}">
+                        <th style="width: 10%" th:text="${project.projectId}"></th>
+                        <th style="width: 15%" th:text="${project.projectName}"></th>
+                        <th style="width: 15%" th:text="${project.leasedAsset}"></th>
+                        <th style="width: 15%" th:text="${project.pawnName}"></th>
+                        <th style="width: 15%" th:text="${project.applicantId}"></th>
+                        <th th:switch="${project.stateId}">
+                          <div th:case="1">立项申请</div>
+                          <div th:case="2">风险评估</div>
+                          <div th:case="3">报价评估</div>
+                          <div th:case="4">项目终审</div>
+                          <div th:case="5">合同签约</div>
+                          <div th:case="6">放款审批</div>
+                          <div th:case="7">正常履约</div>
+                          <div th:case="8">逾期未交</div>
+                          <div th:case="9">变更风险评估</div>
+                          <div th:case="10">变更财务评估</div>
+                          <div th:case="11">变更项目终审</div>
+                          <div th:case="12">资产处置财务审批</div>
+                          <div th:case="13">资产处置最终审批</div>
+                          <div th:case="14">资产处置</div>
+                          <div th:case="15">结束</div>
+                        </th>
+                        <th style="width: 10%" >
+                          <a class="btn btn-primary" th:href="@{projectAllContent(id=${project.projectId})}">查看项目详情</a>
+                          <button type="button" class="btn btn-success" data-toggle="modal" data-target=".bs-example-modal-lg" style="float:right;" th:onclick="set([[${project.projectName}]],[[${project.leasedAsset}]],[[${project.pawnName}]],[[${project.projectId}]])">提交资产处置申请</button>
+                        </th>
+                      </tr>
+                      </tbody>
+                    </table>
+
+                  </div>
+                  <!-- end project list -->
+
+                </div>
+              </div>
+            </div>
+            <!--可申请资产处置项目             完整表格组件-->
+
+            <!--已提交资产处置申请项目            完整表格组件-->
+            <div class="row">
+              <div class="col-md-12">
+                <div class="x_panel">
+
+                  <!--                  表格标题栏和关闭、收起按钮-->
+                  <div class="x_title">
+                    <h2>待审批项目</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <!--                  表格标题栏和关闭、收起按钮-->
+
+                  <!-- start project list -->
+                  <div class="x_content">
+                    <table class="table table-striped projects">
+                      <thead>
+                      <tr>
+                        <th style="width: 10%" >项目编号</th>
+                        <th style="width: 15%">项目名称</th>
+                        <th style="width: 15%" >租赁物</th>
+                        <th style="width: 15%" >抵押物</th>
+                        <th style="width: 15%" >承租人</th>
+                        <th >项目状态</th>
+                        <th style="width: 10%">操作</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr th:each="project:${projectsWAIT}">
+                        <th style="width: 10%" th:text="${project.projectId}"></th>
+                        <th style="width: 15%" th:text="${project.projectName}"></th>
+                        <th style="width: 15%" th:text="${project.leasedAsset}"></th>
+                        <th style="width: 15%" th:text="${project.pawnName}"></th>
+                        <th style="width: 15%" th:text="${project.applicantId}"></th>
+                        <th th:switch="${project.stateId}">
+                          <div th:case="1">立项申请</div>
+                          <div th:case="2">风险评估</div>
+                          <div th:case="3">报价评估</div>
+                          <div th:case="4">项目终审</div>
+                          <div th:case="5">合同签约</div>
+                          <div th:case="6">放款审批</div>
+                          <div th:case="7">正常履约</div>
+                          <div th:case="8">逾期未交</div>
+                          <div th:case="9">变更风险评估</div>
+                          <div th:case="10">变更财务评估</div>
+                          <div th:case="11">变更项目终审</div>
+                          <div th:case="12">资产处置财务审批</div>
+                          <div th:case="13">资产处置最终审批</div>
+                          <div th:case="14">资产处置</div>
+                          <div th:case="15">结束</div>
+                        </th>
+                        <th style="width: 10%" >
+                          <a class="btn btn-primary" th:href="@{projectAllContent(id=${project.projectId})}">查看项目详情</a>
+                        </th>
+                      </tr>
+                      </tbody>
+                    </table>
+
+                  </div>
+                  <!-- end project list -->
+
+                </div>
+              </div>
+            </div>
+            <!--已提交资产处置申请项目            完整表格组件-->
+
+
+          </div>
+
+          <!--申请资产处置弹窗-->
+          <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                  </button>
+                  <h4 class="modal-title" id="myModalLabel">申请资产处置</h4>
+                </div>
+
+                <div class="modal-body">
+
+                  <form class="form-horizontal form-label-left input_mask" id="form1">
+
+                    <div class="form-group col-md-6">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">项目名称</label>
+                      <div class="col-md-6 col-sm-9 col-xs-12">
+                        <p id="proName"></p>
+                      </div>
+                    </div>
+                    <div class="form-group col-md-6" hidden>
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">项目编号</label>
+                      <div class="col-md-6 col-sm-9 col-xs-12">
+                        <input  type="text" id="projectId" name="projectId">
+                      </div>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">租赁物</label>
+                      <div class="col-md-6 col-sm-9 col-xs-12">
+                        <p id="lName"></p>
+                      </div>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">抵押物</label>
+                      <div class="col-md-6 col-sm-9 col-xs-12">
+                        <p id="pName"></p>
+                      </div>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                    <label class="control-label col-md-4 col-sm-3 col-xs-12">租赁物处理方式</label>
+                    <div class="col-md-3 col-sm-9 col-xs-12" name="leaseDisposal">
+                      <select class="form-control">
+                        <option>变卖</option>
+                        <option>暂存</option>
+                      </select>
+                    </div>
+                  </div>
+                    <div class="form-group col-md-6">
+                      <label class="control-label col-md-4 col-sm-3 col-xs-12">抵押物处理方式</label>
+                      <div class="col-md-3 col-sm-9 col-xs-12">
+                        <select class="form-control" name="pawnDisposal">
+                          <option>归还</option>
+                          <option>变卖</option>
+                          <option>暂存</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                      <label class="control-label col-md-4 col-sm-3 col-xs-12">估值</label>
+                      <div class="col-md-3 col-sm-9 col-xs-12">
+                        <input id="appraisedValue" name="appraisedValue">
+                      </div>
+                    </div>
+
+                  </form>
+                </div>
+
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                  <button type="button" class="btn btn-primary" id="submitButton" onclick="submitForm()">提交</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <!--申请资产处置弹窗-->
+
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            hwadee实训第六小组
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="vendors/nprogress/nprogress.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+
+    
+    <!-- Custom Theme Scripts -->
+    <script src="build/js/custom.min.js"></script>
+
+    <script>
+      function set(proname,lname,pname,id){
+        document.getElementById("proName").innerHTML=proname;
+        document.getElementById("pName").innerHTML=pname;
+        document.getElementById("lName").innerHTML=lname;
+        document.getElementById("projectId").value=id;
+      }
+    </script>
+
+<!--    提交表单-->
+    <script type= "text/javascript" >
+      function submitForm(){
+        //表单合法性检查
+        document.getElementById("submitButton").addEventListener("click", function(){
+          console.log("提交资产检查记录");
+          appraisedValue = document.getElementById("appraisedValue").value;
+
+          if(appraisedValue==""|appraisedValue==null){
+            alert("请填写总资产估值！")
+          }else if(appraisedValue<0){
+            alert("请填写合理的估值")
+          }else{
+            submit();
+          }
+        });
+      }
+      function  submit(){
+        var form=$("#form1").serializeArray();//序列化表单
+        var data={};//分配内存空间
+        //构造post数据
+        for (var i=0;i<form.length;i++){
+          data[form[i].name]=form[i].value;
+        }
+        data=JSON.stringify(data);//转换成json格式
+        //发送请求
+        $.ajax({
+          type:"post",
+          url:"/hwadee/assetsApply",
+          dataType:'json',
+          data:data,
+          async:false,//是否开启异步，true表明异步
+          processData:false,
+          contentType:'application/json',
+          //请求发送成功的回调函数 response为后端返回的响应数据
+          success:function(response){
+            if(response.change == "0"){ //修改失败
+              alert("由于服务器异常，提交失败！请稍后再试");
+            }
+            else{
+              if(response.changeState == "1"){
+                alert("提交成功！");
+              }
+              else{
+                alert("资产处置申请提交成功，但项目状态修改失败！请手动修改")
+              }
+            }
+            window.location.href="/hwadee/assetsApplication";
+          },
+          error:function (e){
+            alert("由于服务器异常，请求失败！请稍后再试");
+            console.log(e);
+            window.location.href="/hwadee/assetsApplication";
+          }
+        })
+      }
+    </script>
+  </body>
+</html>

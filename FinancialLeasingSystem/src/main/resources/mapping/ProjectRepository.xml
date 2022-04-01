@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.hwadee.core.repository.ProjectRepository">
+<!--    <cache eviction="LRU" flushInterval="100000" readOnly="true" size="1024"></cache>-->
+
+    <select id="queryAllProjects" resultType="Project">
+        select *
+        from project_info
+    </select>
+
+    <select id="queryProjectsByState" parameterType="java.lang.Integer" resultType="Project">
+        select *
+        from project_info
+        where state_id = #{state}
+    </select>
+
+    <select id="queryProjectsById" parameterType="java.lang.Integer" resultType="Project">
+        select *
+        from project_info
+        where project_id = #{id}
+    </select>
+
+    <select id="queryProjectsByStateAndStaff" parameterType="java.lang.Integer" resultType="Project">
+        select *
+        from project_info
+        where state_id = #{state}
+        and current_staff_id = #{currentStaffId}
+    </select>
+
+    <select id="queryRunningProjects" parameterType="java.lang.Integer" resultType="com.hwadee.entity.Project">
+        select * from project_info
+        where applicant_id = #{userId} and state_id &gt; 6 and state_id &lt; 12;
+    </select>
+
+    <select id="queryApplyingProjects" parameterType="java.lang.Integer" resultType="com.hwadee.entity.Project">
+        select * from project_info
+        where applicant_id = #{userId} and state_id &lt; 5;
+    </select>
+
+    <select id="queryFinishedProjects" parameterType="java.lang.Integer" resultType="com.hwadee.entity.Project">
+        select * from project_info
+        where applicant_id = #{userId} and state_id = 15;
+    </select>
+
+    <delete id="deleteProjectsById" parameterType="java.lang.Integer">
+        delete from project_info
+        where project_id = #{id}
+    </delete>
+
+    <select id="queryAllProjectStates" resultType="ProjectState">
+        select *
+        from project_state
+    </select>
+
+    <select id="queryAssetsDisposal" resultType="Project">
+        select *
+        from project_info
+        where current_date > DATE_ADD(project_time, INTERVAL lease_schedule_duration day )
+            and state_id in(7,8);
+    </select>
+
+    <select id="queryDisposalAudit" resultType="Project">
+        select *
+        from project_info
+        where state_id in(12,13,14)
+    </select>
+
+    <update id="executeById">
+        update project_info
+        set state_id = 15
+        where project_id = #{id}
+    </update>
+
+    <update id="updateStateAndStaff">
+        update project_info
+        set state_id = #{stateId},
+            current_staff_id = #{currentStaffId}
+        where project_id = #{projectId}
+    </update>
+
+    <insert id="insertProApplication">
+        insert into project_info(applicant_id,project_name,project_time,leased_asset,supplier,price,lease_schedule_unit_price,lease_schedule_unit_time,lease_schedule_duration,pawn_name,pawn_type,pawn_value,certificate)
+        values(#{project.applicantId},#{project.projectName},#{project.time},#{project.leasedAsset},#{project.supplier},#{project.price},#{project.leaseScheduleUnitPrice},#{project.leaseScheduleUnitTime},#{project.leaseScheduleDuration},#{project.pawnName},#{project.pawnType},#{project.pawnValue},#{project.url})
+    </insert>
+
+    <select id="queryCertificateByPId" resultType="java.lang.String">
+        select certificate
+        from project_info
+        where project_id=#{pId}
+    </select>
+
+</mapper>

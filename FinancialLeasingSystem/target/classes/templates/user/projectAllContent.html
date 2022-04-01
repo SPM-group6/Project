@@ -1,0 +1,961 @@
+
+<!--业务员-项目所有相关文件页面-->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>华迪融资租赁系统</title>
+
+    <!-- Bootstrap -->
+    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="../build/css/custom.min.css" rel="stylesheet">
+  </head>
+
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+              <a class="site_title"><i class="fa fa-leaf"></i> <span>承租人中心</span></a>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <div class="profile clearfix">
+              <div class="profile_pic">
+                <img alt="..." class="img-circle profile_img" src="../production/images/img.jpg">
+              </div>
+              <div class="profile_info">
+                <span>欢迎您,</span>
+                <h2 th:text="${user.name}"></h2>
+              </div>
+            </div>
+            <!-- /menu profile quick info -->
+
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+              <div class="menu_section">
+                <ul class="nav side-menu">
+                  <li>
+                    <a th:href="@{/userIndex(userId=${user.id})}"><i class="fa fa-file"></i>项目总览<span class="fa fa-chevron-right"></span></a>
+                  </li>
+                  <li>
+                    <a th:href="@{/user/contactSales(userId=${user.id})}"><i class="fa fa-edit"></i>联系业务员<span class="fa fa-chevron-right"></span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- sidebar menu -->
+
+            <!-- /menu footer buttons -->
+            <div class="sidebar-footer hidden-small">
+              <a data-toggle="tooltip" data-placement="top" title="个人中心" th:href="@{personalCenter(userId=${user.id})}">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="修改密码" th:href="@{changePwd(userId=${user.id})}">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="退出登录" href="/hwadee/userLogin">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+              </a>
+            </div>
+            <!-- /menu footer buttons -->
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+          <div class="nav_menu">
+            <nav>
+              <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+              </div>
+
+              <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <img src="../production/images/img.jpg" alt="">
+                    <span th:text="${user.name}"></span>
+                    <span class=" fa fa-angle-down"></span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-usermenu pull-right">
+                    <li>
+                      <a th:href="@{personalCenter(userId=${user.id})}">
+                        <i class="dropdown-menu dropdown-usermenu pull-right"></i>个人中心
+                      </a>
+                    </li>
+                    <li><a th:href="@{changePwd(userId=${user.id})}"><i class="dropdown-menu dropdown-usermenu pull-right"></i>修改密码</a></li>
+                    <li><a href="/hwadee/userLogin"><i class="fa fa-sign-out pull-right"></i>退出登录</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+          <div class="">
+
+            <!--            页面顶部标题和搜索框-->
+            <div class="page-title">
+              <div class="title_left">
+                <h3>项目详情</h3>
+              </div>
+
+              <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--            页面顶部标题和搜索框-->
+            
+            <div class="clearfix"></div>
+
+            <div class="" role="tabpanel" data-example-id="togglable-tabs">
+
+              <ul id="myTab1" class="nav nav-tabs bar_tabs right" role="tablist">
+                <li th:if="${project.stateId>=1}"role="presentation" class="active"><a href="#tab_content11" id="home-tabb" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">立项阶段</a>
+                </li>
+                <li th:if="${project.stateId>=5}"role="presentation" class=""><a href="#tab_content22" role="tab" id="profile-tabb" data-toggle="tab" aria-controls="profile" aria-expanded="false">启动阶段</a>
+                </li>
+                <li th:if="${project.stateId>=7}"role="presentation" class=""><a href="#tab_content33" role="tab" id="profile-tabb3" data-toggle="tab" aria-controls="profile" aria-expanded="false">进行阶段</a>
+                </li>
+                <li th:if="${project.stateId>=12}"role="presentation" class=""><a href="#tab_content44" role="tab" id="profile-tabb4" data-toggle="tab" aria-controls="profile" aria-expanded="false">清算阶段</a>
+                </li>
+              </ul>
+
+              <div id="myTabContent2" class="tab-content">
+                <!-- 立项阶段-->
+                <div role="tabpanel" class="tab-pane fade active in" id="tab_content11" aria-labelledby="home-tab">
+                  <!--项目基础信息            完整表格组件-->
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="x_panel">
+
+                        <!--                 表格标题栏和关闭、收起按钮-->
+                        <div class="x_title">
+                          <h2>项目基础信息</h2>
+                          <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                          </ul>
+                          <div class="clearfix"></div>
+                        </div>
+                        <!--                  表格标题栏和关闭、收起按钮-->
+
+                        <!-- start project list -->
+                        <div class="x_content">
+                          <form class="form-horizontal form-label-left input_mask">
+
+                            <div class="form-group col-md-6">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">项目状态</label>
+                              <div class="col-md-6 col-sm-9 col-xs-12" th:switch="${project.stateId}">
+                                <div type="text" class="form-control"th:case="1">立项申请</div>
+                                <div type="text" class="form-control"th:case="2">风险评估</div>
+                                <div type="text" class="form-control"th:case="3">报价评估</div>
+                                <div type="text" class="form-control"th:case="4">项目终审</div>
+                                <div type="text" class="form-control"th:case="5">合同签约</div>
+                                <div type="text" class="form-control"th:case="6">放款审批</div>
+                                <div type="text" class="form-control"th:case="7">正常履约</div>
+                                <div type="text" class="form-control"th:case="8">逾期未交</div>
+                                <div type="text" class="form-control"th:case="9">变更风险评估</div>
+                                <div type="text" class="form-control"th:case="10">变更财务评估</div>
+                                <div type="text" class="form-control"th:case="11">变更项目终审</div>
+                                <div type="text" class="form-control"th:case="12">资产处置财务审批</div>
+                                <div type="text" class="form-control"th:case="13">资产处置最终审批</div>
+                                <div type="text" class="form-control"th:case="14">资产处置</div>
+                                <div type="text" class="form-control"th:case="15">结束</div>
+                              </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">负责员工</label>
+                              <div class="col-md-6 col-sm-9 col-xs-12">
+                                <p type="text" class="form-control" th:text="${project.currentStaffId}"></p>
+                              </div>
+                            </div>
+
+                          </form>
+                        </div>
+                        <!-- end project list -->
+
+                      </div>
+                    </div>
+                  </div>
+                  <!--项目基础信息           完整表格组件-->
+
+                  <!--项目立项申请             完整表格组件-->
+                  <div class="row" th:if="${project.stateId>=1}">
+                    <div class="col-md-12">
+                      <div class="x_panel">
+
+                        <!--                 表格标题栏和关闭、收起按钮-->
+                        <div class="x_title">
+                          <h2>立项申请书</h2>
+                          <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                          </ul>
+                          <div class="clearfix"></div>
+                        </div>
+                        <!--                  表格标题栏和关闭、收起按钮-->
+
+                        <!-- start project list -->
+                        <div class="x_content">
+                          <form class="form-horizontal form-label-left input_mask">
+
+                            <div class="form-group col-md-6">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">项目名称</label>
+                              <div class="col-md-6 col-sm-9 col-xs-12">
+                                <p type="text" class="form-control"th:text="${project.projectName}"></p>
+                              </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">承租人</label>
+                              <div class="col-md-6 col-sm-9 col-xs-12">
+                                <p type="text" class="form-control" th:text="${project.applicantId}"></p>
+                              </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">项目开始时间</label>
+                              <div class="col-md-6 col-sm-9 col-xs-12">
+                                <p type="text" class="form-control"th:text="${project.projectTime}"></p>
+                              </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">项目持续时间</label>
+                              <div class="col-md-6 col-sm-9 col-xs-12">
+                                <p type="text" class="form-control"th:text="${project.leaseScheduleDuration}"></p>
+                              </div>
+                            </div>
+
+                            <h4 style="text-align: center">租赁计划</h4>
+                            <div class="ln_solid"></div>
+
+                            <div class="form-group col-md-6">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">租赁物</label>
+                              <div class="col-md-6 col-sm-9 col-xs-12">
+                                <p type="text" class="form-control"th:text="${project.leasedAsset}"></p>
+                              </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">供应商</label>
+                              <div class="col-md-6 col-sm-9 col-xs-12">
+                                <p type="text" class="form-control"th:text="${project.supplier}"></p>
+                              </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">租赁单位价格</label>
+                              <div class="col-md-6 col-sm-9 col-xs-12">
+                                <p type="text" class="form-control"th:text="${project.leaseScheduleUnitPrice}"></p>
+                              </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">租赁单位时间</label>
+                              <div class="col-md-6 col-sm-9 col-xs-12">
+                                <p type="text" class="form-control"th:text="${project.leaseScheduleUnitTime}"></p>
+                              </div>
+                            </div>
+
+                            <div class="clearfix"></div>
+
+
+                            <h4 style="text-align: center">抵押</h4>
+                            <div class="ln_solid"></div>
+
+                            <div class="form-group col-md-6">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">抵押物名称</label>
+                              <div class="col-md-6 col-sm-9 col-xs-12">
+                                <p type="text" class="form-control"th:text="${project.pawnName}"></p>
+                              </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">抵押物类别</label>
+                              <div class="col-md-6 col-sm-9 col-xs-12">
+                                <p type="text" class="form-control"th:text="${project.pawnType}"></p>
+                              </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">抵押物价值</label>
+                              <div class="col-md-6 col-sm-9 col-xs-12">
+                                <p type="text" class="form-control"th:text="${project.pawnValue}"></p>
+                              </div>
+                            </div>
+
+                            <div class="form-group col-md-6" style="left: 0">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">抵押物证明</label>
+                              <div class="input-group col-md-3 col-sm-9 col-xs-12">
+                                <a th:href="@{/viewPawnProof(pId=${project.projectId})}" target="_blank" >查看抵押物证明</a>
+                              </div>
+                            </div>
+
+
+                          </form>
+                        </div>
+                        <!-- end project list -->
+
+                      </div>
+                    </div>
+                  </div>
+                  <!--项目立项申请            完整表格组件-->
+
+                  <!--风险评估报告            完整表格组件-->
+                  <div class="row" th:if="${project.stateId>2}">
+                    <div class="col-md-12">
+                      <div class="x_panel">
+
+                        <!--                 表格标题栏和关闭、收起按钮-->
+                        <div class="x_title">
+                          <h2>风险评估报告</h2>
+                          <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                          </ul>
+                          <div class="clearfix"></div>
+                        </div>
+                        <!--                  表格标题栏和关闭、收起按钮-->
+
+                        <!-- start project list -->
+                        <div class="x_content">
+
+                          <form class="form-horizontal form-label-left input_mask">
+
+                            <div class="form-group col-md-6">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">风险等级</label>
+                              <div class="col-md-6 col-sm-9 col-xs-12">
+                                <div class="col-md-6 col-sm-9 col-xs-12" th:switch="${risk.riskGradeId}">
+                                  <div type="text" class="form-control"th:case="1">无风险</div>
+                                  <div type="text" class="form-control"th:case="2">低风险</div>
+                                  <div type="text" class="form-control"th:case="3">高风险</div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">风险评估建议</label>
+                              <div class="col-md-6 col-sm-9 col-xs-12">
+                                <p type="text" class="form-control"th:text="${risk.riskEvaluationOpinions}"></p>
+                              </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">评估人id</label>
+                              <div class="col-md-6 col-sm-9 col-xs-12">
+                                <p type="text" class="form-control"th:text="${risk.evaluatorId}"></p>
+                              </div>
+                            </div>
+
+
+                          </form>
+
+                        </div>
+                        <!-- end project list -->
+
+                      </div>
+                    </div>
+                  </div>
+                  <!--风险评估报告             完整表格组件-->
+
+                  <!--报价评估报告            完整表格组件-->
+                  <div class="row" th:if="${project.stateId>3}">
+                    <div class="col-md-12">
+                      <div class="x_panel">
+
+                        <!--                 表格标题栏和关闭、收起按钮-->
+                        <div class="x_title">
+                          <h2>报价评估报告</h2>
+                          <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                          </ul>
+                          <div class="clearfix"></div>
+                        </div>
+                        <!--                  表格标题栏和关闭、收起按钮-->
+
+                        <!-- start project list -->
+                        <div class="x_content">
+
+                          <form class="form-horizontal form-label-left input_mask">
+
+                            <div class="form-group col-md-6">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">租赁物市场售卖价格</label>
+                              <div class="col-md-6 col-sm-9 col-xs-12">
+                                <p type="text" class="form-control"th:text="${quote.leaseValue}"></p>
+                              </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">租赁物市场租赁价格</label>
+                              <div class="col-md-6 col-sm-9 col-xs-12">
+                                <p type="text" class="form-control"th:text="${quote.leaseRentCost}"></p>
+                              </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">建议单位价格</label>
+                              <div class="col-md-6 col-sm-9 col-xs-12">
+                                <p type="text" class="form-control"th:text="${quote.leaseScheduleUnitPrice}"></p>
+                              </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">建议单位时间</label>
+                              <div class="col-md-6 col-sm-9 col-xs-12">
+                                <p type="text" class="form-control"th:text="${quote.leaseScheduleUnitTime}"></p>
+                              </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">建议总时间</label>
+                              <div class="col-md-6 col-sm-9 col-xs-12">
+                                <p type="text" class="form-control"th:text="${quote.leaseScheduleDuration}"></p>
+                              </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">建议放款时间</label>
+                              <div class="col-md-6 col-sm-9 col-xs-12">
+                                <p type="text" class="form-control"th:text="${quote.loanTime}"></p>
+                              </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">评估员id</label>
+                              <div class="col-md-6 col-sm-9 col-xs-12">
+                                <p type="text" class="form-control"th:text="${quote.evaluatorId}"></p>
+                              </div>
+                            </div>
+
+                          </form>
+
+                        </div>
+                        <!-- end project list -->
+
+                      </div>
+                    </div>
+                  </div>
+                  <!--报价评估报告             完整表格组件-->
+
+                  <!--项目终审报告            完整表格组件-->
+                  <div class="row" th:if="${project.stateId>4}">
+                    <div class="col-md-12">
+                      <div class="x_panel">
+
+                        <!--                 表格标题栏和关闭、收起按钮-->
+                        <div class="x_title">
+                          <h2>项目终审报告</h2>
+                          <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                          </ul>
+                          <div class="clearfix"></div>
+                        </div>
+                        <!--                  表格标题栏和关闭、收起按钮-->
+
+                        <!-- start project list -->
+                        <div class="x_content">
+
+                          <form class="form-horizontal form-label-left input_mask">
+
+                            <div class="form-group col-md-6">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">审核是否通过</label>
+                              <div class="col-md-6 col-sm-9 col-xs-12">
+                                <p type="text" class="form-control"th:if="${audit.auditOpinionBoolean==true}">是</p>
+                                <p type="text" class="form-control"th:if="${audit.auditOpinionBoolean==false}">否</p>
+                              </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">审核意见</label>
+                              <div class="col-md-6 col-sm-9 col-xs-12">
+                                <p type="text" class="form-control"th:text="${audit.auditOpinions}"></p>
+                              </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">审核员id</label>
+                              <div class="col-md-6 col-sm-9 col-xs-12">
+                                <p type="text" class="form-control"th:text="${audit.auditorId}"></p>
+                              </div>
+                            </div>
+
+                          </form>
+
+                        </div>
+                        <!-- end project list -->
+
+                      </div>
+                    </div>
+                  </div>
+                  <!--项目终审报告             完整表格组件-->
+
+                </div>
+                <!--立项阶段-->
+
+                <!--启动阶段-->
+                <div role="tabpanel" class="tab-pane fade" id="tab_content22" aria-labelledby="profile-tab">
+                  <!--合同            完整表格组件-->
+                  <div th:if="${project.stateId>5}" class="row" >
+                    <div class="col-md-12">
+                      <div class="x_panel">
+
+                        <!--                 表格标题栏和关闭、收起按钮-->
+                        <div class="x_title">
+                          <h2>合同</h2>
+                          <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                          </ul>
+                          <div class="clearfix"></div>
+                        </div>
+                        <!--                  表格标题栏和关闭、收起按钮-->
+
+                        <!-- start project list -->
+                        <div class="x_content">
+                          <a th:href="@{/user/viewContract(pId=${project.projectId})}" target="_blank" >查看合同</a>
+                        </div>
+                        <!-- end project list -->
+
+                      </div>
+                    </div>
+                  </div>
+                  <!--合同            完整表格组件-->
+                  <!--放款审批            完整表格组件-->
+                  <div class="row" th:if="${project.stateId>6}">
+                    <div class="col-md-12">
+                      <div class="x_panel">
+
+                        <!--                 表格标题栏和关闭、收起按钮-->
+                        <div class="x_title">
+                          <h2>放款审批</h2>
+                          <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                          </ul>
+                          <div class="clearfix"></div>
+                        </div>
+                        <!--                  表格标题栏和关闭、收起按钮-->
+
+                        <!-- start project list -->
+                        <div class="x_content">
+                          <form class="form-horizontal form-label-left input_mask">
+
+                            <div class="form-group col-md-6">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">审批是否通过</label>
+                              <div class="col-md-6 col-sm-9 col-xs-12">
+                                <p type="text" class="form-control" th:if="${loan.auditOpinionBoolean==true}">是</p>
+                                <p type="text" class="form-control" th:if="${loan.auditOpinionBoolean==false}">否</p>
+                              </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">审核员id</label>
+                              <div class="col-md-6 col-sm-9 col-xs-12">
+                                <p type="text" class="form-control" th:text="${loan.auditorId}"></p>
+                              </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">审核意见</label>
+                              <div class="col-md-6 col-sm-9 col-xs-12">
+                                <p type="text" class="form-control" th:text="${loan.auditOpinions}"></p>
+                              </div>
+                            </div>
+
+                          </form>
+                        </div>
+                        <!-- end project list -->
+
+                      </div>
+                    </div>
+                  </div>
+                  <!--放款审批           完整表格组件-->
+                </div>
+                <!--启动阶段-->
+
+                <!--进行阶段-->
+                <div role="tabpanel" class="tab-pane fade" id="tab_content33" aria-labelledby="profile-tab">
+                  <!--资产检查            完整表格组件-->
+                  <div class="row" >
+                    <div class="col-md-12">
+                      <div class="x_panel">
+
+                        <!--                  表格标题栏和关闭、收起按钮-->
+                        <div class="x_title">
+                          <h2>资产检查记录</h2>
+                          <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                          </ul>
+                          <div class="clearfix"></div>
+                        </div>
+                        <!--                  表格标题栏和关闭、收起按钮-->
+
+                        <!-- start project list -->
+                        <div class="x_content" th:if="${assetsChecks!=null}">
+                          <table class="table table-striped projects">
+                            <thead>
+                            <tr>
+                              <th style="width: 10%" >检查时间</th>
+                              <th style="width: 15%">检查对象</th>
+                              <th style="width: 15%" >检查结果</th>
+                              <th style="width: 15%">备注</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="assetsCheck:${assetsChecks}">
+                              <th style="width: 10%" th:text="${assetsCheck.checkTime}"></th>
+                              <th style="width: 10%" th:text="${assetsCheck.checkObject}"></th>
+                              <th style="width: 20%" th:text="${assetsCheck.checkResult}"></th>
+                              <th style="width: 20%" th:text="${assetsCheck.ps}"></th>
+                            </tr>
+                            </tbody>
+                          </table>
+
+                        </div>
+                        <!-- end project list -->
+
+                      </div>
+                    </div>
+                  </div >
+                  <!--资产检查            完整表格组件-->
+
+                  <!--资金流            完整表格组件-->
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="x_panel">
+
+                        <!--                  表格标题栏和关闭、收起按钮-->
+                        <div class="x_title">
+                          <h2>资金流</h2>
+                          <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                          </ul>
+                          <div class="clearfix"></div>
+                        </div>
+                        <!--                  表格标题栏和关闭、收起按钮-->
+
+                        <!-- start project list -->
+                        <div class="x_content">
+                          <table class="table table-striped projects">
+                            <thead>
+                            <tr>
+                              <th style="width: 10%" >资金流动时间</th>
+                              <th style="width: 15%">金额</th>
+                              <th style="width: 15%" >支付账号</th>
+                              <th style="width: 15%">支付类型</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="cashFlow:${cashFlows}">
+                              <th style="width: 10%" th:text="${cashFlow.flowTime}"></th>
+                              <th style="width: 10%" th:text="${cashFlow.amount}"></th>
+                              <th style="width: 20%" th:text="${cashFlow.payAccountId}"></th>
+                              <th style="width: 20%" th:switch="${cashFlow.payTypeId}">
+                                <div th:case="1">正常缴费</div>
+                                <div th:case="2">提前缴费</div>
+                                <div th:case="3">补缴</div>
+                                <div th:case="4">购置租赁物</div>
+                                <div th:case="5">未缴费</div>
+                              </th>
+                            </tr>
+                            </tbody>
+                          </table>
+
+                        </div>
+                        <!-- end project list -->
+
+                      </div>
+                    </div>
+                  </div>
+                  <!--资金流            完整表格组件-->
+
+                  <!--变更申请           完整表格组件-->
+                  <div class="row" th:if="${alter!=null}">
+                    <div class="col-md-12">
+                      <div class="x_panel">
+
+                        <!--                  表格标题栏和关闭、收起按钮-->
+                        <div class="x_title">
+                          <h2>变更申请</h2>
+                          <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                          </ul>
+                          <div class="clearfix"></div>
+                        </div>
+                        <!--                  表格标题栏和关闭、收起按钮-->
+
+                        <!-- start project list -->
+                        <div class="x_content">
+                          <form class="form-horizontal form-label-left input_mask">
+
+                            <div class="form-group col-md-6">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">变更单位价格</label>
+                              <div class="col-md-6 col-sm-9 col-xs-12">
+                                <p type="text" class="form-control" th:text="${alter.leaseScheduleUnitPrice}"></p>
+                              </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">变更单位时间</label>
+                              <div class="col-md-6 col-sm-9 col-xs-12">
+                                <p type="text" class="form-control" th:text="${alter.leaseScheduleUnitTime}"></p>
+                              </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">变更期数</label>
+                              <div class="col-md-6 col-sm-9 col-xs-12">
+                                <p type="text" class="form-control" th:text="${alter.leaseScheduleDuration}"></p>
+                              </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">再生效时间</label>
+                              <div class="col-md-6 col-sm-9 col-xs-12">
+                                <p type="text" class="form-control" th:text="${alter.retakeEffortTime}"></p>
+                              </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">风险评估员id</label>
+                              <div class="col-md-6 col-sm-9 col-xs-12">
+                                <p type="text" class="form-control" th:text="${alter.riskEvaluatorId}"></p>
+                              </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">风险评估意见</label>
+                              <div class="col-md-6 col-sm-9 col-xs-12">
+                                <p type="text" class="form-control" th:text="${alter.riskEvaluation}"></p>
+                              </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">财务评估员id</label>
+                              <div class="col-md-6 col-sm-9 col-xs-12">
+                                <p type="text" class="form-control" th:text="${alter.financeEvaluatorId}"></p>
+                              </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">财务评估意见</label>
+                              <div class="col-md-6 col-sm-9 col-xs-12">
+                                <p type="text" class="form-control" th:text="${alter.financeEvaluation}"></p>
+                              </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">业务经理</label>
+                              <div class="col-md-6 col-sm-9 col-xs-12">
+                                <p type="text" class="form-control" th:text="${alter.managerId}"></p>
+                              </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">业务经理意见</label>
+                              <div class="col-md-6 col-sm-9 col-xs-12">
+                                <p type="text" class="form-control" th:text="${alter.managerEvaluation}"></p>
+                              </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">是否通过</label>
+                              <div class="col-md-6 col-sm-9 col-xs-12">
+                                <p type="text" class="form-control" th:if="${alter.ifPassed==true}">是</p>
+                                <p type="text" class="form-control" th:if="${alter.ifPassed==false}">否</p>
+                              </div>
+                            </div>
+
+                          </form>
+
+                        </div>
+                        <!-- end project list -->
+
+                      </div>
+                    </div>
+                  </div>
+                  <!--变更申请            完整表格组件-->
+                </div>
+                <!--进行阶段-->
+
+                <!--清算阶段-->
+                <div role="tabpanel" class="tab-pane fade" id="tab_content44" aria-labelledby="profile-tab">
+                  <!--资产处置申请            完整表格组件-->
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="x_panel">
+
+                        <!--                  表格标题栏和关闭、收起按钮-->
+                        <div class="x_title">
+                          <h2>资产处置申请</h2>
+                          <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                          </ul>
+                          <div class="clearfix"></div>
+                        </div>
+                        <!--                  表格标题栏和关闭、收起按钮-->
+
+                        <!-- start project list -->
+                        <div class="x_content"  th:if="${assetsDisposal!=null}">
+                          <form class="form-horizontal form-label-left input_mask">
+
+                            <div class="form-group col-md-6">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">租赁物处理方式</label>
+                              <div class="col-md-9 col-sm-9 col-xs-12">
+                                <p type="text" class="form-control" th:text="${assetsDisposal.leaseDisposal}"></p>
+                              </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">抵押物处理方式</label>
+                              <div class="col-md-9 col-sm-9 col-xs-12">
+                                <p type="text" class="form-control" th:text="${assetsDisposal.pawnDisposal}"></p>
+                              </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">估值</label>
+                              <div class="col-md-9 col-sm-9 col-xs-12">
+                                <p type="text" class="form-control" th:text="${assetsDisposal.appraisedValue}"></p>
+                              </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">财务部人员id</label>
+                              <div class="col-md-9 col-sm-9 col-xs-12">
+                                <p type="text" class="form-control" th:text="${assetsDisposal.financeEvaluatorId}"></p>
+                              </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">财务部意见</label>
+                              <div class="col-md-9 col-sm-9 col-xs-12">
+                                <p type="text" class="form-control" th:text="${assetsDisposal.financeOpinions}"></p>
+                              </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">业务经理</label>
+                              <div class="col-md-9 col-sm-9 col-xs-12">
+                                <p type="text" class="form-control" th:text="${assetsDisposal.managerId}"></p>
+                              </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">业务经理意见</label>
+                              <div class="col-md-9 col-sm-9 col-xs-12">
+                                <p type="text" class="form-control" th:text="${assetsDisposal.managerOpinions}"></p>
+                              </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">是否通过</label>
+                              <div class="col-md-6 col-sm-9 col-xs-12">
+                                <p type="text" class="form-control" th:if="${assetsDisposal.ifPassed==true}">是</p>
+                                <p type="text" class="form-control" th:if="${assetsDisposal.ifPassed==false}">否</p>
+                              </div>
+                            </div>
+
+                          </form>
+
+                        </div>
+                        <!-- end project list -->
+
+                      </div>
+                    </div>
+                  </div>
+                  <!--资产处置申请            完整表格组件-->
+                </div>
+                <!--清算阶段-->
+            </div>
+
+          </div>
+
+        </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            hwadee实训第六小组
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="../vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="../vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="../vendors/nprogress/nprogress.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    
+    <!-- Custom Theme Scripts -->
+    <script src="../build/js/custom.min.js"></script>
+  </body>
+</html>

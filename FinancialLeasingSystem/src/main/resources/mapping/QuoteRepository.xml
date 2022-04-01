@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.hwadee.core.repository.QuoteRepository">
+    <cache eviction="LRU" flushInterval="100000" readOnly="true" size="1024"></cache>
+
+    <select id="queryQuoteEvaluationItems" resultType="QuoteEvaluation">
+        select *
+        from quote_evaluation
+        where project_id = #{id}
+    </select>
+
+    <select id="queryQuoteEvaluationById" parameterType="java.lang.Integer" resultType="QuoteEvaluation">
+        select *
+        from quote_evaluation
+        where project_id = #{id}
+    </select>
+
+    <insert id="insertQuoteEvaluation" parameterType="QuoteEvaluation">
+        insert into quote_evaluation
+        values  (#{projectId},#{leaseValue},#{leaseRentCost},#{leaseScheduleUnitPrice},#{leaseScheduleUnitTime},#{leaseScheduleDuration},#{loanTime},#{evaluatorId})
+    </insert>
+
+</mapper>

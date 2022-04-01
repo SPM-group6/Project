@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.hwadee.core.repository.ProjectAuditRepository">
+    <cache eviction="LRU" flushInterval="100000" readOnly="true" size="1024"></cache>
+
+    <select id="queryAuditedItems" resultType="ProjectAudit">
+        select *
+        from project_audit
+        where audit_opinion_boolean is not null
+    </select>
+
+    <select id="queryProjectAuditById" resultType="ProjectAudit" parameterType="java.lang.Integer">
+        select *
+        from project_audit
+        where project_id = #{id}
+    </select>
+    
+    <insert id="insertProjectAudit">
+        insert into project_audit values(#{projectId},#{auditOpinionBoolean},#{auditOpinions},#{auditorId})
+    </insert>
+
+</mapper>
