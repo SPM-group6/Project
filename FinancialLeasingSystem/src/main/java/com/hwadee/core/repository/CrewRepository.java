@@ -14,6 +14,11 @@ public interface CrewRepository {
     List<Crew> queryAllSales();
 
     /**
+     * 查询所有指定类型的后台职员
+     */
+    List<Crew> queryCrewByAuthorityId(int authorityId);
+
+    /**
      * 查询和指定用户合作过的业务员
      */
     public List<Crew> querySalesByUserId(int userId);
@@ -27,4 +32,5 @@ public interface CrewRepository {
      * 查询职员密码
      */
     String queryPassword(@Param("staffId") int staffId);
+
 }
