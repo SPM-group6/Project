@@ -20,7 +20,7 @@ import java.util.List;
  * @Version 1.0.0
  */
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements UserService, updateUserFaceInfo {
 
     @Autowired
     private UserRepository userRepository;
@@ -157,6 +157,17 @@ public class UserServiceImpl implements UserService {
     @Override
     //上传指定项目的合同
     public  Integer uploadContract(SignContract signContract){return signContractRepository.uploadContract(signContract);}
+
+    @Override
+    // 查询所有承租人
+    public List<User> queryUsers() {
+        return userRepository.queryUsers();
+    }
+
+    @Override
+    public Integer updateUserFaceInfo(User user){
+        return userRepository.updateUserFaceInfo(user);
+    }
 
     /**
      * 查询职员密码

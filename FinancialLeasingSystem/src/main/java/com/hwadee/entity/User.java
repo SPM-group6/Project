@@ -11,6 +11,8 @@ public class User {
     private String recentBill;
     private String idCard;
     private String creditEvaluation;
+    private String facePath;
+    private String faceUrl;
 
     public User(String name, String pwd, String career, int salary, long assets, String recentBill, String idCard) {
         this.name = name;
@@ -35,6 +37,21 @@ public class User {
         this.recentBill = recentBill;
         this.idCard = idCard;
         this.creditEvaluation = creditEvaluation;
+    }
+
+    public User(int id, String name, String pwd, String career, int creditGradeId, int salary, long assets, String recentBill, String idCard, String creditEvaluation, String facePath, String faceUrl) {
+        this.id = id;
+        this.name = name;
+        this.pwd = pwd;
+        this.career = career;
+        this.creditGradeId = creditGradeId;
+        this.salary = salary;
+        this.assets = assets;
+        this.recentBill = recentBill;
+        this.idCard = idCard;
+        this.creditEvaluation = creditEvaluation;
+        this.facePath = facePath;
+        this.faceUrl = faceUrl;
     }
 
     public int getId() {
@@ -115,6 +132,22 @@ public class User {
 
     public void setCreditEvaluation(String creditEvaluation) {
         this.creditEvaluation = creditEvaluation;
+    }
+
+    public String getFacePath() {
+        return facePath;
+    }
+
+    public void setFacePath(String facePath) {
+        this.facePath = facePath;
+    }
+
+    public String getFaceUrl() {
+        return faceUrl;
+    }
+
+    public void setFaceUrl(String faceUrl) {
+        this.faceUrl = faceUrl;
     }
 
     @Override

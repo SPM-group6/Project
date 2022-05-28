@@ -36,8 +36,12 @@ public class UserController {
     @Autowired
     private salesService SalesService;
 
+    /**
+     * 承租人中心--首页，即承租人项目总览
+     * @param userId
+     * @return
+     */
     @RequestMapping("/userIndex")
-    //承租人中心--首页，即承租人项目总览
     public String userIndex(Model model,@RequestParam(name="userId")Integer userId){
         //查询用户
         User user=userService.queryUserById(userId);
@@ -58,8 +62,12 @@ public class UserController {
         return "user/allProjects";
     }
 
+    /**
+     * 承租人中心--联系业务员
+     * @param userId
+     * @return
+     */
     @RequestMapping("/user/contactSales")
-    //承租人中心--联系业务员
     public String contactSales(Model model,@RequestParam(name="userId")Integer userId){
         //查询用户
         User user=userService.queryUserById(userId);
@@ -73,8 +81,12 @@ public class UserController {
         return "user/contactSales";
     }
 
+    /**
+     * 承租人中心--个人中心
+     * @param userId
+     * @return
+     */
     @RequestMapping("/user/personalCenter")
-    //承租人中心--个人中心
     public String userPersonalCenter(Model model,@RequestParam(name="userId")Integer userId){
         //debug
         System.out.println("in userPersonalCenter");
@@ -90,8 +102,13 @@ public class UserController {
         return "user/personalCenter";
     }
 
+    /**
+     * 修改个人信息
+     * @param temUser
+     * @param  model
+     * @return
+     */
     @RequestMapping("/user/changeUserInfo")
-    //修改个人信息
     public String changeUserInfo(TemUser temUser,Model model) {
         System.out.println("in UserController--changeUserInfo");
         System.out.println(temUser.getRecentBill() == null);
@@ -138,6 +155,11 @@ public class UserController {
         return "redirect:/user/personalCenter?userId="+temUser.getId();
     }
 
+    /**
+     * 修改密码页面
+     * @param userId
+     * @return
+     */
     @RequestMapping("/user/changePwd")
     //修改密码页面
     public String userChangePwd(Model model,@RequestParam(name="userId")Integer userId){
@@ -153,9 +175,13 @@ public class UserController {
         return "user/changePwd";
     }
 
+    /**
+     * 修改密码验证与提交
+     * @param map
+     * @return
+     */
     @RequestMapping("/user/changePwd/submit")
     @ResponseBody
-    //修改密码验证与提交
     public Map<String,String> changePwdSubmit(@RequestBody Map<String,Object> map){
         //解析数据
         int userId=Integer.parseInt(String.valueOf(map.get("userId")));
