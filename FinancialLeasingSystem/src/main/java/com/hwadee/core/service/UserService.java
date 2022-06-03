@@ -29,6 +29,8 @@ public interface UserService {
     Integer pay(int userId,int pId,Timestamp time);//缴租
     String queryContractByPId(int pId);//查询指定项目的合同
     Integer uploadContract(SignContract signContract);//上传指定项目的合同
+    List<User> queryUsers(); // 查询所有承租人
+    Integer updateUserFaceInfo(User user); //更新承租人人脸信息
 
     /**
      * 查询职员密码

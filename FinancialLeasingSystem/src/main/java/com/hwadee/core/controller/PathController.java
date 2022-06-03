@@ -1,7 +1,11 @@
 package com.hwadee.core.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.hwadee.core.service.UserService;
 import com.hwadee.entity.User;
+import com.hwadee.tools.FaceUtils;
+import com.hwadee.tools.FileUpLoad;
+import com.hwadee.tools.ImageBase64Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,22 +16,30 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 @Controller
 public class PathController {
     @Autowired
     private UserService userService;
 
-    //工作人员初始登录界面
+
+    /**
+     * 工作人员初始登录界面
+     * @return
+     */
     @RequestMapping("/login")
     public String login()
     {
         return "login";
     }
 
-    //工作人员后台登录
+
+    /**
+     * 工作人员后台登录
+     * @param map
+     * @return
+     */
     @RequestMapping("/crewLogin")
     @ResponseBody
     public Integer crewLogin(@RequestBody Map<String,Object> map)
@@ -48,14 +60,23 @@ public class PathController {
 
     }
 
-    //用户登录初始界面
+
+    /**
+     * 用户登录初始界面
+     * @return
+     */
     @RequestMapping("/userLogin")
     public String userLogin()
     {
         return "userLogin";//  user/userIndex
     }
 
-    //用户登录：用身份证作为账号
+
+    /**
+     * 用户登录：用身份证作为账号
+     * @param map
+     * @return
+     */
     @RequestMapping("/acceptUserLogin")
     @ResponseBody
     public Map<String,String> acceptCrewLogin(@RequestBody Map<String,Object> map)
@@ -107,13 +128,85 @@ public class PathController {
         return "index";
     }
 
+
+    /**
+     * 用户登录：人脸登录
+     * @param images
+     * @return
+     * @author lsj
+     */
+    @RequestMapping("/faceLogin")
+    @ResponseBody
+    public Map<String,String> faceLogin(@RequestBody String images){
+        //构造响应体
+        Map<String, String> resultmap = new HashMap<>();
+
+        try {
+            JSONObject imageObject1=JSONObject.parseObject(images);
+            JSONObject imageObject2=imageObject1.getJSONObject("images");
+            List<String> imagesBase64=new ArrayList<>();
+            imagesBase64.add(imageObject2.getString("0"));
+            imagesBase64.add(imageObject2.getString("1"));
+
+            // 获取所有承租人
+            List<User> userList = userService.queryUsers();
+
+            FaceUtils faceUtils1 = new FaceUtils();
+            FaceUtils faceUtils2 = new FaceUtils();
+
+            for(String image : imagesBase64){
+                image = image.split("base64,")[1];
+                byte[] bytesImage = ImageBase64Utils.base64ToImage(image);
+                String fileName = FileUpLoad.upload(bytesImage,"static/temporary/", new Date().getTime()+".png");
+                for(User user : userList){
+                    if(user.getFacePath().equals(null)){
+                       continue;
+                    }
+                    faceUtils1.setImageInfo(fileName);
+                    faceUtils2.setImageInfo(user.getFacePath());
+                    float score = faceUtils1.compareTo(faceUtils1.getFaceFeature(), faceUtils2.getFaceFeature());
+                    System.out.println("与"+user.getName()+"对比分数score："+score);
+                    if(score>=0.82){
+                        File file = new File(fileName);
+                        file.delete();
+                        faceUtils1.unInit();
+                        faceUtils2.unInit();
+
+                        resultmap.put("userId", Integer.toString(user.getId()));//传userId
+                        resultmap.put("message","3");//3代表承租人人脸登录成功;
+                        return resultmap;
+                    }
+                }
+                File file = new File(fileName);
+                file.delete();
+            }
+
+            faceUtils1.unInit();
+            faceUtils2.unInit();
+
+            resultmap.put("userId", "0");//传userId
+            resultmap.put("message","4");//3代表承租人人脸登录失败;
+            return resultmap;
+        }catch (Exception e){
+
+            resultmap.put("userId", "0");//传userId
+            resultmap.put("message","4");//3代表承租人人脸登录失败;
+            return resultmap;
+        }
+    }
+
     @RequestMapping("/register")
     public String register(){
         return "register";
     }
 
+
+    /**
+     * 用户提交注册表单 没有向前端返回数据库更新结果
+     * @param name
+     * @return
+     */
     @PostMapping("/register/submit")
-    //用户提交注册表单 没有向前端返回数据库更新结果
     public String registerSubmit(@RequestParam("name")String name,@RequestParam("idCard")String idCard, @RequestParam("pwd")String pwd,
                                  @RequestParam("pwd2")String pwd2,@RequestParam("career")String career, @RequestParam("salary")int salary,
                                  @RequestParam("assets")long assets, @RequestParam(value="recentBill",required = false) MultipartFile file,
@@ -159,6 +252,96 @@ public class PathController {
             return "error";
         }else{
             return "redirect:/login";
+        }
+    }
+
+
+    /**
+     * 人脸注册
+     * @param data
+     * @return
+     */
+    @RequestMapping(value = "./faceRegister", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, String> faceRegister(@RequestBody String data){
+        // 构造响应体
+        Map<String, String> resultmap = new HashMap<>();
+
+        try{
+            JSONObject dataJson=JSONObject.parseObject(data);
+            dataJson=dataJson.getJSONObject("data");
+            JSONObject imageObject=dataJson.getJSONObject("images");
+            int id = dataJson.getInteger("id");
+            List<String> imageObjects=new ArrayList<>();
+            imageObjects.add(imageObject.getString("0"));
+            imageObjects.add(imageObject.getString("1"));
+
+            User user = userService.queryUserById(id);
+            String faceUrl=null;
+            String facePath=null;
+            FaceUtils faceUtils=new FaceUtils();
+            for(String image : imageObjects){
+                Date date=new Date();
+                image=image.split("base64,")[1];
+                byte[] byteImages=ImageBase64Utils.base64ToImage(image);
+                String fileName=FileUpLoad.upload(byteImages,"static/temporary/",date.getTime()+".png");
+                faceUtils.setImageInfo(fileName);
+                System.out.println("开始检测");
+                if(faceUtils.isLive()){
+                    facePath = FileUpLoad.upload(byteImages,"static/faceImages/",date.getTime()+".png");
+                    faceUrl = "http://175.178.147.20:8082/"+facePath;
+                    user.setFacePath(facePath);
+                    user.setFaceUrl(faceUrl);
+
+                    userService.updateUserFaceInfo(user);
+
+                    File file  = new File(fileName);
+                    file.delete();
+                    faceUtils.unInit();
+
+                    resultmap.put("userId", Integer.toString(user.getId()));
+                    resultmap.put("message", "1"); // 1 人脸注册成功
+                    return resultmap;
+                }
+
+                System.out.println("检测不通过");
+                File file = new File(fileName);
+                file.delete();
+            }
+            faceUtils.unInit();
+            resultmap.put("userId", Integer.toString(user.getId()));
+            resultmap.put("message", "2"); // 2 人脸注册失败
+            return  resultmap;
+        }catch (Exception e){
+            resultmap.put("userId", "0"); //不存在该用户
+            resultmap.put("message", "2"); // 2 人脸注册失败
+            return resultmap;
+        }
+    }
+
+
+    /**
+     * 人脸注销
+     * @param userId
+     * @return
+     */
+    @RequestMapping(value = "./faceDelete", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, String> faceDelte(@RequestBody int userId){
+        // 构造响应体
+        Map<String, String> resultmap = new HashMap<>();
+
+        try{
+            User user = userService.queryUserById(userId);
+            user.setFaceUrl(null);
+            user.setFacePath(null);
+            userService.updateUserFaceInfo(user);
+
+            resultmap.put("message","1");//1 人脸注销成功
+            return  resultmap;
+        }catch (Exception e){
+            resultmap.put("message","0");// 0 人脸注销失败
+            return  resultmap;
         }
     }
 

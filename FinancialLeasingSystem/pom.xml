@@ -67,6 +67,62 @@
             <version>2.0.6</version>
         </dependency>
 
+        <!-- 人脸识别需要的依赖包 -->
+        <dependency>
+            <groupId>com.baidu.aip</groupId>
+            <artifactId>java-sdk</artifactId>
+            <version>4.6.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.6.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.arcsoft</groupId>
+            <artifactId>sdk-face</artifactId>
+            <version>3.0.0.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/lib/arcsoft-sdk-face-3.0.0.0.jar</systemPath>
+        </dependency>
+        <!--import OpenCV package-->
+        <dependency>
+            <groupId>org</groupId>
+            <artifactId>opencv-455</artifactId>
+            <version>4.5.5</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/lib/opencv-455.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.7</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.directory.studio</groupId>
+            <artifactId>org.apache.commons.io</artifactId>
+            <version>2.4</version>
+        </dependency>
+
+        <!--  上传文件      -->
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>1.3.1</version>
+        </dependency>
+        <!--  奇怪的错误，导致程序无法启动所需要导入的包      -->
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.74</version>
+        </dependency>
 
     </dependencies>
 

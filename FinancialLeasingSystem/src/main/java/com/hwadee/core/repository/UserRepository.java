@@ -55,5 +55,10 @@ public interface UserRepository {
      */
     User queryUserByIdCard(@Param("idCard")String idCard);
 
+    /**
+     * 修改用户人脸信息
+     */
+    Integer updateUserFaceInfo(@Param("user") User user);
+
 
 }
