@@ -12,6 +12,12 @@
         where authority_id=1
     </select>
 
+    <select id="queryCrewByAuthorityId" resultType="Crew" parameterType="java.lang.Integer">
+        select *
+        from backstage_crew
+        where authority_id=#{authorityId}
+    </select>
+
     <select id="querySalesByUserId" parameterType="java.lang.Integer" resultType="Crew">
         select *
         from backstage_crew b

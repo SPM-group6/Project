@@ -1,17 +1,19 @@
 package com.hwadee.core.controller;
 
+
 import com.hwadee.core.service.UserService;
 import com.hwadee.core.service.salesService;
 import com.hwadee.entity.*;
+import io.micrometer.core.instrument.MeterRegistry;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.actuate.autoconfigure.metrics.MeterRegistryCustomizer;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.ClassUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
 import java.sql.Timestamp;
@@ -43,21 +45,22 @@ public class UserController {
      */
     @RequestMapping("/userIndex")
     public String userIndex(Model model,@RequestParam(name="userId")Integer userId){
-        //查询用户
+
         User user=userService.queryUserById(userId);
-        model.addAttribute("user",user);
         //查询用户的立项中项目、进行中项目和已结束项目
         List<Project> aprojects=userService.queryApplyingProjects(userId);
-        model.addAttribute("aprojects",aprojects);
         List<Project> rprojects=userService.queryRunningProjects(userId);
-        model.addAttribute("rprojects",rprojects);
         List<Project> fprojects=userService.queryFinishedProjects(userId);
-        model.addAttribute("fprojects",fprojects);
         //查询项目状态描述
         List<ProjectState> states=userService.queryAllProjectStates();
-        model.addAttribute("states",states);
         //查询业务员姓名
         List<Crew> sales=userService.queryAllSales();
+
+        model.addAttribute("user",user);
+        model.addAttribute("aprojects",aprojects);
+        model.addAttribute("rprojects",rprojects);
+        model.addAttribute("fprojects",fprojects);
+        model.addAttribute("states",states);
         model.addAttribute("sales",sales);
         return "user/allProjects";
     }
@@ -398,6 +401,10 @@ public class UserController {
         return "redirect:/"+url;
     }
 
-
+    // 注意，这个是注册的核心代码块
+    @Bean
+    MeterRegistryCustomizer<MeterRegistry> configurer(@Value("${spring.application.name}") String applicationName) {
+        return (registry) -> registry.config().commonTags("application", applicationName);
+    }
 
 }
