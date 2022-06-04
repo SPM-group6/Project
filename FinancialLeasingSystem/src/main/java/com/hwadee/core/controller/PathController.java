@@ -71,6 +71,25 @@ public class PathController {
         return "userLogin";//  user/userIndex
     }
 
+    /**
+     * 用户注册-填写完身份信息后跳转到人脸录入界面
+     * @return
+     */
+//    @RequestMapping("/faceReg")
+//    public String faceReg()
+//    {
+//        return "faceReg";
+//    }
+
+    /**
+     * 用户人脸登录测试界面
+     * @return
+     */
+    @RequestMapping("/newUserLogin")
+    public String newUserLogin()
+    {
+        return "newUserLogin";
+    }
 
     /**
      * 用户登录：用身份证作为账号
@@ -141,12 +160,13 @@ public class PathController {
         //构造响应体
         Map<String, String> resultmap = new HashMap<>();
 
+        System.out.println("in faceLogin controller");
         try {
-            JSONObject imageObject1=JSONObject.parseObject(images);
-            JSONObject imageObject2=imageObject1.getJSONObject("images");
-            List<String> imagesBase64=new ArrayList<>();
-            imagesBase64.add(imageObject2.getString("0"));
-            imagesBase64.add(imageObject2.getString("1"));
+//            JSONObject image=JSONObject.parseObject(images);
+//            JSONObject imageObject2=images.getJSONObject("data");
+//            List<String> imagesBase64=new ArrayList<>();
+//            imagesBase64.add(imageObject2.getString("0"));
+//            imagesBase64.add(imageObject2.getString("1"));
 
             // 获取所有承租人
             List<User> userList = userService.queryUsers();
@@ -154,43 +174,42 @@ public class PathController {
             FaceUtils faceUtils1 = new FaceUtils();
             FaceUtils faceUtils2 = new FaceUtils();
 
-            for(String image : imagesBase64){
-                image = image.split("base64,")[1];
-                byte[] bytesImage = ImageBase64Utils.base64ToImage(image);
-                String fileName = FileUpLoad.upload(bytesImage,"static/temporary/", new Date().getTime()+".png");
-                for(User user : userList){
-                    if(user.getFacePath().equals(null)){
-                       continue;
-                    }
-                    faceUtils1.setImageInfo(fileName);
-                    faceUtils2.setImageInfo(user.getFacePath());
-                    float score = faceUtils1.compareTo(faceUtils1.getFaceFeature(), faceUtils2.getFaceFeature());
-                    System.out.println("与"+user.getName()+"对比分数score："+score);
-                    if(score>=0.82){
-                        File file = new File(fileName);
-                        file.delete();
-                        faceUtils1.unInit();
-                        faceUtils2.unInit();
 
-                        resultmap.put("userId", Integer.toString(user.getId()));//传userId
-                        resultmap.put("message","3");//3代表承租人人脸登录成功;
-                        return resultmap;
-                    }
+//            image = image.split("base64,")[1];
+            byte[] bytesImage = ImageBase64Utils.base64ToImage(images);
+            String fileName = FileUpLoad.upload(bytesImage,"static/temporary/", new Date().getTime()+".png");
+            for(User user : userList){
+                if(user.getFacePath().equals(null)){
+                   continue;
                 }
-                File file = new File(fileName);
-                file.delete();
+                faceUtils1.setImageInfo(fileName);
+                faceUtils2.setImageInfo(user.getFacePath());
+                float score = faceUtils1.compareTo(faceUtils1.getFaceFeature(), faceUtils2.getFaceFeature());
+                System.out.println("与"+user.getName()+"对比分数score："+score);
+                if(score>=0.82){
+                    File file = new File(fileName);
+                    file.delete();
+                    faceUtils1.unInit();
+                    faceUtils2.unInit();
+
+                    resultmap.put("userId", Integer.toString(user.getId()));//传userId
+                    resultmap.put("message","3");//3代表承租人人脸登录成功;
+                    return resultmap;
+                }
             }
+            File file = new File(fileName);
+            file.delete();
 
             faceUtils1.unInit();
             faceUtils2.unInit();
 
             resultmap.put("userId", "0");//传userId
-            resultmap.put("message","4");//3代表承租人人脸登录失败;
+            resultmap.put("message","4");//4代表承租人人脸验证失败，数据库内没有找到匹配的照片;
             return resultmap;
         }catch (Exception e){
-
+            e.printStackTrace();
             resultmap.put("userId", "0");//传userId
-            resultmap.put("message","4");//3代表承租人人脸登录失败;
+            resultmap.put("message","5");//5代表承租人人脸登录出现异常;
             return resultmap;
         }
     }
@@ -223,36 +242,51 @@ public class PathController {
         {
             System.out.println("in PathController--registerSubmit: 上传的文件格式不对");
         }
-        //新的文件名以日期命名
-        String fileName=System.currentTimeMillis()+"."+subffix;
-        //获取项目根路径并转到static/
-        //存到target目录下
-        String path = ClassUtils.getDefaultClassLoader().getResource("").getPath()+"static/file/bill/";
-        //存到src目录下
-//        String path=appConfig.getFilepath()+"/bill/";
-        //检查路径
-        File newfile=new File(path);
-        if(!newfile.exists())//文件夹不存在就创建
-        {
-            newfile.mkdirs();
-        }
-        //保存文件
-        //完整路径
-        path=path+fileName;
-        try {
-            file.transferTo(new File(path));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        //以当前时间重命名文件
+        StringBuilder prefix = new StringBuilder();
+        prefix.append(new Date().getTime());
+        prefix.append(".");
+        prefix.append(subffix);
+        String fileName=prefix.toString();
+        //存储到服务器
+        String path = FileUpLoad.uploadFile(file,"static/file/bill/", fileName);
         //修改数据库
-        String url="file/bill/"+fileName;
-        User user=new User(name,pwd,career,salary,assets,url,idCard);
+        //拼接文件访问路径
+        prefix.delete(0,prefix.length());
+        prefix.append("http://175.178.147.20:8082/static/file/bill/");
+        prefix.append(fileName);
+        //存储到数据库
+        User user=new User(name,pwd,career,salary,assets,prefix.toString(),idCard);
         if(userService.registerUser(user) != 1){
             System.out.println("in PathController--registerSubmit: 修改数据库失败");
             return "error";
         }else{
-            return "redirect:/login";
+//            return "redirect:/userLogin";
+            return "faceReg";
         }
+
+        //新的文件名以日期命名
+//        String fileName=System.currentTimeMillis()+"."+subffix;
+        //获取项目根路径并转到static/
+        //存到target目录下
+//        String path = FileUpLoad.uploadFile(file,"static/file/bill", new Date().getTime()+"."+subffix);
+//        //存到src目录下
+////        String path=appConfig.getFilepath()+"/bill/";
+//        //检查路径
+//        File newfile=new File(path);
+//        if(!newfile.exists())//文件夹不存在就创建
+//        {
+//            newfile.mkdirs();
+//        }
+//        //保存文件
+//        //完整路径
+//        path=path+fileName;
+//        try {
+//            file.transferTo(new File(path));
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+
     }
 
 
@@ -345,21 +379,21 @@ public class PathController {
         }
     }
 
-    @RequestMapping("/submitBill")
-    public String submitBill(@RequestParam(name="bill")MultipartFile bill){
-        //处理图片上传
-        byte[] bytes=new byte[0];
-        System.out.println("***************************************");
-        System.out.println(bill == null);
-        try{
-            bytes=bill.getBytes();
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-//        //更新数据库
-//        if(userService.updateBill(bytes) != 1){
-//            System.out.println("in PathController--submitBill error: 数据库更新失败！");
+//    @RequestMapping("/submitBill")
+//    public String submitBill(@RequestParam(name="bill")MultipartFile bill){
+//        //处理图片上传
+//        byte[] bytes=new byte[0];
+//        System.out.println("***************************************");
+//        System.out.println(bill == null);
+//        try{
+//            bytes=bill.getBytes();
+//        }catch(Exception e){
+//            e.printStackTrace();
 //        }
-        return "login";
-    }
+////        //更新数据库
+////        if(userService.updateBill(bytes) != 1){
+////            System.out.println("in PathController--submitBill error: 数据库更新失败！");
+////        }
+//        return "login";
+//    }
 }

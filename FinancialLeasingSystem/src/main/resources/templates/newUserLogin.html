@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+<!--    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">-->
+    <meta charset="utf-8">
+<!--    <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <title>华迪融资租赁系统</title>
+
+<!--    &lt;!&ndash; Bootstrap &ndash;&gt;-->
+<!--    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">-->
+<!--    &lt;!&ndash; Font Awesome &ndash;&gt;-->
+<!--    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">-->
+<!--    &lt;!&ndash; NProgress &ndash;&gt;-->
+<!--    <link href="vendors/nprogress/nprogress.css" rel="stylesheet">-->
+<!--    &lt;!&ndash; Animate.css &ndash;&gt;-->
+<!--    <link href="vendors/animate.css/animate.min.css" rel="stylesheet">-->
+<!--    &lt;!&ndash; Custom Theme Style &ndash;&gt;-->
+<!--    <link href="build/css/custom.min.css" rel="stylesheet">-->
+    <link href="vendors/login.css" rel="stylesheet">
+    <link href="vendors/font-awesome.min.css" rel="stylesheet">
+
+    <script>
+        /**
+         * 切换登录的界面
+         * @param {Object} target 事件源
+         * @param {Object} id  界面(div)的id
+         */
+        function toggleLoginPanel(target, id) {
+            //删除所有拥有.active样式的label标签的active样式
+            $("#pageBody .pd-panel .oper-tab label.active").removeClass("active");
+            //获得Label标签对象
+            var label = $(target).parent();
+            //修改样式，高亮当前Label标签，切换为选中状态
+            label.addClass("active");
+            //获得操作界面
+            var faceLogin = $("#faceLogin");
+            var passwordLogin = $("#passwordLogin");
+            //设置两操作界面均不显示
+            faceLogin.css("display", "none");
+            passwordLogin.css("display", "none");
+            //显示指定id的操作界面
+            $("#"+id).css("display", "block");
+        }
+
+    </script>
+    <!-- 导入JQuery类库-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- 设置javascript -->
+    <script>
+        // 页面启动函数
+        $(document).ready(function(){
+            console.log("页面启动");
+            // 调用invokeCamera()
+            invokeCamera();
+            // 创建全局对象context,存放人像数据
+            var context = canvas.getContext("2d");
+            // 为按钮添加单击处理事件
+            document.getElementById("acqusition_of_features").addEventListener("click", function(){
+                console.log("点击按钮");
+                // 在canvas中生成静态人像图片
+                context.drawImage(video,0,0,100,80);
+                console.log("人像采集完毕.")
+                // 调用人像数据上传函数
+                uploadImage();
+            });
+        });
+
+        // 自定义一个函数，启动设备摄像头，并将视频流数据实时显示在组件中
+        function invokeCamera(){
+            console.log("开始调用invokeCamera()函数");
+            // 步骤1：创建局部变量设置视频采集区域大小以及是否接受声音
+            let constranits = {
+                video: {width:510, height:430},
+                audio: false // 设置为True可以获取声音
+            }
+            console.log("获取video对象.");
+            let video = document.getElementById("video");
+            console.log("获取promise对象.")
+            let promise = navigator.mediaDevices.getUserMedia(constranits);
+            console.log("获取到的视频流绑定到video对象中……")
+            // 使用promise对象的then()函数
+            promise.then(function(MediaStream){
+                video.srcObject = MediaStream;  // 将媒体流对象设置到video组件中
+                video.play();  // 设置video对象为播放状态
+            });
+        }
+
+        // 刷脸登录
+        var uploadImage = function() {
+            console.log("启动人像图片上传……");
+            // 获取canvas组件中的图片信息数据
+            imageData = getBase64();
+            // 将人像图片的数据类型装换成json格式
+            // var data = {data: imageData}
+            // console.log(data);
+            // 使用Ajax上传数据
+            $.ajax({
+                url: "/hwadee/faceLogin",
+                type: "POST",
+                dataType: "text",
+                data: imageData,
+                success: function (msg) {
+                    console.log(msg)
+                    if(msg.message=="3"){
+                        console.log("刷脸登录成功!")
+                        console.log("userId=========="+msq.userId);
+                        window.location.href="/hwadee/userIndex?"+"userId="+msq.userId;
+                    }
+                    else if(msg.message=="4"){
+                        alert("验证失败！请再试一次或使用身份证号登录");
+                        window.location.reload();//刷新页面
+                    }
+                    else if(msg.message=="5"){
+                        alert("服务器异常！请使用身份证号登录");
+                        window.location.reload();//刷新页面
+                    }
+                },
+                error:function (e){
+                    alert("由于服务器异常，请求失败！请稍后再试或者使用身份证号登录");
+                    console.log(e);
+                    window.location.reload();//刷新页面
+                }
+            });
+        }
+        function getBase64() {
+            var imgSrc = document.getElementById("canvas").toDataURL(
+                "image/png");
+            return imgSrc.split("base64,")[1];
+        }
+
+        <!--身份证号密码登录-->
+        function pwdlogin(){
+            var form=$("#loginForm").serializeArray();//序列化表单
+            var data={};//分配内存空间
+            //构造post数据
+            for (var i=0;i<form.length;i++){
+                data[form[i].name]=form[i].value;
+            }
+            data=JSON.stringify(data);//转换成json格式
+            console.log(data);
+            //发送请求
+            $.ajax({
+            type:"post",
+            url:"/hwadee/acceptUserLogin",
+            dataType:'json',
+            data:data,
+            async:false,//是否开启异步，true表明异步
+            processData:false,
+            contentType:'application/json',
+            //请求发送成功的回调函数 response为后端返回的响应数据
+            success:function(response){
+                if(response.message == "1"){ //1代表用户密码正确;
+                    console.log("userId=========="+response.userId);
+                    window.location.href="/hwadee/userIndex?"+"userId="+response.userId;
+                }
+                else if(response.message == "0"){ //0代表用户账号错误;
+                    alert("无此用户，请检查账号是否正确！新用户请先注册！");
+                    window.location.reload();//刷新页面
+                }
+                else {//2代表用户密码错误
+                    alert("密码错误！请重新确认密码无误！");
+                    window.location.reload();//刷新页面
+                }
+            },
+            error:function (e){
+                alert("由于服务器异常，请求失败！请稍后再试");
+                console.log(e);
+                window.location.reload();//刷新页面
+            }
+            })
+        }
+    </script>
+</head>
+
+
+<body>
+<!--            class="login_content"-->
+    <div id="pageBody">
+        <div class="pd-panel">
+            <!--    登陆方式切换-->
+            <div class="oper-tab">
+                <label class="active"><span onclick="toggleLoginPanel(this,'faceLogin')">面部识别登录</span></label>
+                <label><span id="passwordLoginButton" onclick="toggleLoginPanel(this,'passwordLogin')">密码登录</span></label>
+            </div>
+
+            <!--        刷脸登录-->
+            <div id="faceLogin">
+                <dl>
+                    <dd style="display: flex;flex-direction: row" class="video">
+                        <!-- 设置video组件，用于采集用户动态图像 -->
+                        <div style="margin:0px auto; float:left" >
+                            <video id="video" autoplay="autoplay" style="width: 100px; border: 1px dashed #fcfcfc; border-radius: 12px;"></video>
+                        </div>
+                        <!--					 设置Canvas组件，用于存放用户人像静态图片 -->
+                        <div style="margin:0px auto;float:left">
+                            <canvas id="canvas" width="100" height="80" style="border: 1px dashed #029789; border-radius: 10px; margin-top: 0px;"></canvas>
+                        </div>
+                    </dd>
+                    <dd>
+                        <input  type="submit" id="acqusition_of_features" class="btn btn-default submit" value="登录">
+                    </dd>
+                    <dd style="display: flex;flex-direction: row;justify-content: flex-end">
+                        <a style="margin-right: 20px" class="form-btn" href="/hwadee/register">注册</a>
+                    </dd>
+                </dl>
+            </div>
+<!--                身份证密码登录-->
+            <div id="passwordLogin">
+                <form id="loginForm">
+                    <dl>
+                        <dd>
+                            <input id="idCard" name="idCard" type="text" class="form-control" placeholder="身份证号码" required="" />
+                        </dd>
+                        <dd>
+                            <input id="userPassword" name="userPassword" type="password" class="form-control" placeholder="密码" required="" />
+                        </dd>
+                        <dd>
+                            <input onclick="login()" class="btn btn-default submit" value="登录">
+                        </dd>
+                        <dd style="display: flex;flex-direction: row;justify-content: flex-end">
+                            <a style="margin-right: 20px" class="form-btn" href="/hwadee/register">注册</a>
+                        </dd>
+                    </dl>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
