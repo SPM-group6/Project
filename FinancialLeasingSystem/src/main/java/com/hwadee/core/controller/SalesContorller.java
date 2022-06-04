@@ -3,6 +3,7 @@ package com.hwadee.core.controller;
 
 import com.hwadee.core.service.salesService;
 import com.hwadee.entity.*;
+import com.hwadee.tools.FileUpLoad;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
@@ -17,10 +18,7 @@ import java.io.IOException;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Controller
 public class SalesContorller {
@@ -402,31 +400,21 @@ public class SalesContorller {
         {
             System.out.println("in SalesController--applicationSubmit: 上传的文件格式不对");
         }
-        //新的文件名以日期命名
-        String fileName=System.currentTimeMillis()+"."+subffix;
-        //获取项目根路径并转到static/
-        //存到target目录下
-        String path = ClassUtils.getDefaultClassLoader().getResource("").getPath()+"static/file/certificate/";
-        System.out.println("path"+path);
-        //检查路径
-        File newfile=new File(path);
-        System.out.println(""+newfile);
-        System.out.println(""+newfile.exists());
-        if(!newfile.exists())//文件夹不存在就创建
-        {
-            System.out.println("创建文件夹: "+newfile.mkdirs());
-        }
-        //保存文件
-        //完整路径
-        path=path+fileName;
-        try {
-            temProject.getCertificate().transferTo(new File(path));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        //以当前时间重命名文件
+        StringBuilder prefix = new StringBuilder();
+        prefix.append(new Date().getTime());
+        prefix.append(".");
+        prefix.append(subffix);
+        String fileName=prefix.toString();
+        //存储到服务器
+        String path = FileUpLoad.uploadFile(temProject.getCertificate(),"static/file/certificate/", fileName);
         //修改数据库
-        String url="file/certificate/"+fileName;
-        temProject.setUrl(url);
+        //拼接文件访问路径
+        prefix.delete(0,prefix.length());
+        prefix.append("http://175.178.147.20:8082/static/file/certificate/");
+        prefix.append(fileName);
+        //修改数据库
+        temProject.setUrl(prefix.toString());
         if(SalesService.insertProApplication(temProject) != 1) {
             System.out.println("in SalesController--applicationSubmit: 数据库修改失败");
         }

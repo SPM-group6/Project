@@ -4,6 +4,7 @@ package com.hwadee.core.controller;
 import com.hwadee.core.service.UserService;
 import com.hwadee.core.service.salesService;
 import com.hwadee.entity.*;
+import com.hwadee.tools.FileUpLoad;
 import io.micrometer.core.instrument.MeterRegistry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,6 +20,7 @@ import java.io.IOException;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -128,28 +130,21 @@ public class UserController {
         else{
             model.addAttribute("validForm","1");
         }
-        //新的文件名以日期命名
-        String fileName=System.currentTimeMillis()+"."+subffix;
-        //获取项目根路径并转到static/
-        //存到target目录下
-        String path = ClassUtils.getDefaultClassLoader().getResource("").getPath()+"static/file/contract/";
-        //检查路径
-        File newfile=new File(path);
-        if(!newfile.exists())//文件夹不存在就创建
-        {
-            newfile.mkdirs();
-        }
-        //保存文件
-        //完整路径
-        path=path+fileName;
-        try {
-            temUser.getRecentBill().transferTo(new File(path));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        //以当前时间重命名文件
+        StringBuilder prefix = new StringBuilder();
+        prefix.append(new Date().getTime());
+        prefix.append(".");
+        prefix.append(subffix);
+        String fileName=prefix.toString();
+        //存储到服务器
+        String path = FileUpLoad.uploadFile(temUser.getRecentBill(),"static/file/bill/", fileName);
         //修改数据库
-        String url="file/bill/"+fileName;
-        temUser.setUrl(url);
+        //拼接文件访问路径
+        prefix.delete(0,prefix.length());
+        prefix.append("http://175.178.147.20:8082/static/file/bill/");
+        prefix.append(fileName);
+        //修改数据库
+        temUser.setUrl(prefix.toString());
         if(userService.updateUserInfo(temUser) != 1){//返回1代表更新成功
             model.addAttribute("change","0");
         }
@@ -361,28 +356,21 @@ public class UserController {
         else{
             resultmap.put("validForm","1");
         }
-        //新的文件名以日期命名
-        String fileName=System.currentTimeMillis()+"."+subffix;
-        //获取项目根路径并转到static/
-        //存到target目录下
-        String path = ClassUtils.getDefaultClassLoader().getResource("").getPath()+"static/file/contract/";
-        //检查路径
-        File newfile=new File(path);
-        if(!newfile.exists())//文件夹不存在就创建
-        {
-            newfile.mkdirs();
-        }
-        //保存文件
-        //完整路径
-        path=path+fileName;
-        try {
-            contract.transferTo(new File(path));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        //以当前时间重命名文件
+        StringBuilder prefix = new StringBuilder();
+        prefix.append(new Date().getTime());
+        prefix.append(".");
+        prefix.append(subffix);
+        String fileName=prefix.toString();
+        //存储到服务器
+        String path = FileUpLoad.uploadFile(contract,"static/file/contract/", fileName);
         //修改数据库
-        String url="file/contract/"+fileName;
-        SignContract signContract=new SignContract(pId,url,lId);
+        //拼接文件访问路径
+        prefix.delete(0,prefix.length());
+        prefix.append("http://175.178.147.20:8082/static/file/contract/");
+        prefix.append(fileName);
+        //修改数据库
+        SignContract signContract=new SignContract(pId,prefix.toString(),lId);
         //执行数据库更新--返回1代表更新成功
         if(userService.uploadContract(signContract) != 1){
             model.addAttribute("change","0");

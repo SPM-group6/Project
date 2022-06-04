@@ -23,7 +23,9 @@ public class FaceUtils {
 //    private String appId = "Bj3d1pCxSv3BpNzvmRJJq6Dn8KeYPCczh1B1XAiNKiBA";
 //    private String sdkKey = "Ht7PyP8416dKwQWCohxwSeQ6nRuhpGRbzZ8TnTxtioad";
 
-    private static final String configFile = "/home/static/LINUX64";
+//    private static final String configFile = "/home/static/LINUX64";
+      private static final String configFile = "C:/Users/28626/Documents/PSM/WIN64";
+
 
     public FaceUtils(){
 
