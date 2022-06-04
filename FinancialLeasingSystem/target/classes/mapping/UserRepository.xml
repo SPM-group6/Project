@@ -58,6 +58,12 @@
         WHERE `id` = #{id}
     </update>
 
+    <update id="updateUserFaceInfo">
+        UPDATE user set facePath = #{user.facePath},
+                        faceUrl = #{user.faceUrl}
+        WHERE  `id` = #{user.id}
+    </update>
+
     <select id="queryBill" resultType="java.lang.String">
         select recent_bill
         from user

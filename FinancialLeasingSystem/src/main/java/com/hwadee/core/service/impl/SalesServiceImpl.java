@@ -1,12 +1,17 @@
 package com.hwadee.core.service.impl;
 
+import cn.hutool.json.JSONUtil;
+import com.alibaba.fastjson.JSONObject;
 import com.hwadee.core.repository.*;
 import com.hwadee.core.service.salesService;
 import com.hwadee.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
+
 @Service
 public class SalesServiceImpl implements salesService {
     @Autowired
@@ -25,24 +30,80 @@ public class SalesServiceImpl implements salesService {
     private LoanApprovalRepository loanApprovalRepository;
     @Autowired
     private ProjectAlterRepository projectAlterRepository;
+    @Autowired
+    private RedisTemplate<String,String> redisTemplate;
 
     @Override
     public List<Project> queryAllProjects() {
-        return projectRepository.queryAllProjects();
+        String prefix = "*project-u*"; // aproject-u1-p12-s2
+        Set<String> keys = redisTemplate.keys(prefix);
+        List<Project> projectList;
+        if(keys.size() != 0){
+            System.out.println("查询所有项目使用缓存成功");
+            List<String> projectsRedis = redisTemplate.opsForValue().multiGet(keys);
+            projectList = JSONObject.parseArray(projectsRedis.toString(), Project.class);
+        }else{
+            projectList = projectRepository.queryAllProjects();
+            // 将所有项目放入到缓存中
+            StringBuilder key = new StringBuilder();
+            for(Project project : projectList){
+                key.delete(0,key.length());
+                key.append("project-u");
+                key.append(project.getApplicantId());
+                key.append("-p");
+                key.append(project.getProjectId());
+                key.append("-s");
+                key.append(project.getStateId());
+                redisTemplate.opsForValue().set(key.toString(), JSONUtil.toJsonStr(project),43200);
+            }
+        }
+        return projectList;
     }
 
     @Override
     public List<Project> queryProjectsById(int id) {
-        return projectRepository.queryProjectsById(id);
+        StringBuilder prefix = new StringBuilder("*-p");
+        prefix.append(id);
+        prefix.append("*");
+        Set<String> keys = redisTemplate.keys(prefix.toString());
+        List<Project> projectList;
+        if(keys.size() ==1){
+            List<String> projectsRedis = redisTemplate.opsForValue().multiGet(keys);
+            projectList = JSONObject.parseArray(projectsRedis.toString(), Project.class);
+        }else{
+            projectList = projectRepository.queryProjectsById(id);
+            // 将项目信息放到缓存中
+            prefix.delete(0,prefix.length());
+            prefix.append("project-u");
+            prefix.append(projectList.get(0).getApplicantId());
+            prefix.append("-p");
+            prefix.append(projectList.get(0).getProjectId());
+            prefix.append("-s");
+            prefix.append(projectList.get(0).getStateId());
+            redisTemplate.opsForValue().set(prefix.toString(), JSONUtil.toJsonStr(projectList.get(0)));
+        }
+        return projectList;
     }
 
     @Override
     public List<Project> queryProjectsByState(int state) {
-        return projectRepository.queryProjectsByState(state);
+        StringBuilder prefix = new StringBuilder("*s");
+        prefix.append(state);
+        Set<String> keys = redisTemplate.keys(prefix.toString());
+        List<Project> projectList;
+        if(keys.size() != 0){
+            List<String> projectsRedis = redisTemplate.opsForValue().multiGet(keys);
+            projectList = JSONObject.parseArray(projectsRedis.toString(), Project.class);
+        }else{
+            projectList = projectRepository.queryProjectsByState(state);
+        }
+        return projectList;
     }
 
     @Override
-    public boolean delProject(Integer id){return true;}
+    public boolean delProject(Integer id){
+        return true;
+    }
 
     @Override
     public List<Project> cashFlowNormal() {
@@ -84,6 +145,15 @@ public class SalesServiceImpl implements salesService {
 
     @Override
     public void deleteProjectsById(int id) {
+        StringBuilder prefix = new StringBuilder("*-p");
+        prefix.append(id);
+        prefix.append("*");
+        Set<String> keys = redisTemplate.keys(prefix.toString());
+        if(keys.size() != 0){
+            for(String key: keys){
+                redisTemplate.delete(key);
+            }
+        }
         projectRepository.deleteProjectsById(id);
     }
 

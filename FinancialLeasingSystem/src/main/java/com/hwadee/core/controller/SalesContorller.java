@@ -35,6 +35,11 @@ public class SalesContorller {
         return "sales/plain_page";
     }
 
+    /**
+     * 业务员--所有项目概览
+     * @param model
+     * @return
+     */
     @RequestMapping("/allProjects")
     public String allProjects(Model model) {
         List<Project> projects = SalesService.queryAllProjects();
@@ -42,6 +47,11 @@ public class SalesContorller {
         return "sales/allProjects";
     }
 
+    /**
+     * 业务员--查询立项申请中的项目
+     * @param model
+     * @return
+     */
     @RequestMapping("/application")
     public String application(Model model) {
         List<Project> applications = SalesService.queryProjectsByState(1);
@@ -49,6 +59,11 @@ public class SalesContorller {
         return "sales/application";
     }
 
+    /**
+     * 业务员--查询风险评估中的项目
+     * @param model
+     * @return
+     */
     @RequestMapping("/riskEvaluate")
     public String riskEvaluate(Model model) {
         List<Project> projects = SalesService.queryProjectsByState(2);
@@ -56,6 +71,11 @@ public class SalesContorller {
         return "sales/riskEvaluate";
     }
 
+    /**
+     * 业务员--查询报价评估中的项目
+     * @param model
+     * @return
+     */
     @RequestMapping("/quoteEvaluate")
     public String quoteEvaluate(Model model) {
         List<Project> projects = SalesService.queryProjectsByState(3);
@@ -63,6 +83,11 @@ public class SalesContorller {
         return "sales/quoteEvaluate";
     }
 
+    /**
+     * 业务员--查询项目终审中的项目
+     * @param model
+     * @return
+     */
     @RequestMapping("/finalAudit")
     public String finalAudit(Model model) {
         List<Project> projects = SalesService.queryProjectsByState(4);
@@ -70,6 +95,11 @@ public class SalesContorller {
         return "sales/finalAudit";
     }
 
+    /**
+     * 业务员--查询合同签约中的项目
+     * @param model
+     * @return
+     */
     @RequestMapping("/contract")
     public String contract(Model model) {
         List<Project> projects = SalesService.queryProjectsByState(5);
@@ -77,6 +107,11 @@ public class SalesContorller {
         return "sales/contract";
     }
 
+    /**
+     * 业务员--查询放款审批中的项目
+     * @param model
+     * @return
+     */
     @RequestMapping("/loan")
     public String loan(Model model) {
         List<Project> projects = SalesService.queryProjectsByState(6);
@@ -84,6 +119,11 @@ public class SalesContorller {
         return "sales/loan";
     }
 
+    /**
+     * 业务员--查询正常履约和逾期未交中的项目
+     * @param model
+     * @return
+     */
     @RequestMapping("/assetsCheck")
     public String assetsCheck(Model model) {
         List<Project> projects7 = SalesService.queryProjectsByState(7);
@@ -95,6 +135,11 @@ public class SalesContorller {
         return "sales/assetsCheck";
     }
 
+    /**
+     * 业务员--查询正常履约和预期未交中的项目
+     * @param model
+     * @return
+     */
     @RequestMapping("/mCheck")
     public String mCheck(Model model) {
         List<Project> projects7 = SalesService.queryProjectsByState(7);
@@ -104,6 +149,11 @@ public class SalesContorller {
         return "sales/mCheck";
     }
 
+    /**
+     * 业务员--查询已结束的项目
+     * @param model
+     * @return
+     */
     @RequestMapping("/alterApplication")
     public String alterApplication(Model model) {
         List<Project> projects7 = SalesService.queryProjectsByState(7);
@@ -137,7 +187,11 @@ public class SalesContorller {
         return "sales/execute";
     }
 
-
+    /**
+     * 业务员--查询中的项目
+     * @param model
+     * @return
+     */
     @RequestMapping("/end")
     public String end(Model model) {
         List<Project> projects = SalesService.queryProjectsByState(15);

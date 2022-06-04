@@ -1,4 +1,4 @@
-use hwadee
+use hwadee;
 /*
 Navicat MySQL Data Transfer
 
