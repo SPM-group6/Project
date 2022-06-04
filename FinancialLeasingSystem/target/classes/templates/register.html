@@ -32,7 +32,7 @@
                             <lable  for="name">姓名*</lable>
                             <input id="name" name="name" class="form-control" autofocus required="required" type="text">
                             <lable  for="idCard">身份证号码*</lable>
-                            <input type="text" id="idCard" name="idCard" required="required" class="form-control">
+                            <input type="text" id="idCard" name="idCard" required="required" class="form-control" oninput="check_idCard(this)">
                         </div>
                         <div>
                             <lable for="pwd">密码*</lable>
@@ -110,6 +110,11 @@
                 pwd.focus();return false;
             }
         }
+    }
+    // 判断输入的身份证号是否符合规范
+    function check_idCard(e){
+        console.log(e.value)
+        // alert("hello")
     }
 </script>
 
