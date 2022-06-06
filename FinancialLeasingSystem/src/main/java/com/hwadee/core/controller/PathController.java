@@ -79,6 +79,7 @@ public class PathController {
     public String faceReg(Model model, @RequestParam(name="uId")int uId)
     {
         model.addAttribute("uId", uId);
+        System.out.println("faceReg: uId: "+uId);
         return "faceReg";
     }
 
@@ -303,12 +304,16 @@ public class PathController {
 
     /**
      * 人脸注册
-     * @param data
+     *
      * @return
      */
     @RequestMapping(value = "/faceRegister", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, String> faceRegister(@RequestParam("image") String data, @RequestParam("id") String id){
+    // @RequestParam("image") String data, @RequestParam(name="id") String id
+    public Map<String, String> faceRegister(@RequestBody Map<String,Object> map){
+        //解析数据
+        int id=Integer.parseInt(String.valueOf(map.get("id")));
+        String data= (String)map.get("image");
         // 构造响应体
         Map<String, String> resultmap = new HashMap<>();
         System.out.println("in faceRegister controller");
@@ -321,7 +326,7 @@ public class PathController {
 //            imageObjects.add(imageObject.getString("0"));
 //            imageObjects.add(imageObject.getString("1"));
 
-            User user = userService.queryUserById(Integer.parseInt(id));
+            User user = userService.queryUserById(id);
             String faceUrl=null;
             String facePath=null;
             FaceUtils faceUtils=new FaceUtils();
