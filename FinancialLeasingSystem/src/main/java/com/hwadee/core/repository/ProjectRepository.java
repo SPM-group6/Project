@@ -85,4 +85,9 @@ public interface ProjectRepository {
      * 查询指定项目的抵押物证明
      */
     public String queryCertificateByPId(@Param("pId") int pId);
+
+    /**
+     * 根据承租人id和项目创建时间查询项目
+     */
+    Project queryProjectByUIdTime(@Param("applicantId") int applicantId, @Param("date") String date);
 }

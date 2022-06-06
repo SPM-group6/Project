@@ -58,4 +58,6 @@ public interface salesService {
 
     String queryCertificateByPId(int pId);//查询指定项目的抵押物证明
 
+    // 根据项目创建时间以及创建人进行查询
+    Project queryProjectByUIdTime(int applicantId, String date);
 }
