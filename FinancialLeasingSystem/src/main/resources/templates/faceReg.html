@@ -93,7 +93,7 @@
             // 获取canvas组件中的图片信息数据
             imageData = getBase64();
             // 将人像图片和用户id封装成json格式
-            var uId=$("#userId");
+            var uId=$("#userId").toString();
             var data = {image: imageData,id: uId}
             console.log(data);
             // 使用Ajax上传数据
