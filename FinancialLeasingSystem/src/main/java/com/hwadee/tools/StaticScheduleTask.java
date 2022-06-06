@@ -1,12 +1,9 @@
 package com.hwadee.tools;
 
 import cn.hutool.json.JSONUtil;
-import com.alibaba.fastjson.JSON;
 import com.hwadee.core.service.UserService;
 import com.hwadee.core.service.salesService;
 import com.hwadee.entity.Crew;
-import com.hwadee.entity.Project;
-import com.hwadee.entity.ProjectState;
 import com.hwadee.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;

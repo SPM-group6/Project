@@ -135,6 +135,8 @@ public class PathController {
             resultmap.put("message","0");//0代表用户账号错误;
             return resultmap;
         }
+
+
     }
 
     @GetMapping("/index")
@@ -177,9 +179,12 @@ public class PathController {
 
 //            image = image.split("base64,")[1];
             byte[] bytesImage = ImageBase64Utils.base64ToImage(images);
-            String fileName = FileUpLoad.upload(bytesImage,"static/temporary/", new Date().getTime()+".png");
+            String fileName = FileUpLoad.upload(bytesImage,"C:/Users/lsj/Desktop/faceTest/", new Date().getTime()+".png");
+            System.out.println("人脸文件保存成功");
+//            String fileName = FileUpLoad.upload(bytesImage,"static/temporary/", new Date().getTime()+".png");
             for(User user : userList){
-                if(user.getFacePath().equals(null)){
+                if(user.getFacePath().equals(null) || user.getFacePath().equals("")){
+
                    continue;
                 }
                 faceUtils1.setImageInfo(fileName);
@@ -192,6 +197,7 @@ public class PathController {
                     faceUtils1.unInit();
                     faceUtils2.unInit();
 
+                    System.out.println("人脸登录成功！");
                     resultmap.put("userId", Integer.toString(user.getId()));//传userId
                     resultmap.put("message","3");//3代表承租人人脸登录成功;
                     return resultmap;
@@ -203,6 +209,7 @@ public class PathController {
             faceUtils1.unInit();
             faceUtils2.unInit();
 
+            System.out.println("人脸登录失败");
             resultmap.put("userId", "0");//传userId
             resultmap.put("message","4");//4代表承租人人脸验证失败，数据库内没有找到匹配的照片;
             return resultmap;
@@ -326,11 +333,13 @@ public class PathController {
 
             Date date=new Date();
             byte[] byteImages=ImageBase64Utils.base64ToImage(data);
-            String fileName=FileUpLoad.upload(byteImages,"static/temporary/",date.getTime()+".png");
+//            String fileName=FileUpLoad.upload(byteImages,"static/temporary/",date.getTime()+".png");
+            String fileName=FileUpLoad.upload(byteImages,"C:/Users/lsj/Desktop/faceTest/temporary/",date.getTime()+".png");
             faceUtils.setImageInfo(fileName);
             System.out.println("开始检测");
             if(faceUtils.isLive()){
-                facePath = FileUpLoad.upload(byteImages,"static/faceImages/",date.getTime()+".png");
+//                facePath = FileUpLoad.upload(byteImages,"static/faceImages/",date.getTime()+".png");
+                facePath = FileUpLoad.upload(byteImages,"C:/Users/lsj/Desktop/faceTest/faceImages/",date.getTime()+".png");
                 faceUrl = "http://175.178.147.20:8082/"+facePath;
                 user.setFacePath(facePath);
                 user.setFaceUrl(faceUrl);

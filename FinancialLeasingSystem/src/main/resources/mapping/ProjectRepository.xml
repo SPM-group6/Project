@@ -81,7 +81,7 @@
         where project_id = #{projectId}
     </update>
 
-    <insert id="insertProApplication">
+    <insert id="insertProApplication" >
         insert into project_info(applicant_id,project_name,project_time,leased_asset,supplier,price,lease_schedule_unit_price,lease_schedule_unit_time,lease_schedule_duration,pawn_name,pawn_type,pawn_value,certificate)
         values(#{project.applicantId},#{project.projectName},#{project.time},#{project.leasedAsset},#{project.supplier},#{project.price},#{project.leaseScheduleUnitPrice},#{project.leaseScheduleUnitTime},#{project.leaseScheduleDuration},#{project.pawnName},#{project.pawnType},#{project.pawnValue},#{project.url})
     </insert>
@@ -90,6 +90,12 @@
         select certificate
         from project_info
         where project_id=#{pId}
+    </select>
+
+    <select id="queryProjectByUIdTime" resultType="Project">
+        select *
+        from project_info
+        where applicant_id = #{applicantId} and project_time = #{date}
     </select>
 
 </mapper>

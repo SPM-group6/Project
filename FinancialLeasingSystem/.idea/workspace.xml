@@ -4,7 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdede712-8fa7-4980-bd28-cc0bb2882b93" name="Default Changelist" comment="添加：reids缓存、hikari数据库连接池、gzip资源压缩、身份证校验">
+    <list default="true" id="fdede712-8fa7-4980-bd28-cc0bb2882b93" name="Default Changelist" comment="new project will add to the redis">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hwadee.log" beforeDir="false" afterPath="$PROJECT_DIR$/hwadee.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hwadee/core/repository/ProjectRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hwadee/core/repository/ProjectRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hwadee/core/service/impl/SalesServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hwadee/core/service/impl/SalesServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hwadee/core/service/salesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hwadee/core/service/salesService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapping/ProjectRepository.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapping/ProjectRepository.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/hwadee/core/repository/ProjectRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hwadee/core/repository/ProjectRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/hwadee/core/service/impl/SalesServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hwadee/core/service/impl/SalesServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/hwadee/core/service/salesService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hwadee/core/service/salesService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapping/ProjectRepository.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapping/ProjectRepository.xml" afterDir="false" />
+    </list>
+    <list id="4a1e30ad-1d17-4f9a-9dff-e313e9262e22" name="someNoChange" comment="someNoChange">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a398ca78-12f2-4367-b337-d6f5c07182ff.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a398ca78-12f2-4367-b337-d6f5c07182ff.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hwadee.log.2022-06-02.0.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/hwadee/core/controller/SalesContorller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hwadee/core/controller/SalesContorller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/hwadee/core/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hwadee/core/controller/UserController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/register.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,14 +81,30 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/lib" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.4014706" />
     <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
   </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Code\upload\Project\FinancialLeasingSystem\src\main\resources\lib" />
+    </key>
+  </component>
   <component name="RunManager" selected="Spring Boot.DemoApplication">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DemoApplicationTests.Test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="demo" />
       <extension name="coverage">
@@ -122,6 +155,7 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="fdede712-8fa7-4980-bd28-cc0bb2882b93" name="Default Changelist" comment="" />
+      <changelist id="4a1e30ad-1d17-4f9a-9dff-e313e9262e22" name="someNoChange" comment="" />
       <created>1653907847864</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -143,6 +177,11 @@
       <workItem from="1654235162142" duration="3602000" />
       <workItem from="1654243654233" duration="367000" />
       <workItem from="1654250304459" duration="1083000" />
+      <workItem from="1654313618332" duration="3845000" />
+      <workItem from="1654324646531" duration="7814000" />
+      <workItem from="1654340337263" duration="2172000" />
+      <workItem from="1654410507789" duration="47000" />
+      <workItem from="1654477727801" duration="11431000" />
     </task>
     <task id="LOCAL-00001" summary="添加：reids缓存、hikari数据库连接池、gzip资源压缩、身份证校验">
       <created>1654243286131</created>
@@ -151,7 +190,35 @@
       <option name="project" value="LOCAL" />
       <updated>1654243286131</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="添加：reids缓存、hikari数据库连接池、gzip资源压缩、身份证校验">
+      <created>1654313734582</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1654313734582</updated>
+    </task>
+    <task id="LOCAL-00003" summary="no update">
+      <created>1654332438819</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1654332438819</updated>
+    </task>
+    <task id="LOCAL-00004" summary="no update">
+      <created>1654479734512</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1654479734512</updated>
+    </task>
+    <task id="LOCAL-00005" summary="no update">
+      <created>1654482595158</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1654482595158</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,20 +238,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="添加：reids缓存、hikari数据库连接池、gzip资源压缩、身份证校验" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加：reids缓存、hikari数据库连接池、gzip资源压缩、身份证校验" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/hwadee/core/service/salesService.java</url>
-          <line>9</line>
-          <properties class="com.hwadee.core.service.salesService" method="queryAllProjects">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="no update" />
+    <MESSAGE value="new project will add to the redis" />
+    <option name="LAST_COMMIT_MESSAGE" value="new project will add to the redis" />
   </component>
 </project>

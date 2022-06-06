@@ -30,18 +30,18 @@ CREATE TABLE `user` (
   `assets` bigint DEFAULT NULL COMMENT '调查报告时可添加：资产情况',
   `id_card` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '身份证号码',
   `credit_evaluation` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '0' COMMENT '淇＄敤绛夌骇璇勪及',
-  `recent_bill` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `facePath` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci COMMENT '承租人人脸存储路径',
-  `faceUrl` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci COMMENT '承租人人脸访问路径',
+  `recent_bill` varchar(255) COLLATE utf8_unicode_ci DEFAULT '',
+  `facePath` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci COMMENT '承租人人脸存储路径' DEFAULT '',
+  `faceUrl` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci COMMENT '承租人人脸访问路径' DEFAULT  '',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci COMMENT='承租人';
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', '承租人1号', '123', '公务员', '1', '3600', '500000', '510166200804162029', '当前承租人信用优秀，因为他做人诚实，没有任何逾期记录，拾金不昧', 'file/bill/1647919802374.',null,null);
-INSERT INTO `user` VALUES ('2', '承租人2号', '123', '个体经营商', '2', '5600', '600000', '501256200006298989', '当前承租人信用良好，存在一些逾期记录', null,null,null);
-INSERT INTO `user` VALUES ('3', '承租人3号', '123', '无业人员', '3', '2400', '200000', '510189200309272830', '当前承租人信用较差，存在较多逾期记录', null,null,null);
+INSERT INTO `user` VALUES ('1', '承租人1号', '123', '公务员', '1', '3600', '500000', '510166200804162029', '当前承租人信用优秀，因为他做人诚实，没有任何逾期记录，拾金不昧', 'file/bill/1647919802374.','','');
+INSERT INTO `user` VALUES ('2', '承租人2号', '123', '个体经营商', '2', '5600', '600000', '501256200006298989', '当前承租人信用良好，存在一些逾期记录','','','');
+INSERT INTO `user` VALUES ('3', '承租人3号', '123', '无业人员', '3', '2400', '200000', '510189200309272830', '当前承租人信用较差，存在较多逾期记录', '','','');
 
 
 /*
