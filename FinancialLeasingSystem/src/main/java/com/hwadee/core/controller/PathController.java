@@ -75,11 +75,12 @@ public class PathController {
      * 用户注册-填写完身份信息后跳转到人脸录入界面
      * @return
      */
-//    @RequestMapping("/faceReg")
-//    public String faceReg()
-//    {
-//        return "faceReg";
-//    }
+    @RequestMapping("/faceReg")
+    public String faceReg(Model model, @RequestParam(name="uId")int uId)
+    {
+        model.addAttribute("uId", uId);
+        return "faceReg";
+    }
 
     /**
      * 用户人脸登录测试界面
@@ -133,8 +134,6 @@ public class PathController {
             resultmap.put("message","0");//0代表用户账号错误;
             return resultmap;
         }
-
-
     }
 
     @GetMapping("/index")
@@ -156,7 +155,7 @@ public class PathController {
      */
     @RequestMapping("/faceLogin")
     @ResponseBody
-    public Map<String,String> faceLogin(@RequestBody String images){
+    public Map<String,String> faceLogin(@RequestParam("data") String images){
         //构造响应体
         Map<String, String> resultmap = new HashMap<>();
 
@@ -214,6 +213,7 @@ public class PathController {
         }
     }
 
+    //承租人注册
     @RequestMapping("/register")
     public String register(){
         return "register";
@@ -261,8 +261,12 @@ public class PathController {
             System.out.println("in PathController--registerSubmit: 修改数据库失败");
             return "error";
         }else{
+            //查询用户id
+            user=userService.queryUserByIdCard(idCard);
+            //跳转到登录用户页面
 //            return "redirect:/userLogin";
-            return "faceReg";
+            //跳转到人脸录入页面
+            return "redirect:/faceReg?uId="+user.getId();
         }
 
         //新的文件名以日期命名
@@ -295,60 +299,60 @@ public class PathController {
      * @param data
      * @return
      */
-    @RequestMapping(value = "./faceRegister", method = RequestMethod.POST)
+    @RequestMapping(value = "/faceRegister", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, String> faceRegister(@RequestBody String data){
+    public Map<String, String> faceRegister(@RequestParam("image") String data, @RequestParam("id") String id){
         // 构造响应体
         Map<String, String> resultmap = new HashMap<>();
-
+        System.out.println("in faceRegister controller");
         try{
-            JSONObject dataJson=JSONObject.parseObject(data);
-            dataJson=dataJson.getJSONObject("data");
-            JSONObject imageObject=dataJson.getJSONObject("images");
-            int id = dataJson.getInteger("id");
-            List<String> imageObjects=new ArrayList<>();
-            imageObjects.add(imageObject.getString("0"));
-            imageObjects.add(imageObject.getString("1"));
+//            JSONObject dataJson=JSONObject.parseObject(data);
+//            dataJson=dataJson.getJSONObject("data");
+//            JSONObject imageObject=dataJson.getJSONObject("images");
+//            int id = dataJson.getInteger("id");
+//            List<String> imageObjects=new ArrayList<>();
+//            imageObjects.add(imageObject.getString("0"));
+//            imageObjects.add(imageObject.getString("1"));
 
-            User user = userService.queryUserById(id);
+            User user = userService.queryUserById(Integer.parseInt(id));
             String faceUrl=null;
             String facePath=null;
             FaceUtils faceUtils=new FaceUtils();
-            for(String image : imageObjects){
-                Date date=new Date();
-                image=image.split("base64,")[1];
-                byte[] byteImages=ImageBase64Utils.base64ToImage(image);
-                String fileName=FileUpLoad.upload(byteImages,"static/temporary/",date.getTime()+".png");
-                faceUtils.setImageInfo(fileName);
-                System.out.println("开始检测");
-                if(faceUtils.isLive()){
-                    facePath = FileUpLoad.upload(byteImages,"static/faceImages/",date.getTime()+".png");
-                    faceUrl = "http://175.178.147.20:8082/"+facePath;
-                    user.setFacePath(facePath);
-                    user.setFaceUrl(faceUrl);
 
-                    userService.updateUserFaceInfo(user);
+            Date date=new Date();
+            byte[] byteImages=ImageBase64Utils.base64ToImage(data);
+            String fileName=FileUpLoad.upload(byteImages,"static/temporary/",date.getTime()+".png");
+            faceUtils.setImageInfo(fileName);
+            System.out.println("开始检测");
+            if(faceUtils.isLive()){
+                facePath = FileUpLoad.upload(byteImages,"static/faceImages/",date.getTime()+".png");
+                faceUrl = "http://175.178.147.20:8082/"+facePath;
+                user.setFacePath(facePath);
+                user.setFaceUrl(faceUrl);
 
-                    File file  = new File(fileName);
-                    file.delete();
-                    faceUtils.unInit();
+                userService.updateUserFaceInfo(user);
 
-                    resultmap.put("userId", Integer.toString(user.getId()));
-                    resultmap.put("message", "1"); // 1 人脸注册成功
-                    return resultmap;
-                }
-
-                System.out.println("检测不通过");
-                File file = new File(fileName);
+                File file  = new File(fileName);
                 file.delete();
+                faceUtils.unInit();
+
+                resultmap.put("userId", Integer.toString(user.getId()));
+                resultmap.put("message", "1"); // 1 人脸注册成功
+                return resultmap;
             }
+
+            System.out.println("检测不通过");
+            File file = new File(fileName);
+            file.delete();
+
             faceUtils.unInit();
             resultmap.put("userId", Integer.toString(user.getId()));
-            resultmap.put("message", "2"); // 2 人脸注册失败
+            resultmap.put("message", "2"); // 2 活体检测未通过 人脸注册失败
             return  resultmap;
         }catch (Exception e){
+            e.printStackTrace();
             resultmap.put("userId", "0"); //不存在该用户
-            resultmap.put("message", "2"); // 2 人脸注册失败
+            resultmap.put("message", "3"); // 3 人脸注册失败
             return resultmap;
         }
     }

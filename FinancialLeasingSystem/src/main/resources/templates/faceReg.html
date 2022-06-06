@@ -92,33 +92,36 @@
             console.log("启动人像图片上传……");
             // 获取canvas组件中的图片信息数据
             imageData = getBase64();
-            // 将人像图片的数据类型装换成json格式
-            // var data = {data: imageData}
-            // console.log(data);
+            // 将人像图片和用户id封装成json格式
+            var uId=$("#userId");
+            var data = {image: imageData,id: uId}
+            console.log(data);
             // 使用Ajax上传数据
             $.ajax({
-                url: "/hwadee/faceLogin",
+                url: "/hwadee/faceRegister",
                 type: "POST",
                 dataType: "text",
-                data: imageData,
+                data: data,
                 success: function (msg) {
                     console.log(msg)
-                    if(msg.message=="3"){
-                        console.log("刷脸登录成功!")
+                    if(msg.message=="1"){
+                        console.log("人脸录入成功!请登录")
                         console.log("userId=========="+msq.userId);
-                        window.location.href="/hwadee/userIndex?"+"userId="+msq.userId;
+                        //跳转到用户登录页面
+                        window.location.href="/hwadee/userLogin";
                     }
-                    else if(msg.message=="4"){
-                        alert("验证失败！请再试一次或使用身份证号登录");
+                    else if(msg.message=="2"){
+                        alert("人脸录入失败！请再试一次");
                         window.location.reload();//刷新页面
                     }
-                    else if(msg.message=="5"){
-                        alert("服务器异常！请使用身份证号登录");
-                        window.location.reload();//刷新页面
+                    else if(msg.message=="3"){
+                        alert("不存在此账号！请先注册");
+                        //跳转到用户注册页面
+                        window.location.href="/hwadee/register";
                     }
                 },
                 error:function (e){
-                    alert("由于服务器异常，请求失败！请稍后再试或者使用身份证号登录");
+                    alert("由于服务器异常，请求失败！请稍后再试");
                     console.log(e);
                     window.location.reload();//刷新页面
                 }
@@ -179,14 +182,11 @@
 <!--            class="login_content"-->
     <div id="pageBody">
         <div class="pd-panel">
-            <!--    登陆方式切换-->
-<!--            <div class="oper-tab">-->
-<!--                <label class="active"><span onclick="toggleLoginPanel(this,'faceLogin')">面部识别登录</span></label>-->
-<!--                <label><span id="passwordLoginButton" onclick="toggleLoginPanel(this,'passwordLogin')">密码登录</span></label>-->
-<!--            </div>-->
+            <div class="oper-tab">
+                <label class="active"><span>人脸录入</span></label>
+            </div>
 
-            <!--        刷脸登录-->
-            <div id="faceLogin">
+            <div id="faceReg">
                 <dl>
                     <dd style="display: flex;flex-direction: row" class="video">
                         <!-- 设置video组件，用于采集用户动态图像 -->
@@ -199,29 +199,14 @@
                         </div>
                     </dd>
                     <dd>
+                        <input type="text" id="userId" name="userId" hidden th:value="${uId}" >
                         <input  type="submit" id="acqusition_of_features" class="btn btn-default submit" value="确认">
+                    </dd>
+                    <dd style="display: flex;flex-direction: row;justify-content: flex-end">-->
+                        <a style="margin-right: 20px" class="form-btn" href="/hwadee/userLogin">去登录</a>
                     </dd>
                 </dl>
             </div>
-<!--                身份证密码登录-->
-<!--            <div id="passwordLogin">-->
-<!--                <form id="loginForm">-->
-<!--                    <dl>-->
-<!--                        <dd>-->
-<!--                            <input id="idCard" name="idCard" type="text" class="form-control" placeholder="身份证号码" required="" />-->
-<!--                        </dd>-->
-<!--                        <dd>-->
-<!--                            <input id="userPassword" name="userPassword" type="password" class="form-control" placeholder="密码" required="" />-->
-<!--                        </dd>-->
-<!--                        <dd>-->
-<!--                            <input onclick="login()" class="btn btn-default submit" value="登录">-->
-<!--                        </dd>-->
-<!--                        <dd style="display: flex;flex-direction: row;justify-content: flex-end">-->
-<!--                            <a style="margin-right: 20px" class="form-btn" href="/hwadee/register">注册</a>-->
-<!--                        </dd>-->
-<!--                    </dl>-->
-<!--                </form>-->
-<!--            </div>-->
         </div>
     </div>
 </body>

@@ -84,7 +84,13 @@
             promise.then(function(MediaStream){
                 video.srcObject = MediaStream;  // 将媒体流对象设置到video组件中
                 video.play();  // 设置video对象为播放状态
-            });
+            })
+            .catch(function(err) {
+                    /* 处理error */
+                alert("未授予摄像头使用权限，无法刷脸登录！");
+                console.log("未授予摄像头使用权限，无法刷脸登录！");
+                window.location.reload();//刷新页面
+            })
         }
 
         // 刷脸登录
@@ -93,14 +99,14 @@
             // 获取canvas组件中的图片信息数据
             imageData = getBase64();
             // 将人像图片的数据类型装换成json格式
-            // var data = {data: imageData}
-            // console.log(data);
+            var data = {data: imageData}
+            console.log(data);
             // 使用Ajax上传数据
             $.ajax({
                 url: "/hwadee/faceLogin",
                 type: "POST",
                 dataType: "text",
-                data: imageData,
+                data: data,
                 success: function (msg) {
                     console.log(msg)
                     if(msg.message=="3"){
