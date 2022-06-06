@@ -328,11 +328,13 @@ public class PathController {
 
             Date date=new Date();
             byte[] byteImages=ImageBase64Utils.base64ToImage(data);
-            String fileName=FileUpLoad.upload(byteImages,"static/temporary/",date.getTime()+".png");
+//            String fileName=FileUpLoad.upload(byteImages,"static/temporary/",date.getTime()+".png");
+            String fileName=FileUpLoad.upload(byteImages,"C:/Users/lsj/Desktop/faceTest/temporary/",date.getTime()+".png");
             faceUtils.setImageInfo(fileName);
             System.out.println("开始检测");
             if(faceUtils.isLive()){
-                facePath = FileUpLoad.upload(byteImages,"static/faceImages/",date.getTime()+".png");
+//                facePath = FileUpLoad.upload(byteImages,"static/faceImages/",date.getTime()+".png");
+                facePath = FileUpLoad.upload(byteImages,"C:/Users/lsj/Desktop/faceTest/faceImages/",date.getTime()+".png");
                 faceUrl = "http://175.178.147.20:8082/"+facePath;
                 user.setFacePath(facePath);
                 user.setFaceUrl(faceUrl);
