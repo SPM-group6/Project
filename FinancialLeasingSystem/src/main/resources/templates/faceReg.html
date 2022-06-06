@@ -93,14 +93,20 @@
             // 获取canvas组件中的图片信息数据
             imageData = getBase64();
             // 将人像图片和用户id封装成json格式
-            var uId=$("#userId").toString();
-            var data = {image: imageData,id: uId}
+            var uId=document.getElementById("userId").value;
+            console.log("uId: ",uId);
+            // var data = {image: imageData,id: uId}
+            var data={}
+            data["image"]=imageData
+            data["id"]=uId
+            data=JSON.stringify(data);//转换成json格式
             console.log(data);
             // 使用Ajax上传数据
             $.ajax({
                 url: "/hwadee/faceRegister",
                 type: "POST",
-                dataType: "text",
+                dataType:'json',
+                contentType:'application/json',
                 data: data,
                 success: function (msg) {
                     console.log(msg)
