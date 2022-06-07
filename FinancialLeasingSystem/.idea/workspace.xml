@@ -20,6 +20,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -167,7 +168,7 @@
       <workItem from="1654410507789" duration="47000" />
       <workItem from="1654477727801" duration="11431000" />
       <workItem from="1654611108063" duration="2232000" />
-      <workItem from="1654613373678" duration="10625000" />
+      <workItem from="1654613373678" duration="10954000" />
     </task>
     <task id="LOCAL-00001" summary="添加：reids缓存、hikari数据库连接池、gzip资源压缩、身份证校验">
       <created>1654243286131</created>
@@ -218,7 +219,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654627682865</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="face login success">
+      <created>1654627705325</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1654627705325</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
