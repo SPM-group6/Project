@@ -1,0 +1,512 @@
+2022-06-07 01:47:12.275  INFO 19696 --- [lettuce-nioEventLoop-4-1] io.lettuce.core.protocol.CommandHandler  : null Unexpected exception during request: java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method) ~[na:1.8.0_261]
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43) ~[na:1.8.0_261]
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223) ~[na:1.8.0_261]
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192) ~[na:1.8.0_261]
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:378) ~[na:1.8.0_261]
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:258) ~[netty-buffer-4.1.74.Final.jar:4.1.74.Final]
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132) ~[netty-buffer-4.1.74.Final.jar:4.1.74.Final]
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:350) ~[netty-transport-4.1.74.Final.jar:4.1.74.Final]
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151) ~[netty-transport-4.1.74.Final.jar:4.1.74.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:722) [netty-transport-4.1.74.Final.jar:4.1.74.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658) [netty-transport-4.1.74.Final.jar:4.1.74.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584) [netty-transport-4.1.74.Final.jar:4.1.74.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496) [netty-transport-4.1.74.Final.jar:4.1.74.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:986) [netty-common-4.1.74.Final.jar:4.1.74.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) [netty-common-4.1.74.Final.jar:4.1.74.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) [netty-common-4.1.74.Final.jar:4.1.74.Final]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_261]
+
+2022-06-07 01:47:12.275  INFO 19696 --- [lettuce-nioEventLoop-4-2] io.lettuce.core.protocol.CommandHandler  : null Unexpected exception during request: java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method) ~[na:1.8.0_261]
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43) ~[na:1.8.0_261]
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223) ~[na:1.8.0_261]
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192) ~[na:1.8.0_261]
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:378) ~[na:1.8.0_261]
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:258) ~[netty-buffer-4.1.74.Final.jar:4.1.74.Final]
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132) ~[netty-buffer-4.1.74.Final.jar:4.1.74.Final]
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:350) ~[netty-transport-4.1.74.Final.jar:4.1.74.Final]
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151) ~[netty-transport-4.1.74.Final.jar:4.1.74.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:722) [netty-transport-4.1.74.Final.jar:4.1.74.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658) [netty-transport-4.1.74.Final.jar:4.1.74.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584) [netty-transport-4.1.74.Final.jar:4.1.74.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496) [netty-transport-4.1.74.Final.jar:4.1.74.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:986) [netty-common-4.1.74.Final.jar:4.1.74.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) [netty-common-4.1.74.Final.jar:4.1.74.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) [netty-common-4.1.74.Final.jar:4.1.74.Final]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_261]
+
+2022-06-07 01:47:12.302  INFO 19696 --- [lettuce-eventExecutorLoop-1-7] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost/127.0.0.1:6379
+2022-06-07 01:47:12.302  INFO 19696 --- [lettuce-eventExecutorLoop-1-6] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost/127.0.0.1:6379
+2022-06-07 01:47:14.330  WARN 19696 --- [lettuce-nioEventLoop-4-3] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [localhost:6379]: Connection refused: no further information: localhost/127.0.0.1:6379
+2022-06-07 01:47:14.330  WARN 19696 --- [lettuce-nioEventLoop-4-4] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [localhost:6379]: Connection refused: no further information: localhost/127.0.0.1:6379
+2022-06-07 01:47:18.600  INFO 19696 --- [lettuce-eventExecutorLoop-1-5] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost:6379
+2022-06-07 01:47:18.600  INFO 19696 --- [lettuce-eventExecutorLoop-1-4] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost:6379
+2022-06-07 01:47:20.611  WARN 19696 --- [lettuce-nioEventLoop-4-1] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [localhost:6379]: Connection refused: no further information: localhost/127.0.0.1:6379
+2022-06-07 01:47:20.626  WARN 19696 --- [lettuce-nioEventLoop-4-2] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [localhost:6379]: Connection refused: no further information: localhost/127.0.0.1:6379
+2022-06-07 01:47:24.898  INFO 19696 --- [lettuce-eventExecutorLoop-1-2] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost:6379
+2022-06-07 01:47:24.998  INFO 19696 --- [lettuce-eventExecutorLoop-1-3] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost:6379
+2022-06-07 07:20:43.046  WARN 19696 --- [lettuce-nioEventLoop-4-7] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [localhost:6379]: Connection refused: no further information: localhost/127.0.0.1:6379
+2022-06-07 07:20:43.107  WARN 19696 --- [lettuce-nioEventLoop-4-8] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [localhost:6379]: connection timed out: localhost/127.0.0.1:6379
+2022-06-07 07:20:43.206  INFO 19696 --- [lettuce-eventExecutorLoop-1-2] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost:6379
+2022-06-07 07:20:43.314  INFO 19696 --- [lettuce-eventExecutorLoop-1-3] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost:6379
+2022-06-07 07:20:45.458  WARN 19696 --- [MyHikariCP housekeeper] com.zaxxer.hikari.pool.HikariPool        : MyHikariCP - Thread starvation or clock leap detected (housekeeper delta=5h33m35s12ms236µs200ns).
+2022-06-07 07:20:47.005  WARN 19696 --- [lettuce-nioEventLoop-4-2] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [localhost:6379]: Connection refused: no further information: localhost/127.0.0.1:6379
+2022-06-07 07:20:49.896  INFO 19696 --- [lettuce-eventExecutorLoop-1-5] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost:6379
+2022-06-07 07:20:50.321  WARN 19696 --- [lettuce-nioEventLoop-4-1] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [localhost:6379]: Connection refused: no further information: localhost/127.0.0.1:6379
+2022-06-07 07:20:50.589  INFO 19696 --- [lettuce-eventExecutorLoop-1-6] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost:6379
+2022-06-07 07:20:51.903  WARN 19696 --- [lettuce-nioEventLoop-4-4] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [localhost:6379]: Connection refused: no further information: localhost/127.0.0.1:6379
+2022-06-07 07:20:52.623  WARN 19696 --- [lettuce-nioEventLoop-4-5] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [localhost:6379]: Connection refused: no further information: localhost/127.0.0.1:6379
+2022-06-07 07:20:56.289  INFO 19696 --- [lettuce-eventExecutorLoop-1-1] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost:6379
+2022-06-07 07:20:57.092  INFO 19696 --- [lettuce-eventExecutorLoop-1-2] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost:6379
+2022-06-07 07:20:58.306  WARN 19696 --- [lettuce-nioEventLoop-4-7] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [localhost:6379]: Connection refused: no further information: localhost/127.0.0.1:6379
+2022-06-07 07:20:59.110  WARN 19696 --- [lettuce-nioEventLoop-4-1] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [localhost:6379]: Connection refused: no further information: localhost/127.0.0.1:6379
+2022-06-07 07:21:03.296  INFO 19696 --- [lettuce-eventExecutorLoop-1-4] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost:6379
+2022-06-07 07:21:05.316  WARN 19696 --- [lettuce-nioEventLoop-4-3] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [localhost:6379]: Connection refused: no further information: localhost/127.0.0.1:6379
+2022-06-07 07:21:06.589  INFO 19696 --- [lettuce-eventExecutorLoop-1-5] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost:6379
+2022-06-07 07:21:08.605  WARN 19696 --- [lettuce-nioEventLoop-4-4] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [localhost:6379]: Connection refused: no further information: localhost/127.0.0.1:6379
+2022-06-07 07:21:13.586  INFO 19696 --- [lettuce-eventExecutorLoop-1-6] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost:6379
+2022-06-07 07:21:15.616  WARN 19696 --- [lettuce-nioEventLoop-4-5] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [localhost:6379]: Connection refused: no further information: localhost/127.0.0.1:6379
+2022-06-07 07:21:16.887  INFO 19696 --- [lettuce-eventExecutorLoop-1-8] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost:6379
+2022-06-07 07:21:18.903  WARN 19696 --- [lettuce-nioEventLoop-4-6] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [localhost:6379]: Connection refused: no further information: localhost/127.0.0.1:6379
+2022-06-07 07:21:32.087  INFO 19696 --- [lettuce-eventExecutorLoop-1-1] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost:6379
+2022-06-07 07:21:34.107  WARN 19696 --- [lettuce-nioEventLoop-4-8] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [localhost:6379]: Connection refused: no further information: localhost/127.0.0.1:6379
+2022-06-07 07:21:35.387  INFO 19696 --- [lettuce-eventExecutorLoop-1-2] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost:6379
+2022-06-07 07:21:37.411  WARN 19696 --- [lettuce-nioEventLoop-4-7] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [localhost:6379]: Connection refused: no further information: localhost/127.0.0.1:6379
+2022-06-07 07:22:04.191  INFO 19696 --- [lettuce-eventExecutorLoop-1-6] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost:6379
+2022-06-07 07:22:06.206  WARN 19696 --- [lettuce-nioEventLoop-4-1] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [localhost:6379]: Connection refused: no further information: localhost/127.0.0.1:6379
+2022-06-07 07:22:07.487  INFO 19696 --- [lettuce-eventExecutorLoop-1-8] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost:6379
+2022-06-07 07:22:09.524  WARN 19696 --- [lettuce-nioEventLoop-4-2] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [localhost:6379]: Connection refused: no further information: localhost/127.0.0.1:6379
+2022-06-07 07:22:36.286  INFO 19696 --- [lettuce-eventExecutorLoop-1-5] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost:6379
+2022-06-07 07:22:38.301  WARN 19696 --- [lettuce-nioEventLoop-4-3] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [localhost:6379]: Connection refused: no further information: localhost/127.0.0.1:6379
+2022-06-07 07:22:39.593  INFO 19696 --- [lettuce-eventExecutorLoop-1-6] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost:6379
+2022-06-07 07:22:41.612  WARN 19696 --- [lettuce-nioEventLoop-4-4] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [localhost:6379]: Connection refused: no further information: localhost/127.0.0.1:6379
+2022-06-07 07:23:08.389  INFO 19696 --- [lettuce-eventExecutorLoop-1-1] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost:6379
+2022-06-07 07:23:10.404  WARN 19696 --- [lettuce-nioEventLoop-4-5] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [localhost:6379]: Connection refused: no further information: localhost/127.0.0.1:6379
+2022-06-07 07:23:11.696  INFO 19696 --- [lettuce-eventExecutorLoop-1-2] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost:6379
+2022-06-07 07:23:13.710  WARN 19696 --- [lettuce-nioEventLoop-4-6] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [localhost:6379]: Connection refused: no further information: localhost/127.0.0.1:6379
+2022-06-07 07:23:40.497  INFO 19696 --- [lettuce-eventExecutorLoop-1-5] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost:6379
+2022-06-07 07:23:42.520  WARN 19696 --- [lettuce-nioEventLoop-4-8] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [localhost:6379]: Connection refused: no further information: localhost/127.0.0.1:6379
+2022-06-07 07:23:43.790  INFO 19696 --- [lettuce-eventExecutorLoop-1-6] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost:6379
+2022-06-07 07:23:45.813  WARN 19696 --- [lettuce-nioEventLoop-4-7] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [localhost:6379]: Connection refused: no further information: localhost/127.0.0.1:6379
+2022-06-07 07:24:12.593  INFO 19696 --- [lettuce-eventExecutorLoop-1-1] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost:6379
+2022-06-07 07:24:14.609  WARN 19696 --- [lettuce-nioEventLoop-4-1] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [localhost:6379]: Connection refused: no further information: localhost/127.0.0.1:6379
+2022-06-07 07:24:15.886  INFO 19696 --- [lettuce-eventExecutorLoop-1-2] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost:6379
+2022-06-07 07:24:17.914  WARN 19696 --- [lettuce-nioEventLoop-4-2] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [localhost:6379]: Connection refused: no further information: localhost/127.0.0.1:6379
+2022-06-07 07:24:44.686  INFO 19696 --- [lettuce-eventExecutorLoop-1-5] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost:6379
+2022-06-07 07:24:46.703  WARN 19696 --- [lettuce-nioEventLoop-4-3] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [localhost:6379]: Connection refused: no further information: localhost/127.0.0.1:6379
+2022-06-07 07:24:47.986  INFO 19696 --- [lettuce-eventExecutorLoop-1-6] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost:6379
+2022-06-07 07:24:50.008  WARN 19696 --- [lettuce-nioEventLoop-4-4] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [localhost:6379]: Connection refused: no further information: localhost/127.0.0.1:6379
+2022-06-07 07:25:16.794  INFO 19696 --- [lettuce-eventExecutorLoop-1-1] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost:6379
+2022-06-07 07:25:18.807  WARN 19696 --- [lettuce-nioEventLoop-4-5] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [localhost:6379]: Connection refused: no further information: localhost/127.0.0.1:6379
+2022-06-07 07:25:20.086  INFO 19696 --- [lettuce-eventExecutorLoop-1-2] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost:6379
+2022-06-07 07:25:22.108  WARN 19696 --- [lettuce-nioEventLoop-4-6] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [localhost:6379]: Connection refused: no further information: localhost/127.0.0.1:6379
+2022-06-07 07:25:48.890  INFO 19696 --- [lettuce-eventExecutorLoop-1-5] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost:6379
+2022-06-07 07:25:50.905  WARN 19696 --- [lettuce-nioEventLoop-4-8] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [localhost:6379]: Connection refused: no further information: localhost/127.0.0.1:6379
+2022-06-07 07:25:52.187  INFO 19696 --- [lettuce-eventExecutorLoop-1-6] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost:6379
+2022-06-07 07:25:54.203  WARN 19696 --- [lettuce-nioEventLoop-4-7] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [localhost:6379]: Connection refused: no further information: localhost/127.0.0.1:6379
+2022-06-07 07:26:20.989  INFO 19696 --- [lettuce-eventExecutorLoop-1-1] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost:6379
+2022-06-07 07:26:23.005  WARN 19696 --- [lettuce-nioEventLoop-4-1] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [localhost:6379]: Connection refused: no further information: localhost/127.0.0.1:6379
+2022-06-07 07:26:24.294  INFO 19696 --- [lettuce-eventExecutorLoop-1-2] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost:6379
+2022-06-07 07:26:26.309  WARN 19696 --- [lettuce-nioEventLoop-4-2] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [localhost:6379]: Connection refused: no further information: localhost/127.0.0.1:6379
+2022-06-07 07:26:53.097  INFO 19696 --- [lettuce-eventExecutorLoop-1-5] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost:6379
+2022-06-07 07:26:55.114  WARN 19696 --- [lettuce-nioEventLoop-4-3] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [localhost:6379]: Connection refused: no further information: localhost/127.0.0.1:6379
+2022-06-07 07:26:56.387  INFO 19696 --- [lettuce-eventExecutorLoop-1-6] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was localhost:6379
+2022-06-07 07:26:58.409  WARN 19696 --- [lettuce-nioEventLoop-4-4] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [localhost:6379]: Connection refused: no further information: localhost/127.0.0.1:6379
+2022-06-07 07:55:54.744  INFO 26404 --- [main] com.hwadee.DemoApplication               : Starting DemoApplication using Java 1.8.0_261 on LAPTOP-NSCDRADB with PID 26404 (E:\jiangAn\study\3latter\software project management\code\Project\FinancialLeasingSystem\target\classes started by HUAWEI in E:\jiangAn\study\3latter\software project management\code\Project\FinancialLeasingSystem)
+2022-06-07 07:55:54.750  INFO 26404 --- [main] com.hwadee.DemoApplication               : The following 1 profile is active: "dev"
+2022-06-07 07:55:55.926  WARN 26404 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.hwadee]' package. Please check your configuration.
+2022-06-07 07:55:56.085  INFO 26404 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-06-07 07:55:56.086  INFO 26404 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-06-07 07:55:56.112  INFO 26404 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2022-06-07 07:55:56.566  INFO 26404 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8083 (http)
+2022-06-07 07:55:56.573  INFO 26404 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-06-07 07:55:56.574  INFO 26404 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-06-07 07:55:56.682  INFO 26404 --- [main] o.a.c.c.C.[.[localhost].[/hwadee]        : Initializing Spring embedded WebApplicationContext
+2022-06-07 07:55:56.682  INFO 26404 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1810 ms
+2022-06-07 07:55:59.724  WARN 26404 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redisHandler' defined in file [E:\jiangAn\study\3latter\software project management\code\Project\FinancialLeasingSystem\target\classes\com\hwadee\tools\RedisHandler.class]: Invocation of init method failed; nested exception is org.springframework.data.redis.RedisConnectionFailureException: Unable to connect to Redis; nested exception is org.springframework.data.redis.connection.PoolException: Could not get a resource from the pool; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to localhost:6379
+2022-06-07 07:55:59.916  INFO 26404 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-06-07 07:55:59.933  INFO 26404 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-06-07 07:55:59.959 ERROR 26404 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redisHandler' defined in file [E:\jiangAn\study\3latter\software project management\code\Project\FinancialLeasingSystem\target\classes\com\hwadee\tools\RedisHandler.class]: Invocation of init method failed; nested exception is org.springframework.data.redis.RedisConnectionFailureException: Unable to connect to Redis; nested exception is org.springframework.data.redis.connection.PoolException: Could not get a resource from the pool; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to localhost:6379
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804) ~[spring-beans-5.3.16.jar:5.3.16]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.16.jar:5.3.16]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.16.jar:5.3.16]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.16.jar:5.3.16]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.16.jar:5.3.16]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.16.jar:5.3.16]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.16.jar:5.3.16]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:953) ~[spring-beans-5.3.16.jar:5.3.16]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918) ~[spring-context-5.3.16.jar:5.3.16]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.16.jar:5.3.16]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145) ~[spring-boot-2.6.4.jar:2.6.4]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:740) [spring-boot-2.6.4.jar:2.6.4]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:415) [spring-boot-2.6.4.jar:2.6.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303) [spring-boot-2.6.4.jar:2.6.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1312) [spring-boot-2.6.4.jar:2.6.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301) [spring-boot-2.6.4.jar:2.6.4]
+	at com.hwadee.DemoApplication.main(DemoApplication.java:17) [classes/:na]
+Caused by: org.springframework.data.redis.RedisConnectionFailureException: Unable to connect to Redis; nested exception is org.springframework.data.redis.connection.PoolException: Could not get a resource from the pool; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to localhost:6379
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.translateException(LettuceConnectionFactory.java:1689) ~[spring-data-redis-2.6.2.jar:2.6.2]
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.getConnection(LettuceConnectionFactory.java:1597) ~[spring-data-redis-2.6.2.jar:2.6.2]
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$SharedConnection.getNativeConnection(LettuceConnectionFactory.java:1383) ~[spring-data-redis-2.6.2.jar:2.6.2]
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$SharedConnection.getConnection(LettuceConnectionFactory.java:1366) ~[spring-data-redis-2.6.2.jar:2.6.2]
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.getSharedConnection(LettuceConnectionFactory.java:1093) ~[spring-data-redis-2.6.2.jar:2.6.2]
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.getConnection(LettuceConnectionFactory.java:421) ~[spring-data-redis-2.6.2.jar:2.6.2]
+	at org.springframework.data.redis.core.RedisConnectionUtils.fetchConnection(RedisConnectionUtils.java:193) ~[spring-data-redis-2.6.2.jar:2.6.2]
+	at org.springframework.data.redis.core.RedisConnectionUtils.doGetConnection(RedisConnectionUtils.java:144) ~[spring-data-redis-2.6.2.jar:2.6.2]
+	at org.springframework.data.redis.core.RedisConnectionUtils.getConnection(RedisConnectionUtils.java:105) ~[spring-data-redis-2.6.2.jar:2.6.2]
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:210) ~[spring-data-redis-2.6.2.jar:2.6.2]
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:190) ~[spring-data-redis-2.6.2.jar:2.6.2]
+	at org.springframework.data.redis.core.RedisTemplate.keys(RedisTemplate.java:895) ~[spring-data-redis-2.6.2.jar:2.6.2]
+	at com.hwadee.tools.RedisHandler.afterPropertiesSet(RedisHandler.java:33) ~[classes/:na]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.16.jar:5.3.16]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.16.jar:5.3.16]
+	... 16 common frames omitted
+Caused by: org.springframework.data.redis.connection.PoolException: Could not get a resource from the pool; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to localhost:6379
+	at org.springframework.data.redis.connection.lettuce.LettucePoolingConnectionProvider.getConnection(LettucePoolingConnectionProvider.java:109) ~[spring-data-redis-2.6.2.jar:2.6.2]
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.getConnection(LettuceConnectionFactory.java:1595) ~[spring-data-redis-2.6.2.jar:2.6.2]
+	... 29 common frames omitted
+Caused by: io.lettuce.core.RedisConnectionException: Unable to connect to localhost:6379
+	at io.lettuce.core.RedisConnectionException.create(RedisConnectionException.java:78) ~[lettuce-core-6.1.6.RELEASE.jar:6.1.6.RELEASE]
+	at io.lettuce.core.RedisConnectionException.create(RedisConnectionException.java:56) ~[lettuce-core-6.1.6.RELEASE.jar:6.1.6.RELEASE]
+	at io.lettuce.core.AbstractRedisClient.getConnection(AbstractRedisClient.java:330) ~[lettuce-core-6.1.6.RELEASE.jar:6.1.6.RELEASE]
+	at io.lettuce.core.RedisClient.connect(RedisClient.java:216) ~[lettuce-core-6.1.6.RELEASE.jar:6.1.6.RELEASE]
+	at org.springframework.data.redis.connection.lettuce.StandaloneConnectionProvider.lambda$getConnection$1(StandaloneConnectionProvider.java:115) ~[spring-data-redis-2.6.2.jar:2.6.2]
+	at java.util.Optional.orElseGet(Optional.java:267) ~[na:1.8.0_261]
+	at org.springframework.data.redis.connection.lettuce.StandaloneConnectionProvider.getConnection(StandaloneConnectionProvider.java:115) ~[spring-data-redis-2.6.2.jar:2.6.2]
+	at org.springframework.data.redis.connection.lettuce.LettucePoolingConnectionProvider.lambda$null$0(LettucePoolingConnectionProvider.java:97) ~[spring-data-redis-2.6.2.jar:2.6.2]
+	at io.lettuce.core.support.ConnectionPoolSupport$RedisPooledObjectFactory.create(ConnectionPoolSupport.java:211) ~[lettuce-core-6.1.6.RELEASE.jar:6.1.6.RELEASE]
+	at io.lettuce.core.support.ConnectionPoolSupport$RedisPooledObjectFactory.create(ConnectionPoolSupport.java:201) ~[lettuce-core-6.1.6.RELEASE.jar:6.1.6.RELEASE]
+	at org.apache.commons.pool2.BasePooledObjectFactory.makeObject(BasePooledObjectFactory.java:70) ~[commons-pool2-2.11.1.jar:2.11.1]
+	at org.apache.commons.pool2.impl.GenericObjectPool.create(GenericObjectPool.java:571) ~[commons-pool2-2.11.1.jar:2.11.1]
+	at org.apache.commons.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:298) ~[commons-pool2-2.11.1.jar:2.11.1]
+	at org.apache.commons.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:223) ~[commons-pool2-2.11.1.jar:2.11.1]
+	at io.lettuce.core.support.ConnectionPoolSupport$1.borrowObject(ConnectionPoolSupport.java:122) ~[lettuce-core-6.1.6.RELEASE.jar:6.1.6.RELEASE]
+	at io.lettuce.core.support.ConnectionPoolSupport$1.borrowObject(ConnectionPoolSupport.java:117) ~[lettuce-core-6.1.6.RELEASE.jar:6.1.6.RELEASE]
+	at org.springframework.data.redis.connection.lettuce.LettucePoolingConnectionProvider.getConnection(LettucePoolingConnectionProvider.java:103) ~[spring-data-redis-2.6.2.jar:2.6.2]
+	... 30 common frames omitted
+Caused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: localhost/127.0.0.1:6379
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method) ~[na:1.8.0_261]
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:715) ~[na:1.8.0_261]
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:330) ~[netty-transport-4.1.74.Final.jar:4.1.74.Final]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334) ~[netty-transport-4.1.74.Final.jar:4.1.74.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:710) ~[netty-transport-4.1.74.Final.jar:4.1.74.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658) ~[netty-transport-4.1.74.Final.jar:4.1.74.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584) ~[netty-transport-4.1.74.Final.jar:4.1.74.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496) ~[netty-transport-4.1.74.Final.jar:4.1.74.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:986) ~[netty-common-4.1.74.Final.jar:4.1.74.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.74.Final.jar:4.1.74.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.74.Final.jar:4.1.74.Final]
+	at java.lang.Thread.run(Thread.java:748) ~[na:1.8.0_261]
+
+2022-06-07 07:57:21.241  INFO 25928 --- [main] com.hwadee.DemoApplication               : Starting DemoApplication using Java 1.8.0_261 on LAPTOP-NSCDRADB with PID 25928 (E:\jiangAn\study\3latter\software project management\code\Project\FinancialLeasingSystem\target\classes started by HUAWEI in E:\jiangAn\study\3latter\software project management\code\Project\FinancialLeasingSystem)
+2022-06-07 07:57:21.245  INFO 25928 --- [main] com.hwadee.DemoApplication               : The following 1 profile is active: "dev"
+2022-06-07 07:57:21.901  WARN 25928 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.hwadee]' package. Please check your configuration.
+2022-06-07 07:57:22.049  INFO 25928 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-06-07 07:57:22.052  INFO 25928 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-06-07 07:57:22.073  INFO 25928 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2022-06-07 07:57:22.526  INFO 25928 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8083 (http)
+2022-06-07 07:57:22.533  INFO 25928 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-06-07 07:57:22.533  INFO 25928 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-06-07 07:57:22.650  INFO 25928 --- [main] o.a.c.c.C.[.[localhost].[/hwadee]        : Initializing Spring embedded WebApplicationContext
+2022-06-07 07:57:22.650  INFO 25928 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1349 ms
+2022-06-07 07:57:23.728 DEBUG 25928 --- [main] c.hwadee.core.repository.UserRepository  : Cache Hit Ratio [com.hwadee.core.repository.UserRepository]: 0.0
+2022-06-07 07:57:23.732  INFO 25928 --- [main] com.zaxxer.hikari.HikariDataSource       : MyHikariCP - Starting...
+2022-06-07 07:57:23.734  WARN 25928 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2022-06-07 07:57:23.829  INFO 25928 --- [main] com.zaxxer.hikari.HikariDataSource       : MyHikariCP - Start completed.
+2022-06-07 07:57:23.834 DEBUG 25928 --- [main] c.h.c.r.UserRepository.queryUsers        : ==>  Preparing: select * from user; 
+2022-06-07 07:57:23.850 DEBUG 25928 --- [main] c.h.c.r.UserRepository.queryUsers        : ==> Parameters: 
+2022-06-07 07:57:23.863 DEBUG 25928 --- [main] c.h.c.r.UserRepository.queryUsers        : <==      Total: 3
+2022-06-07 07:57:23.875 DEBUG 25928 --- [main] c.h.c.r.P.queryAllProjectStates          : ==>  Preparing: select * from project_state 
+2022-06-07 07:57:23.875 DEBUG 25928 --- [main] c.h.c.r.P.queryAllProjectStates          : ==> Parameters: 
+2022-06-07 07:57:23.881 DEBUG 25928 --- [main] c.h.c.r.P.queryAllProjectStates          : <==      Total: 15
+2022-06-07 07:57:23.916 DEBUG 25928 --- [main] c.hwadee.core.repository.CrewRepository  : Cache Hit Ratio [com.hwadee.core.repository.CrewRepository]: 0.0
+2022-06-07 07:57:23.916 DEBUG 25928 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==>  Preparing: select * from backstage_crew where authority_id=1 
+2022-06-07 07:57:23.916 DEBUG 25928 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==> Parameters: 
+2022-06-07 07:57:23.919 DEBUG 25928 --- [main] c.h.c.r.CrewRepository.queryAllSales     : <==      Total: 4
+2022-06-07 07:57:24.138  INFO 25928 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-06-07 07:57:24.528  INFO 25928 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoint(s) beneath base path '/actuator'
+2022-06-07 07:57:24.567  INFO 25928 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8083 (http) with context path '/hwadee'
+2022-06-07 07:57:24.587  INFO 25928 --- [main] com.hwadee.DemoApplication               : Started DemoApplication in 3.866 seconds (JVM running for 4.481)
+2022-06-07 07:57:30.776  INFO 25928 --- [http-nio-8083-exec-1] o.apache.tomcat.util.http.parser.Cookie  : A cookie header was received [Hm_lvt_b393d153aeb26b46e9431fabaf0f6190=1645767838,1645834494,1646009835] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2022-06-07 07:57:30.791  INFO 25928 --- [http-nio-8083-exec-1] o.a.c.c.C.[.[localhost].[/hwadee]        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-06-07 07:57:30.792  INFO 25928 --- [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-06-07 07:57:30.797  INFO 25928 --- [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2022-06-07 07:57:30.867 DEBUG 25928 --- [http-nio-8083-exec-1] c.h.c.r.P.queryProjectsByState           : ==>  Preparing: select * from project_info where state_id = ? 
+2022-06-07 07:57:30.868 DEBUG 25928 --- [http-nio-8083-exec-1] c.h.c.r.P.queryProjectsByState           : ==> Parameters: 1(Integer)
+2022-06-07 07:57:30.881 DEBUG 25928 --- [http-nio-8083-exec-1] c.h.c.r.P.queryProjectsByState           : <==      Total: 8
+2022-06-07 07:57:35.776 DEBUG 25928 --- [http-nio-8083-exec-3] c.h.c.r.P.queryAllProjects               : ==>  Preparing: select * from project_info 
+2022-06-07 07:57:35.777 DEBUG 25928 --- [http-nio-8083-exec-3] c.h.c.r.P.queryAllProjects               : ==> Parameters: 
+2022-06-07 07:57:35.797 DEBUG 25928 --- [http-nio-8083-exec-3] c.h.c.r.P.queryAllProjects               : <==      Total: 23
+2022-06-07 08:00:26.476 DEBUG 25928 --- [http-nio-8083-exec-10] c.h.c.r.P.queryCertificateByPId          : ==>  Preparing: select certificate from project_info where project_id=? 
+2022-06-07 08:00:26.477 DEBUG 25928 --- [http-nio-8083-exec-10] c.h.c.r.P.queryCertificateByPId          : ==> Parameters: 25(Integer)
+2022-06-07 08:00:26.478 DEBUG 25928 --- [http-nio-8083-exec-10] c.h.c.r.P.queryCertificateByPId          : <==      Total: 1
+2022-06-07 08:00:44.372 DEBUG 25928 --- [http-nio-8083-exec-4] c.h.c.r.P.queryProjectsById              : ==>  Preparing: select * from project_info where project_id = ? 
+2022-06-07 08:00:44.373 DEBUG 25928 --- [http-nio-8083-exec-4] c.h.c.r.P.queryProjectsById              : ==> Parameters: 2(Integer)
+2022-06-07 08:00:44.374 DEBUG 25928 --- [http-nio-8083-exec-4] c.h.c.r.P.queryProjectsById              : <==      Total: 1
+2022-06-07 08:01:53.904 DEBUG 25928 --- [http-nio-8083-exec-5] c.hwadee.core.repository.CrewRepository  : Cache Hit Ratio [com.hwadee.core.repository.CrewRepository]: 0.0
+2022-06-07 08:01:53.905 DEBUG 25928 --- [http-nio-8083-exec-5] c.h.c.r.CrewRepository.queryPassword     : ==>  Preparing: select password from backstage_crew b where b.staff_id = ? 
+2022-06-07 08:01:53.905 DEBUG 25928 --- [http-nio-8083-exec-5] c.h.c.r.CrewRepository.queryPassword     : ==> Parameters: 2(Integer)
+2022-06-07 08:01:53.906 DEBUG 25928 --- [http-nio-8083-exec-5] c.h.c.r.CrewRepository.queryPassword     : <==      Total: 1
+2022-06-07 08:01:53.920 DEBUG 25928 --- [http-nio-8083-exec-10] c.h.c.r.P.queryProjectsByState           : ==>  Preparing: select * from project_info where state_id = ? 
+2022-06-07 08:01:53.920 DEBUG 25928 --- [http-nio-8083-exec-10] c.h.c.r.P.queryProjectsByState           : ==> Parameters: 2(Integer)
+2022-06-07 08:01:53.921 DEBUG 25928 --- [http-nio-8083-exec-10] c.h.c.r.P.queryProjectsByState           : <==      Total: 1
+2022-06-07 08:01:53.922 DEBUG 25928 --- [http-nio-8083-exec-10] c.hwadee.core.repository.UserRepository  : Cache Hit Ratio [com.hwadee.core.repository.UserRepository]: 0.0
+2022-06-07 08:01:53.922 DEBUG 25928 --- [http-nio-8083-exec-10] c.h.c.r.UserRepository.queryUserById     : ==>  Preparing: select * from user where id = ?; 
+2022-06-07 08:01:53.923 DEBUG 25928 --- [http-nio-8083-exec-10] c.h.c.r.UserRepository.queryUserById     : ==> Parameters: 2(Integer)
+2022-06-07 08:01:53.924 DEBUG 25928 --- [http-nio-8083-exec-10] c.h.c.r.UserRepository.queryUserById     : <==      Total: 1
+2022-06-07 08:04:40.845 DEBUG 25928 --- [http-nio-8083-exec-1] c.h.c.r.P.queryProjectsById              : ==>  Preparing: select * from project_info where project_id = ? 
+2022-06-07 08:04:40.846 DEBUG 25928 --- [http-nio-8083-exec-1] c.h.c.r.P.queryProjectsById              : ==> Parameters: 2(Integer)
+2022-06-07 08:04:40.847 DEBUG 25928 --- [http-nio-8083-exec-1] c.h.c.r.P.queryProjectsById              : <==      Total: 1
+2022-06-07 08:06:37.481 DEBUG 25928 --- [http-nio-8083-exec-10] c.h.c.r.P.queryAssetsDisposal            : ==>  Preparing: select * from project_info where current_date > DATE_ADD(project_time, INTERVAL lease_schedule_duration day ) and state_id in(7,8); 
+2022-06-07 08:06:37.481 DEBUG 25928 --- [http-nio-8083-exec-10] c.h.c.r.P.queryAssetsDisposal            : ==> Parameters: 
+2022-06-07 08:06:37.492 DEBUG 25928 --- [http-nio-8083-exec-10] c.h.c.r.P.queryAssetsDisposal            : <==      Total: 1
+2022-06-07 08:06:37.495 DEBUG 25928 --- [http-nio-8083-exec-10] c.h.c.r.P.queryDisposalAudit             : ==>  Preparing: select * from project_info where state_id in(12,13,14) 
+2022-06-07 08:06:37.495 DEBUG 25928 --- [http-nio-8083-exec-10] c.h.c.r.P.queryDisposalAudit             : ==> Parameters: 
+2022-06-07 08:06:37.498 DEBUG 25928 --- [http-nio-8083-exec-10] c.h.c.r.P.queryDisposalAudit             : <==      Total: 4
+2022-06-07 08:06:49.293 DEBUG 25928 --- [http-nio-8083-exec-4] c.h.c.r.P.queryProjectsByState           : ==>  Preparing: select * from project_info where state_id = ? 
+2022-06-07 08:06:49.294 DEBUG 25928 --- [http-nio-8083-exec-4] c.h.c.r.P.queryProjectsByState           : ==> Parameters: 7(Integer)
+2022-06-07 08:06:49.294 DEBUG 25928 --- [http-nio-8083-exec-4] c.h.c.r.P.queryProjectsByState           : <==      Total: 0
+2022-06-07 08:06:56.128 DEBUG 25928 --- [http-nio-8083-exec-1] c.hwadee.core.repository.RiskRepository  : Cache Hit Ratio [com.hwadee.core.repository.RiskRepository]: 0.0
+2022-06-07 08:06:56.129 DEBUG 25928 --- [http-nio-8083-exec-1] c.h.c.r.R.queryRiskEvaluationById        : ==>  Preparing: select * from risk_evaluation where project_id = ? 
+2022-06-07 08:06:56.130 DEBUG 25928 --- [http-nio-8083-exec-1] c.h.c.r.R.queryRiskEvaluationById        : ==> Parameters: 9(Integer)
+2022-06-07 08:06:56.156 DEBUG 25928 --- [http-nio-8083-exec-1] c.h.c.r.R.queryRiskEvaluationById        : <==      Total: 1
+2022-06-07 08:06:56.157 DEBUG 25928 --- [http-nio-8083-exec-1] c.h.core.repository.QuoteRepository      : Cache Hit Ratio [com.hwadee.core.repository.QuoteRepository]: 0.0
+2022-06-07 08:06:56.157 DEBUG 25928 --- [http-nio-8083-exec-1] c.h.c.r.Q.queryQuoteEvaluationById       : ==>  Preparing: select * from quote_evaluation where project_id = ? 
+2022-06-07 08:06:56.158 DEBUG 25928 --- [http-nio-8083-exec-1] c.h.c.r.Q.queryQuoteEvaluationById       : ==> Parameters: 9(Integer)
+2022-06-07 08:06:56.176 DEBUG 25928 --- [http-nio-8083-exec-1] c.h.c.r.Q.queryQuoteEvaluationById       : <==      Total: 1
+2022-06-07 08:06:56.179 DEBUG 25928 --- [http-nio-8083-exec-1] c.h.c.repository.ProjectAuditRepository  : Cache Hit Ratio [com.hwadee.core.repository.ProjectAuditRepository]: 0.0
+2022-06-07 08:06:56.180 DEBUG 25928 --- [http-nio-8083-exec-1] c.h.c.r.P.queryProjectAuditById          : ==>  Preparing: select * from project_audit where project_id = ? 
+2022-06-07 08:06:56.181 DEBUG 25928 --- [http-nio-8083-exec-1] c.h.c.r.P.queryProjectAuditById          : ==> Parameters: 9(Integer)
+2022-06-07 08:06:56.202 DEBUG 25928 --- [http-nio-8083-exec-1] c.h.c.r.P.queryProjectAuditById          : <==      Total: 1
+2022-06-07 08:06:56.204 DEBUG 25928 --- [http-nio-8083-exec-1] c.h.c.repository.LoanApprovalRepository  : Cache Hit Ratio [com.hwadee.core.repository.LoanApprovalRepository]: 0.0
+2022-06-07 08:06:56.204 DEBUG 25928 --- [http-nio-8083-exec-1] c.h.c.r.L.queryLoanApprovalById          : ==>  Preparing: select * from loan_approval where project_id = ? 
+2022-06-07 08:06:56.204 DEBUG 25928 --- [http-nio-8083-exec-1] c.h.c.r.L.queryLoanApprovalById          : ==> Parameters: 9(Integer)
+2022-06-07 08:06:56.223 DEBUG 25928 --- [http-nio-8083-exec-1] c.h.c.r.L.queryLoanApprovalById          : <==      Total: 1
+2022-06-07 08:06:56.224 DEBUG 25928 --- [http-nio-8083-exec-1] c.h.c.r.C.queryCashFlowById              : ==>  Preparing: select * from cash_flow where project_id = ? 
+2022-06-07 08:06:56.225 DEBUG 25928 --- [http-nio-8083-exec-1] c.h.c.r.C.queryCashFlowById              : ==> Parameters: 9(Integer)
+2022-06-07 08:06:56.237 DEBUG 25928 --- [http-nio-8083-exec-1] c.h.c.r.C.queryCashFlowById              : <==      Total: 2
+2022-06-07 08:06:56.239 DEBUG 25928 --- [http-nio-8083-exec-1] c.h.c.r.A.queryAssetsCheckById           : ==>  Preparing: select * from assets_check where project_id = ? 
+2022-06-07 08:06:56.239 DEBUG 25928 --- [http-nio-8083-exec-1] c.h.c.r.A.queryAssetsCheckById           : ==> Parameters: 9(Integer)
+2022-06-07 08:06:56.263 DEBUG 25928 --- [http-nio-8083-exec-1] c.h.c.r.A.queryAssetsCheckById           : <==      Total: 0
+2022-06-07 08:06:56.264 DEBUG 25928 --- [http-nio-8083-exec-1] c.h.c.repository.ProjectAlterRepository  : Cache Hit Ratio [com.hwadee.core.repository.ProjectAlterRepository]: 0.0
+2022-06-07 08:06:56.265 DEBUG 25928 --- [http-nio-8083-exec-1] h.c.r.P.queryProjectAlterApplicationById : ==>  Preparing: select * from project_alter_application where project_id = ? 
+2022-06-07 08:06:56.265 DEBUG 25928 --- [http-nio-8083-exec-1] h.c.r.P.queryProjectAlterApplicationById : ==> Parameters: 9(Integer)
+2022-06-07 08:06:56.275 DEBUG 25928 --- [http-nio-8083-exec-1] h.c.r.P.queryProjectAlterApplicationById : <==      Total: 1
+2022-06-07 08:08:15.824 DEBUG 25928 --- [http-nio-8083-exec-8] c.h.c.r.P.queryProjectsByState           : ==>  Preparing: select * from project_info where state_id = ? 
+2022-06-07 08:08:15.826 DEBUG 25928 --- [http-nio-8083-exec-8] c.h.c.r.P.queryProjectsByState           : ==> Parameters: 7(Integer)
+2022-06-07 08:08:15.827 DEBUG 25928 --- [http-nio-8083-exec-8] c.h.c.r.P.queryProjectsByState           : <==      Total: 1
+2022-06-07 08:08:33.591 DEBUG 25928 --- [http-nio-8083-exec-9] c.h.c.r.P.insertAlterApplication         : ==>  Preparing: insert into project_alter_application(project_id,lease_schedule_unit_price,lease_schedule_unit_time,lease_schedule_duration,retake_effect_time) values(?,?,?,?,?) 
+2022-06-07 08:08:33.596 DEBUG 25928 --- [http-nio-8083-exec-9] c.h.c.r.P.insertAlterApplication         : ==> Parameters: 7(Integer), 518(Integer), 周(String), 5(Integer), 2022-06-07 16:08:00.0(Timestamp)
+2022-06-07 08:08:33.720 ERROR 25928 --- [http-nio-8083-exec-9] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] in context with path [/hwadee] threw exception [Request processing failed; nested exception is org.springframework.dao.DuplicateKeyException: 
+### Error updating database.  Cause: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '7' for key 'PRIMARY'
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: insert into project_alter_application(project_id,lease_schedule_unit_price,lease_schedule_unit_time,lease_schedule_duration,retake_effect_time)         values(?,?,?,?,?)
+### Cause: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '7' for key 'PRIMARY'
+; Duplicate entry '7' for key 'PRIMARY'; nested exception is java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '7' for key 'PRIMARY'] with root cause
+
+java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '7' for key 'PRIMARY'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:117) ~[mysql-connector-java-8.0.18.jar:8.0.18]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97) ~[mysql-connector-java-8.0.18.jar:8.0.18]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.18.jar:8.0.18]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953) ~[mysql-connector-java-8.0.18.jar:8.0.18]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:370) ~[mysql-connector-java-8.0.18.jar:8.0.18]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java) ~[HikariCP-4.0.3.jar:na]
+	at sun.reflect.GeneratedMethodAccessor111.invoke(Unknown Source) ~[na:na]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_261]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_261]
+	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:59) ~[mybatis-3.4.5.jar:3.4.5]
+	at com.sun.proxy.$Proxy121.execute(Unknown Source) ~[na:na]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:46) ~[mybatis-3.4.5.jar:3.4.5]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74) ~[mybatis-3.4.5.jar:3.4.5]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50) ~[mybatis-3.4.5.jar:3.4.5]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117) ~[mybatis-3.4.5.jar:3.4.5]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76) ~[mybatis-3.4.5.jar:3.4.5]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:198) ~[mybatis-3.4.5.jar:3.4.5]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:185) ~[mybatis-3.4.5.jar:3.4.5]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_261]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_261]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_261]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_261]
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:427) ~[mybatis-spring-2.0.6.jar:2.0.6]
+	at com.sun.proxy.$Proxy85.insert(Unknown Source) ~[na:na]
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:272) ~[mybatis-spring-2.0.6.jar:2.0.6]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:57) ~[mybatis-3.4.5.jar:3.4.5]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:59) ~[mybatis-3.4.5.jar:3.4.5]
+	at com.sun.proxy.$Proxy108.insertAlterApplication(Unknown Source) ~[na:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_261]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_261]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_261]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_261]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344) ~[spring-aop-5.3.16.jar:5.3.16]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198) ~[spring-aop-5.3.16.jar:5.3.16]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.3.16.jar:5.3.16]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-5.3.16.jar:5.3.16]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.16.jar:5.3.16]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215) ~[spring-aop-5.3.16.jar:5.3.16]
+	at com.sun.proxy.$Proxy109.insertAlterApplication(Unknown Source) ~[na:na]
+	at com.hwadee.core.service.impl.SalesServiceImpl.insertAlterApplication(SalesServiceImpl.java:213) ~[classes/:na]
+	at com.hwadee.core.controller.SalesContorller.alterApplicationSubmit(SalesContorller.java:331) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_261]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_261]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_261]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_261]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.16.jar:5.3.16]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.16.jar:5.3.16]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.16.jar:5.3.16]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.16.jar:5.3.16]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.16.jar:5.3.16]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.16.jar:5.3.16]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.16.jar:5.3.16]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.16.jar:5.3.16]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.16.jar:5.3.16]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.16.jar:5.3.16]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[tomcat-embed-core-9.0.58.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.16.jar:5.3.16]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.58.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.58.jar:9.0.58]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.16.jar:5.3.16]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.16.jar:5.3.16]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.16.jar:5.3.16]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.16.jar:5.3.16]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96) ~[spring-boot-actuator-2.6.4.jar:2.6.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.16.jar:5.3.16]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.16.jar:5.3.16]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.16.jar:5.3.16]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:359) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:889) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1735) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.58.jar:9.0.58]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_261]
+
+2022-06-07 08:08:35.591 DEBUG 25928 --- [http-nio-8083-exec-5] c.h.c.r.P.queryProjectsByState           : ==>  Preparing: select * from project_info where state_id = ? 
+2022-06-07 08:08:35.592 DEBUG 25928 --- [http-nio-8083-exec-5] c.h.c.r.P.queryProjectsByState           : ==> Parameters: 7(Integer)
+2022-06-07 08:08:35.593 DEBUG 25928 --- [http-nio-8083-exec-5] c.h.c.r.P.queryProjectsByState           : <==      Total: 1
+2022-06-07 08:09:29.384 DEBUG 25928 --- [http-nio-8083-exec-7] c.h.c.r.P.queryProjectsByState           : ==>  Preparing: select * from project_info where state_id = ? 
+2022-06-07 08:09:29.385 DEBUG 25928 --- [http-nio-8083-exec-7] c.h.c.r.P.queryProjectsByState           : ==> Parameters: 7(Integer)
+2022-06-07 08:09:29.386 DEBUG 25928 --- [http-nio-8083-exec-7] c.h.c.r.P.queryProjectsByState           : <==      Total: 1
+2022-06-07 08:10:36.237 DEBUG 25928 --- [http-nio-8083-exec-4] c.h.c.r.P.queryProjectsByState           : ==>  Preparing: select * from project_info where state_id = ? 
+2022-06-07 08:10:36.238 DEBUG 25928 --- [http-nio-8083-exec-4] c.h.c.r.P.queryProjectsByState           : ==> Parameters: 7(Integer)
+2022-06-07 08:10:36.239 DEBUG 25928 --- [http-nio-8083-exec-4] c.h.c.r.P.queryProjectsByState           : <==      Total: 1
+2022-06-07 08:10:43.630 DEBUG 25928 --- [http-nio-8083-exec-1] c.h.c.r.P.queryProjectsByState           : ==>  Preparing: select * from project_info where state_id = ? 
+2022-06-07 08:10:43.630 DEBUG 25928 --- [http-nio-8083-exec-1] c.h.c.r.P.queryProjectsByState           : ==> Parameters: 7(Integer)
+2022-06-07 08:10:43.632 DEBUG 25928 --- [http-nio-8083-exec-1] c.h.c.r.P.queryProjectsByState           : <==      Total: 1
+2022-06-07 08:11:04.966  INFO 26904 --- [main] com.hwadee.DemoApplication               : Starting DemoApplication using Java 1.8.0_261 on LAPTOP-NSCDRADB with PID 26904 (E:\jiangAn\study\3latter\software project management\code\Project\FinancialLeasingSystem\target\classes started by HUAWEI in E:\jiangAn\study\3latter\software project management\code\Project\FinancialLeasingSystem)
+2022-06-07 08:11:04.968  INFO 26904 --- [main] com.hwadee.DemoApplication               : The following 1 profile is active: "dev"
+2022-06-07 08:11:05.633  WARN 26904 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.hwadee]' package. Please check your configuration.
+2022-06-07 08:11:05.809  INFO 26904 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-06-07 08:11:05.811  INFO 26904 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-06-07 08:11:05.833  INFO 26904 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2022-06-07 08:11:06.782  INFO 26904 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8083 (http)
+2022-06-07 08:11:06.803  INFO 26904 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-06-07 08:11:06.804  INFO 26904 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-06-07 08:11:07.033  INFO 26904 --- [main] o.a.c.c.C.[.[localhost].[/hwadee]        : Initializing Spring embedded WebApplicationContext
+2022-06-07 08:11:07.034  INFO 26904 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2009 ms
+2022-06-07 08:11:09.514 DEBUG 26904 --- [main] c.hwadee.core.repository.UserRepository  : Cache Hit Ratio [com.hwadee.core.repository.UserRepository]: 0.0
+2022-06-07 08:11:09.525  INFO 26904 --- [main] com.zaxxer.hikari.HikariDataSource       : MyHikariCP - Starting...
+2022-06-07 08:11:09.528  WARN 26904 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2022-06-07 08:11:09.679  INFO 26904 --- [main] com.zaxxer.hikari.HikariDataSource       : MyHikariCP - Start completed.
+2022-06-07 08:11:09.691 DEBUG 26904 --- [main] c.h.c.r.UserRepository.queryUsers        : ==>  Preparing: select * from user; 
+2022-06-07 08:11:09.722 DEBUG 26904 --- [main] c.h.c.r.UserRepository.queryUsers        : ==> Parameters: 
+2022-06-07 08:11:09.752 DEBUG 26904 --- [main] c.h.c.r.UserRepository.queryUsers        : <==      Total: 3
+2022-06-07 08:11:09.770 DEBUG 26904 --- [main] c.h.c.r.P.queryAllProjectStates          : ==>  Preparing: select * from project_state 
+2022-06-07 08:11:09.770 DEBUG 26904 --- [main] c.h.c.r.P.queryAllProjectStates          : ==> Parameters: 
+2022-06-07 08:11:09.775 DEBUG 26904 --- [main] c.h.c.r.P.queryAllProjectStates          : <==      Total: 15
+2022-06-07 08:11:09.832 DEBUG 26904 --- [main] c.hwadee.core.repository.CrewRepository  : Cache Hit Ratio [com.hwadee.core.repository.CrewRepository]: 0.0
+2022-06-07 08:11:09.833 DEBUG 26904 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==>  Preparing: select * from backstage_crew where authority_id=1 
+2022-06-07 08:11:09.833 DEBUG 26904 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==> Parameters: 
+2022-06-07 08:11:09.836 DEBUG 26904 --- [main] c.h.c.r.CrewRepository.queryAllSales     : <==      Total: 4
+2022-06-07 08:11:10.074  INFO 26904 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-06-07 08:11:10.437  INFO 26904 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoint(s) beneath base path '/actuator'
+2022-06-07 08:11:10.480  INFO 26904 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8083 (http) with context path '/hwadee'
+2022-06-07 08:11:10.502  INFO 26904 --- [main] com.hwadee.DemoApplication               : Started DemoApplication in 6.211 seconds (JVM running for 7.58)
+2022-06-07 08:11:14.039  INFO 26904 --- [http-nio-8083-exec-1] o.apache.tomcat.util.http.parser.Cookie  : A cookie header was received [Hm_lvt_b393d153aeb26b46e9431fabaf0f6190=1645767838,1645834494,1646009835] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2022-06-07 08:11:14.044  INFO 26904 --- [http-nio-8083-exec-1] o.a.c.c.C.[.[localhost].[/hwadee]        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-06-07 08:11:14.044  INFO 26904 --- [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-06-07 08:11:14.046  INFO 26904 --- [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-06-07 08:11:14.077 DEBUG 26904 --- [http-nio-8083-exec-1] c.h.c.r.P.queryProjectsByState           : ==>  Preparing: select * from project_info where state_id = ? 
+2022-06-07 08:11:14.077 DEBUG 26904 --- [http-nio-8083-exec-1] c.h.c.r.P.queryProjectsByState           : ==> Parameters: 7(Integer)
+2022-06-07 08:11:14.080 DEBUG 26904 --- [http-nio-8083-exec-1] c.h.c.r.P.queryProjectsByState           : <==      Total: 1
+2022-06-07 08:11:14.081 DEBUG 26904 --- [http-nio-8083-exec-1] c.h.c.r.P.queryProjectsByState           : ==>  Preparing: select * from project_info where state_id = ? 
+2022-06-07 08:11:14.081 DEBUG 26904 --- [http-nio-8083-exec-1] c.h.c.r.P.queryProjectsByState           : ==> Parameters: 8(Integer)
+2022-06-07 08:11:14.083 DEBUG 26904 --- [http-nio-8083-exec-1] c.h.c.r.P.queryProjectsByState           : <==      Total: 1
+2022-06-07 08:11:14.085 DEBUG 26904 --- [http-nio-8083-exec-1] c.h.c.r.P.queryProjectsByState           : ==>  Preparing: select * from project_info where state_id = ? 
+2022-06-07 08:11:14.085 DEBUG 26904 --- [http-nio-8083-exec-1] c.h.c.r.P.queryProjectsByState           : ==> Parameters: 9(Integer)
+2022-06-07 08:11:14.086 DEBUG 26904 --- [http-nio-8083-exec-1] c.h.c.r.P.queryProjectsByState           : <==      Total: 1
+2022-06-07 08:11:14.088 DEBUG 26904 --- [http-nio-8083-exec-1] c.h.c.r.P.queryProjectsByState           : ==>  Preparing: select * from project_info where state_id = ? 
+2022-06-07 08:11:14.088 DEBUG 26904 --- [http-nio-8083-exec-1] c.h.c.r.P.queryProjectsByState           : ==> Parameters: 10(Integer)
+2022-06-07 08:11:14.089 DEBUG 26904 --- [http-nio-8083-exec-1] c.h.c.r.P.queryProjectsByState           : <==      Total: 1
+2022-06-07 08:11:51.618 DEBUG 26904 --- [http-nio-8083-exec-3] c.h.c.r.P.insertAlterApplication         : ==>  Preparing: insert into project_alter_application(project_id,lease_schedule_unit_price,lease_schedule_unit_time,lease_schedule_duration,retake_effect_time) values(?,?,?,?,?) 
+2022-06-07 08:11:51.619 DEBUG 26904 --- [http-nio-8083-exec-3] c.h.c.r.P.insertAlterApplication         : ==> Parameters: 7(Integer), 518(Integer), 周(String), 5(Integer), 2022-06-07 16:11:00.0(Timestamp)
+2022-06-07 08:11:51.631 DEBUG 26904 --- [http-nio-8083-exec-3] c.h.c.r.P.insertAlterApplication         : <==    Updates: 1
+2022-06-07 08:11:51.633 DEBUG 26904 --- [http-nio-8083-exec-3] c.hwadee.core.repository.CrewRepository  : Cache Hit Ratio [com.hwadee.core.repository.CrewRepository]: 0.0
+2022-06-07 08:11:51.634 DEBUG 26904 --- [http-nio-8083-exec-3] c.h.c.r.C.queryCrewByAuthorityId         : ==>  Preparing: select * from backstage_crew where authority_id=? 
+2022-06-07 08:11:51.634 DEBUG 26904 --- [http-nio-8083-exec-3] c.h.c.r.C.queryCrewByAuthorityId         : ==> Parameters: 2(Integer)
+2022-06-07 08:11:51.637 DEBUG 26904 --- [http-nio-8083-exec-3] c.h.c.r.C.queryCrewByAuthorityId         : <==      Total: 2
+2022-06-07 08:11:51.638 DEBUG 26904 --- [http-nio-8083-exec-3] c.h.c.r.P.queryProjectsByStaffId         : ==>  Preparing: select * from project_info where current_staff_id = ? 
+2022-06-07 08:11:51.639 DEBUG 26904 --- [http-nio-8083-exec-3] c.h.c.r.P.queryProjectsByStaffId         : ==> Parameters: 2(Integer)
+2022-06-07 08:11:51.642 DEBUG 26904 --- [http-nio-8083-exec-3] c.h.c.r.P.queryProjectsByStaffId         : <==      Total: 2
+2022-06-07 08:11:51.643 DEBUG 26904 --- [http-nio-8083-exec-3] c.h.c.r.P.queryProjectsByStaffId         : ==>  Preparing: select * from project_info where current_staff_id = ? 
+2022-06-07 08:11:51.643 DEBUG 26904 --- [http-nio-8083-exec-3] c.h.c.r.P.queryProjectsByStaffId         : ==> Parameters: 9(Integer)
+2022-06-07 08:11:51.644 DEBUG 26904 --- [http-nio-8083-exec-3] c.h.c.r.P.queryProjectsByStaffId         : <==      Total: 0
+2022-06-07 08:11:51.645 DEBUG 26904 --- [http-nio-8083-exec-3] c.h.c.r.P.updateStateAndStaff            : ==>  Preparing: update project_info set state_id = ?, current_staff_id = ? where project_id = ? 
+2022-06-07 08:11:51.645 DEBUG 26904 --- [http-nio-8083-exec-3] c.h.c.r.P.updateStateAndStaff            : ==> Parameters: 9(Integer), 9(Integer), 7(Integer)
+2022-06-07 08:11:51.647 DEBUG 26904 --- [http-nio-8083-exec-3] c.h.c.r.P.updateStateAndStaff            : <==    Updates: 1
+2022-06-07 08:11:52.861 DEBUG 26904 --- [http-nio-8083-exec-2] c.h.c.r.P.queryProjectsByState           : ==>  Preparing: select * from project_info where state_id = ? 
+2022-06-07 08:11:52.863 DEBUG 26904 --- [http-nio-8083-exec-2] c.h.c.r.P.queryProjectsByState           : ==> Parameters: 7(Integer)
+2022-06-07 08:11:52.863 DEBUG 26904 --- [http-nio-8083-exec-2] c.h.c.r.P.queryProjectsByState           : <==      Total: 0
+2022-06-07 08:11:52.868 DEBUG 26904 --- [http-nio-8083-exec-2] c.h.c.r.P.queryProjectsByState           : ==>  Preparing: select * from project_info where state_id = ? 
+2022-06-07 08:11:52.869 DEBUG 26904 --- [http-nio-8083-exec-2] c.h.c.r.P.queryProjectsByState           : ==> Parameters: 8(Integer)
+2022-06-07 08:11:52.872 DEBUG 26904 --- [http-nio-8083-exec-2] c.h.c.r.P.queryProjectsByState           : <==      Total: 1
+2022-06-07 08:11:52.873 DEBUG 26904 --- [http-nio-8083-exec-2] c.h.c.r.P.queryProjectsByState           : ==>  Preparing: select * from project_info where state_id = ? 
+2022-06-07 08:11:52.874 DEBUG 26904 --- [http-nio-8083-exec-2] c.h.c.r.P.queryProjectsByState           : ==> Parameters: 9(Integer)
+2022-06-07 08:11:52.877 DEBUG 26904 --- [http-nio-8083-exec-2] c.h.c.r.P.queryProjectsByState           : <==      Total: 2
+2022-06-07 08:11:52.879 DEBUG 26904 --- [http-nio-8083-exec-2] c.h.c.r.P.queryProjectsByState           : ==>  Preparing: select * from project_info where state_id = ? 
+2022-06-07 08:11:52.879 DEBUG 26904 --- [http-nio-8083-exec-2] c.h.c.r.P.queryProjectsByState           : ==> Parameters: 10(Integer)
+2022-06-07 08:11:52.883 DEBUG 26904 --- [http-nio-8083-exec-2] c.h.c.r.P.queryProjectsByState           : <==      Total: 1
+2022-06-07 08:31:02.117  WARN 26904 --- [http-nio-8083-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public java.lang.Integer com.hwadee.core.controller.PathController.crewLogin(java.util.Map<java.lang.String, java.lang.Object>)]
+2022-06-07 08:31:36.137 DEBUG 26904 --- [http-nio-8083-exec-6] c.hwadee.core.repository.CrewRepository  : Cache Hit Ratio [com.hwadee.core.repository.CrewRepository]: 0.0
+2022-06-07 08:31:36.139 DEBUG 26904 --- [http-nio-8083-exec-6] c.h.c.r.CrewRepository.queryPassword     : ==>  Preparing: select password from backstage_crew b where b.staff_id = ? 
+2022-06-07 08:31:36.139 DEBUG 26904 --- [http-nio-8083-exec-6] c.h.c.r.CrewRepository.queryPassword     : ==> Parameters: 1(Integer)
+2022-06-07 08:31:36.140 DEBUG 26904 --- [http-nio-8083-exec-6] c.h.c.r.CrewRepository.queryPassword     : <==      Total: 1
+2022-06-07 08:31:36.159 DEBUG 26904 --- [http-nio-8083-exec-4] c.h.c.r.P.queryAllProjects               : ==>  Preparing: select * from project_info 
+2022-06-07 08:31:36.160 DEBUG 26904 --- [http-nio-8083-exec-4] c.h.c.r.P.queryAllProjects               : ==> Parameters: 
+2022-06-07 08:31:36.174 DEBUG 26904 --- [http-nio-8083-exec-4] c.h.c.r.P.queryAllProjects               : <==      Total: 23
+2022-06-07 13:09:35.425  WARN 26904 --- [MyHikariCP housekeeper] com.zaxxer.hikari.pool.HikariPool        : MyHikariCP - Thread starvation or clock leap detected (housekeeper delta=1h28m22s455ms796µs600ns).
+2022-06-07 14:35:43.443  WARN 26904 --- [MyHikariCP housekeeper] com.zaxxer.hikari.pool.HikariPool        : MyHikariCP - Thread starvation or clock leap detected (housekeeper delta=28m37s186ms278µs400ns).
