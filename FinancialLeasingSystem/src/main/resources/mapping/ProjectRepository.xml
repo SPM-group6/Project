@@ -23,6 +23,13 @@
         where project_id = #{id}
     </select>
 
+
+    <select id="queryProjectsByStaffId" parameterType="java.lang.Integer" resultType="Project">
+        select *
+        from project_info
+        where current_staff_id = #{currentStaffId}
+    </select>
+
     <select id="queryProjectsByStateAndStaff" parameterType="java.lang.Integer" resultType="Project">
         select *
         from project_info

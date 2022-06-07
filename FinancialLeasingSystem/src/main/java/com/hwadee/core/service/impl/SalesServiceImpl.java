@@ -3,6 +3,7 @@ package com.hwadee.core.service.impl;
 import cn.hutool.json.JSONUtil;
 import com.alibaba.fastjson.JSONObject;
 import com.hwadee.core.repository.*;
+import com.hwadee.core.service.CommonService;
 import com.hwadee.core.service.salesService;
 import com.hwadee.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,9 @@ public class SalesServiceImpl implements salesService {
     private ProjectAlterRepository projectAlterRepository;
     @Autowired
     private RedisTemplate<String,String> redisTemplate;
+
+    @Autowired
+    private CommonService commonService;
 
     @Override
     public List<Project> queryAllProjects() {
@@ -220,8 +224,9 @@ public class SalesServiceImpl implements salesService {
     }
 
     @Override
-    public boolean setProjectState(int pId,int newState,int newStaff){
-        return projectRepository.updateStateAndStaff(pId,newState,newStaff);
+    public boolean setProjectState(int pId,int newState,int authorityId){
+        Crew newStaff=commonService.assignCrew(authorityId);
+        return projectRepository.updateStateAndStaff(pId,newState,newStaff.getStaffId());
     }
 
     @Override

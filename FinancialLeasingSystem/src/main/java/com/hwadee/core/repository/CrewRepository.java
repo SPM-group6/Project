@@ -24,6 +24,11 @@ public interface CrewRepository {
     public List<Crew> querySalesByUserId(int userId);
 
     /**
+     * 查询和指定ID的后台工作人员
+     */
+    public List<Crew> queryCrewById(int Id);
+
+    /**
      * 查询其他(没有和指定用户合作过的业务员)
      */
     public List<Crew> queryOtherSalesByUserId(int userId);
