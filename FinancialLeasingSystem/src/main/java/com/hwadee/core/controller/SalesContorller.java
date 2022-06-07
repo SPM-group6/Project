@@ -416,7 +416,7 @@ public class SalesContorller {
         if(SalesService.insertProApplication(temProject) != 1) {
             System.out.println("in SalesController--applicationSubmit: 数据库修改失败");
         }
-        //修改项目状态和当前员工id
+//        修改项目状态和当前员工id
 //        SalesService.setProjectState()
         return "redirect:/application";
     }
