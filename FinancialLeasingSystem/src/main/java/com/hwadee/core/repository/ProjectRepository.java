@@ -90,4 +90,9 @@ public interface ProjectRepository {
      * 根据承租人id和项目创建时间查询项目
      */
     Project queryProjectByUIdTime(@Param("applicantId") int applicantId, @Param("date") String date);
+
+    /**
+     * 查询指定crew_id负责的项目
+     */
+    List<Project> queryProjectsByStaffId(@Param("currentStaffId") int currentStaffId);
 }

@@ -186,7 +186,7 @@ public class SalesContorller {
     }
 
     /**
-     * 业务员--查询中的项目
+     * 业务员--查询已结束的项目
      * @param model
      * @return
      */
@@ -211,7 +211,6 @@ public class SalesContorller {
         if(state>3){
             QuoteEvaluation quote= SalesService.queryQuoteEvaluationById(id);
             model.addAttribute("quote", quote);
-
         }
         if(state>4){
             ProjectAudit audit= SalesService.queryProjectAuditById(id);
@@ -319,7 +318,6 @@ public class SalesContorller {
             }
             else
                 resultmap.put("changeState","0");
-
         }
         return resultmap;
     }
