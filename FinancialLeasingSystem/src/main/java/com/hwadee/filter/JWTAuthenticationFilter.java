@@ -22,12 +22,11 @@ import java.util.Collection;
 
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
-    private ThreadLocal<Integer> rememberMe = new ThreadLocal<>();
     private AuthenticationManager authenticationManager;
 
     public JWTAuthenticationFilter(AuthenticationManager authenticationManager) {
         this.authenticationManager = authenticationManager;
-        super.setFilterProcessesUrl("/crewLogin");
+        super.setFilterProcessesUrl("/testCrewLogin");
     }
 
     @Override
@@ -56,7 +55,6 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 
         JwtCrew jwtUser = (JwtCrew) authResult.getPrincipal();
         System.out.println("jwtUser:" + jwtUser.toString());
-        boolean isRemember = rememberMe.get() == 1;
 
         String role = "";
         Collection<? extends GrantedAuthority> authorities = jwtUser.getAuthorities();

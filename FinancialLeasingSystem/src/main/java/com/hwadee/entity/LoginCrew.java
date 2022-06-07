@@ -9,6 +9,10 @@ public class LoginCrew {
     private Integer id;
     private String password;
 
+    public LoginCrew(){
+
+    }
+
     public LoginCrew(Integer id) {
         this.id = id;
     }
