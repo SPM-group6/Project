@@ -1681,8 +1681,21 @@ flow_time</ColNames>
     <column id="417" parent="303" name="recent_bill">
       <Position>10</Position>
       <DataType>varchar(255)|0s</DataType>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
     </column>
-    <key id="418" parent="303" name="PRIMARY">
+    <column id="418" parent="303" name="facePath">
+      <Position>11</Position>
+      <Comment>承租人人脸存储路径</Comment>
+      <DataType>varchar(255)|0s</DataType>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="419" parent="303" name="faceUrl">
+      <Position>12</Position>
+      <Comment>承租人人脸访问路径</Comment>
+      <DataType>varchar(255)|0s</DataType>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <key id="420" parent="303" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
