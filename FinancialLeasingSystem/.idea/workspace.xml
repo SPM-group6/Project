@@ -4,26 +4,40 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdede712-8fa7-4980-bd28-cc0bb2882b93" name="Default Changelist" comment="new project will add to the redis">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hwadee.log" beforeDir="false" afterPath="$PROJECT_DIR$/hwadee.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hwadee/core/repository/ProjectRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hwadee/core/repository/ProjectRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hwadee/core/service/impl/SalesServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hwadee/core/service/impl/SalesServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hwadee/core/service/salesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hwadee/core/service/salesService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapping/ProjectRepository.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapping/ProjectRepository.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application-dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hwadee/core/repository/ProjectRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hwadee/core/repository/ProjectRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hwadee/core/service/impl/SalesServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hwadee/core/service/impl/SalesServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hwadee/core/service/salesService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hwadee/core/service/salesService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapping/ProjectRepository.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapping/ProjectRepository.xml" afterDir="false" />
-    </list>
-    <list id="4a1e30ad-1d17-4f9a-9dff-e313e9262e22" name="someNoChange" comment="someNoChange">
+    <list default="true" id="fdede712-8fa7-4980-bd28-cc0bb2882b93" name="Default Changelist" comment="no update">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_prometheus_simpleclient_spring_boot_0_8_12.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_params_5_8_22.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_security_2_6_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_config_5_6_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_core_5_6_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_crypto_5_6_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_web_5_6_2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/a398ca78-12f2-4367-b337-d6f5c07182ff.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a398ca78-12f2-4367-b337-d6f5c07182ff.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_baidu_aip_java_sdk_4_6_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_02.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_17.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_jsonwebtoken_jjwt_0_9_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_json_json_20160810.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_core_4_0_02.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_8_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_8_22.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_objenesis_objenesis_3_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_22.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/demo.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hwadee.log" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/hwadee.log.2022-06-02.0.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hwadee/core/controller/PathController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hwadee/core/controller/PathController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hwadee/tools/FaceUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hwadee/tools/FaceUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/lib/arcsoft-sdk-face-3.0.0.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/lib/arcsoft-sdk-face-3.0.0.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/vendors/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/vendors/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/faceReg.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/faceReg.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/newUserLogin.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/newUserLogin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/register.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/hwadee/core/controller/SalesContorller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hwadee/core/controller/SalesContorller.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/hwadee/core/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hwadee/core/controller/UserController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/register.html" afterDir="false" />
     </list>
+    <list id="4a1e30ad-1d17-4f9a-9dff-e313e9262e22" name="someNoChange" comment="someNoChange" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -94,13 +108,15 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.DemoApplication">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -182,6 +198,8 @@
       <workItem from="1654340337263" duration="2172000" />
       <workItem from="1654410507789" duration="47000" />
       <workItem from="1654477727801" duration="11431000" />
+      <workItem from="1654611108063" duration="2232000" />
+      <workItem from="1654613373678" duration="10313000" />
     </task>
     <task id="LOCAL-00001" summary="添加：reids缓存、hikari数据库连接池、gzip资源压缩、身份证校验">
       <created>1654243286131</created>
