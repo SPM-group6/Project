@@ -18,14 +18,14 @@ public class FaceUtils {
     //private ImageInfo imageGrayInfo;
     private FunctionConfiguration functionConfiguration;
 
-//    private String appId="3PHKpH8apXnsSkzWZvfcywWQ8HfozcxncyqYsmz2LZJX";
-//    private String sdkKey="3Qpe6DQjJWQdKoKpqXJGkCgUJdnz8vG1D1c5mStPiH9L";
-    private String appId = "Bj3d1pCxSv3BpNzvmRJJq6Dn8KeYPCczh1B1XAiNKiBA";
-    private String sdkKey = "Ht7PyP8416dKwQWCohxwSeQ6nRuhpGRbzZ8TnTxtioad";
+    private String appId="3PHKpH8apXnsSkzWZvfcywWQ8HfozcxncyqYsmz2LZJX";
+    private String sdkKey="3Qpe6DQjJWQdKoKpqXJGkCgUJdnz8vG1D1c5mStPiH9L";
+//    private String appId = "Bj3d1pCxSv3BpNzvmRJJq6Dn8KeYPCczh1B1XAiNKiBA";
+//    private String sdkKey = "Ht7PyP8416dKwQWCohxwSeQ6nRuhpGRbzZ8TnTxtioad";
 
-//    private static final String configFile = "/home/static/LINUX64";
+    private static final String configFile = "/home/static/LINUX64";
 //      private static final String configFile = "C:/Users/28626/Documents/PSM/WIN64";//LH
-      private static final String configFile = "C:/Users/lsj/Desktop/ArcSoft_ArcFace_Java_Windows_x64_V3.0/libs/WIN64";
+//      private static final String configFile = "C:/Users/lsj/Desktop/ArcSoft_ArcFace_Java_Windows_x64_V3.0/libs/WIN64";
 
 
     public FaceUtils(){

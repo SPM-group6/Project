@@ -105,6 +105,27 @@ public class SalesServiceImpl implements salesService {
     }
 
     @Override
+    public  Integer insertProApplication(TemProject temProject){
+        StringBuilder key = new StringBuilder("project-u");
+        key.append(temProject.getApplicantId());
+        key.append("-p");
+        int res = projectRepository.insertProApplication(temProject);
+        Project newProject = projectRepository.queryProjectByUIdTime(temProject.getApplicantId(), temProject.getProjectTime());
+        key.append(newProject.getProjectId());
+        key.append("-s");
+        key.append(newProject.getSalesId());
+        redisTemplate.opsForValue().set(key.toString(), JSONUtil.toJsonStr(newProject));
+        System.out.println("新建项目立项申请成功！");
+//        System.out.println(temProject.getPro());
+        return res;
+    }
+
+    @Override
+    public Project queryProjectByUIdTime(int applicantId, String date){
+        return projectRepository.queryProjectByUIdTime(applicantId,date);
+    }
+
+    @Override
     public boolean delProject(Integer id){
         return true;
     }
@@ -216,27 +237,6 @@ public class SalesServiceImpl implements salesService {
     @Override
     public Integer insertCheck(AssetsCheck assetsCheck) {
         return assetsRepository.insertCheck(assetsCheck);
-    }
-
-    @Override
-    public  Integer insertProApplication(TemProject temProject){
-        StringBuilder key = new StringBuilder("project-u");
-        key.append(temProject.getApplicantId());
-        key.append("-p");
-        int res = projectRepository.insertProApplication(temProject);
-        Project newProject = projectRepository.queryProjectByUIdTime(temProject.getApplicantId(), temProject.getProjectTime());
-        key.append(newProject.getProjectId());
-        key.append("-s");
-        key.append(newProject.getSalesId());
-        redisTemplate.opsForValue().set(key.toString(), JSONUtil.toJsonStr(newProject));
-        System.out.println("新建项目立项申请成功！");
-//        System.out.println(temProject.getPro());
-        return res;
-    }
-
-    @Override
-    public Project queryProjectByUIdTime(int applicantId, String date){
-        return projectRepository.queryProjectByUIdTime(applicantId,date);
     }
 
     @Override

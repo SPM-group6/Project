@@ -1,23 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <!-- Meta, title, CSS, favicons, etc. -->
-<!--    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">-->
-    <meta charset="utf-8">
-<!--    <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
-<!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
-    <title>华迪融资租赁系统</title>
 
-<!--    &lt;!&ndash; Bootstrap &ndash;&gt;-->
-<!--    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">-->
-<!--    &lt;!&ndash; Font Awesome &ndash;&gt;-->
-<!--    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">-->
-<!--    &lt;!&ndash; NProgress &ndash;&gt;-->
-<!--    <link href="vendors/nprogress/nprogress.css" rel="stylesheet">-->
-<!--    &lt;!&ndash; Animate.css &ndash;&gt;-->
-<!--    <link href="vendors/animate.css/animate.min.css" rel="stylesheet">-->
-<!--    &lt;!&ndash; Custom Theme Style &ndash;&gt;-->
-<!--    <link href="build/css/custom.min.css" rel="stylesheet">-->
+    <meta charset="utf-8">
+    <title>华迪融资租赁系统</title>
     <link href="vendors/login.css" rel="stylesheet">
     <link href="vendors/font-awesome.min.css" rel="stylesheet">
 
@@ -60,7 +46,7 @@
             document.getElementById("acqusition_of_features").addEventListener("click", function(){
                 console.log("点击按钮");
                 // 在canvas中生成静态人像图片
-                context.drawImage(video,0,0,100,80);
+                context.drawImage(video,0,0,320,180);
                 console.log("人像采集完毕.")
                 // 调用人像数据上传函数
                 uploadImage();
@@ -72,7 +58,7 @@
             console.log("开始调用invokeCamera()函数");
             // 步骤1：创建局部变量设置视频采集区域大小以及是否接受声音
             let constranits = {
-                video: {width:510, height:430},
+                video: {width:1280, height:720},
                 audio: false // 设置为True可以获取声音
             }
             console.log("获取video对象.");
@@ -109,16 +95,17 @@
                 data: data,
                 success: function (msg) {
                     console.log(msg)
-                    if(msg.message=="3"){
+                    msg=JSON.parse(msg);
+                    if(msg.message==="3"){
                         console.log("刷脸登录成功!")
-                        console.log("userId=========="+msq.userId);
-                        window.location.href="/hwadee/userIndex?"+"userId="+msq.userId;
+                        console.log("userId=========="+msg.userId);
+                        window.location.href="/hwadee/userIndex?"+"userId="+msg.userId;
                     }
-                    else if(msg.message=="4"){
+                    else if(msg.message==="4"){
                         alert("验证失败！请再试一次或使用身份证号登录");
                         window.location.reload();//刷新页面
                     }
-                    else if(msg.message=="5"){
+                    else if(msg.message==="5"){
                         alert("服务器异常！请使用身份证号登录");
                         window.location.reload();//刷新页面
                     }
@@ -157,6 +144,8 @@
             contentType:'application/json',
             //请求发送成功的回调函数 response为后端返回的响应数据
             success:function(response){
+                // console.log(response);
+                // response=JSON.parse(response);
                 if(response.message == "1"){ //1代表用户密码正确;
                     console.log("userId=========="+response.userId);
                     window.location.href="/hwadee/userIndex?"+"userId="+response.userId;
@@ -182,12 +171,11 @@
 
 
 <body>
-<!--            class="login_content"-->
     <div id="pageBody">
         <div class="pd-panel">
             <!--    登陆方式切换-->
             <div class="oper-tab">
-                <label class="active"><span onclick="toggleLoginPanel(this,'faceLogin')">面部识别登录</span></label>
+                <label class="active" style="float: left;"><span onclick="toggleLoginPanel(this,'faceLogin')">面部识别登录</span></label>
                 <label><span id="passwordLoginButton" onclick="toggleLoginPanel(this,'passwordLogin')">密码登录</span></label>
             </div>
 
@@ -197,15 +185,18 @@
                     <dd style="display: flex;flex-direction: row" class="video">
                         <!-- 设置video组件，用于采集用户动态图像 -->
                         <div style="margin:0px auto; float:left" >
-                            <video id="video" autoplay="autoplay" style="width: 100px; border: 1px dashed #fcfcfc; border-radius: 12px;"></video>
+                            <video id="video" autoplay="autoplay" style="width: 320px; height:180px;  border: 1px dashed #fcfcfc; border-radius: 12px;"></video>
                         </div>
                         <!--					 设置Canvas组件，用于存放用户人像静态图片 -->
                         <div style="margin:0px auto;float:left">
-                            <canvas id="canvas" width="100" height="80" style="border: 1px dashed #029789; border-radius: 10px; margin-top: 0px;"></canvas>
+                            <canvas id="canvas" width="320" height="180" style="border: 1px dashed #029789; border-radius: 10px; margin-top: 0px;"></canvas>
                         </div>
                     </dd>
                     <dd>
-                        <input  type="submit" id="acqusition_of_features" class="btn btn-default submit" value="登录">
+                        <!-- 设置Button组件 -->
+                        <p class="form-btn">
+                            <input type="submit" id="acqusition_of_features" value="立即登录" />
+                        </p>
                     </dd>
                     <dd style="display: flex;flex-direction: row;justify-content: flex-end">
                         <a style="margin-right: 20px" class="form-btn" href="/hwadee/register">注册</a>
@@ -217,16 +208,24 @@
                 <form id="loginForm">
                     <dl>
                         <dd>
-                            <input id="idCard" name="idCard" type="text" class="form-control" placeholder="身份证号码" required="" />
+                            <p class="form-p-input"><input type="text" name="idCard" placeholder="身份证号码" required autofocus class="form-input" />
+                                <i class="fa fa-user fa-2x"></i>
+                            </p>
                         </dd>
                         <dd>
-                            <input id="userPassword" name="userPassword" type="password" class="form-control" placeholder="密码" required="" />
+                            <p class="form-p-input"><input type="password" name="userPassword" placeholder="密码" required class="form-input" />
+                                <i class="fa fa-lock fa-2x"></i>
+                            </p>
                         </dd>
+
                         <dd>
-                            <input onclick="login()" class="btn btn-default submit" value="登录">
+                            <!-- 设置Button组件 -->
+                            <p class="form-btn">
+                                <input onclick="pwdlogin()" style="text-align: center;" id="idCardLogin" value="立即登录" />
+                            </p>
                         </dd>
                         <dd style="display: flex;flex-direction: row;justify-content: flex-end">
-                            <a style="margin-right: 20px" class="form-btn" href="/hwadee/register">注册</a>
+                            <a style="margin-right: 20px" class="form-btn" href="/user/addview">注册</a>
                         </dd>
                     </dl>
                 </form>

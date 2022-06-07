@@ -27,12 +27,16 @@
         <section class="login_content">
                 <h1>华迪融资租赁系统</h1>
                 <div>
-                    <form id="form1" enctype="multipart/form-data" method="post" action="/hwadee/register/submit" onsubmit="return validateForm(this)">
+                    <form id="form1" enctype="multipart/form-data" method="post" action="/hwadee/register/submit"
+                          onsubmit="return validateForm(this)">
                         <div>
                             <lable  for="name">姓名*</lable>
                             <input id="name" name="name" class="form-control" autofocus required="required" type="text">
+                        </div>
+                        <div>
                             <lable  for="idCard">身份证号码*</lable>
-                            <input type="text" id="idCard" name="idCard" required="required" class="form-control" oninput="check_idCard(this)">
+                            <input type="text" id="idCard" name="idCard" required="required" class="form-control" >
+<!--                            onchange="return checkIdCard(this.value)-->
                         </div>
                         <div>
                             <lable for="pwd">密码*</lable>
@@ -91,31 +95,80 @@
 <script>
     /**
      * 表单验证
-     * 为便于测试这里暂不加入对实名验证的数据合法性检查
+     * 非空验证
      */
-    function validate_required(field,alerttxt)
-    {
-        with (field)
-        {
-            if (value==null||value=="")
-            {alert(alerttxt);return false}
-            else {return true}
+    // function validate_required(field,alerttxt)
+    // {
+    //     with (field)
+    //     {
+    //         if (value==null||value=="")
+    //         {alert(alerttxt);return false}
+    //         else {return true}
+    //     }
+    // }
+
+    function checkIdCard(card){
+        const checkIdentity = (card) => {
+            //校验日期码
+            var checkBirthDayCode = function (birDayCode) {
+                var yyyy = parseInt(birDayCode.substring(0, 4), 10);
+                var mm = parseInt(birDayCode.substring(4, 6), 10);
+                var dd = parseInt(birDayCode.substring(6), 10);
+                var xdata = new Date(yyyy, mm - 1, dd);
+                if (xdata > new Date()) {
+                    //生日不能大于当前日期
+                    return false;
+                } else if ((xdata.getFullYear() == yyyy) && (xdata.getMonth() == mm - 1) && (xdata.getDate() == dd)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            //身份证号码为15位或者18位，15位时全为数字，18位前17位为数字，最后一位是校验位，可能为数字或字符X
+            var reg = /(^\d{15}$)|(^\d{17}(\d|X)$)/;
+            if (reg.test(card) === false) {
+                return false;
+            }
+            if (!checkBirthDayCode(card.substring(6, 14))) {
+                return false;
+            }
+            return true;
         }
+        return checkIdentity(card);
     }
+    /**
+     * 表单验证
+     * 密码一致性，身份证号码合法性检验
+     * @param thisform
+     * @returns {boolean}
+     */
     function validateForm(thisform){
+
+
         with (thisform)
         {
-            if(pwd.value!=pwd2.value){
-                alert("两次密码不一致！");
-                pwd.focus();return false;
+            let flag = true;
+            if(!checkIdCard(idCard.value)){
+                // console.log(checkIdentity(idCard.value));
+                alert("请输入正确的身份证号码！");
+                idCard.focus();
+                flag = false;
             }
+
+            if(pwd.value!=pwd2.value){
+                alert("两次密码不一致test！");
+                pwd.focus();
+                flag = false;
+            }
+
+            console.log(flag);
+            return flag;
+
         }
     }
-    // 判断输入的身份证号是否符合规范
-    function check_idCard(e){
-        console.log(e.value)
-        // alert("hello")
-    }
+
+
+
 </script>
 
 </body>

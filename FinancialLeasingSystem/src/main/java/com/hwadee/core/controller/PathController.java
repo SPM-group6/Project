@@ -74,7 +74,7 @@ public class PathController {
     @RequestMapping("/userLogin")
     public String userLogin()
     {
-        return "userLogin";//  user/userIndex
+        return "newUserLogin";//  user/userIndex
     }
 
     /**
@@ -93,11 +93,11 @@ public class PathController {
      * 用户人脸登录测试界面
      * @return
      */
-    @RequestMapping("/newUserLogin")
-    public String newUserLogin()
-    {
-        return "newUserLogin";
-    }
+//    @RequestMapping("/newUserLogin")
+//    public String newUserLogin()
+//    {
+//        return "newUserLogin";
+//    }
 
     /**
      * 用户登录：用身份证作为账号
@@ -170,12 +170,6 @@ public class PathController {
 
         System.out.println("in faceLogin controller");
         try {
-//            JSONObject image=JSONObject.parseObject(images);
-//            JSONObject imageObject2=images.getJSONObject("data");
-//            List<String> imagesBase64=new ArrayList<>();
-//            imagesBase64.add(imageObject2.getString("0"));
-//            imagesBase64.add(imageObject2.getString("1"));
-
             // 获取所有承租人
             List<User> userList = userService.queryUsers();
 
@@ -183,11 +177,10 @@ public class PathController {
             FaceUtils faceUtils2 = new FaceUtils();
 
 
-//            image = image.split("base64,")[1];
             byte[] bytesImage = ImageBase64Utils.base64ToImage(images);
-            String fileName = FileUpLoad.upload(bytesImage,"C:/Users/lsj/Desktop/faceTest/", new Date().getTime()+".png");
-            System.out.println("人脸文件保存成功");
-//            String fileName = FileUpLoad.upload(bytesImage,"static/temporary/", new Date().getTime()+".png");
+//            String fileName = FileUpLoad.upload(bytesImage,"C:/Users/lsj/Desktop/faceTest/", new Date().getTime()+".png");
+//            System.out.println("人脸文件保存成功");
+            String fileName = FileUpLoad.upload(bytesImage,"static/temporary/", new Date().getTime()+".png");
             for(User user : userList){
                 if(user.getFacePath().equals(null) || user.getFacePath().equals("")){
 
@@ -323,14 +316,9 @@ public class PathController {
         // 构造响应体
         Map<String, String> resultmap = new HashMap<>();
         System.out.println("in faceRegister controller");
+        // 将图片保存到文件夹中
+
         try{
-//            JSONObject dataJson=JSONObject.parseObject(data);
-//            dataJson=dataJson.getJSONObject("data");
-//            JSONObject imageObject=dataJson.getJSONObject("images");
-//            int id = dataJson.getInteger("id");
-//            List<String> imageObjects=new ArrayList<>();
-//            imageObjects.add(imageObject.getString("0"));
-//            imageObjects.add(imageObject.getString("1"));
 
             User user = userService.queryUserById(id);
             String faceUrl=null;
@@ -339,14 +327,16 @@ public class PathController {
 
             Date date=new Date();
             byte[] byteImages=ImageBase64Utils.base64ToImage(data);
-//            String fileName=FileUpLoad.upload(byteImages,"static/temporary/",date.getTime()+".png");
-            String fileName=FileUpLoad.upload(byteImages,"C:/Users/lsj/Desktop/faceTest/temporary/",date.getTime()+".png");
+            String fileName=FileUpLoad.upload(byteImages,"static/temporary/",date.getTime()+".png");
+//            String fileName=FileUpLoad.upload(byteImages,"C:/Users/lsj/Desktop/faceTest/temporary/",date.getTime()+".png");
             faceUtils.setImageInfo(fileName);
             System.out.println("开始检测");
             if(faceUtils.isLive()){
-//                facePath = FileUpLoad.upload(byteImages,"static/faceImages/",date.getTime()+".png");
-                facePath = FileUpLoad.upload(byteImages,"C:/Users/lsj/Desktop/faceTest/faceImages/",date.getTime()+".png");
+                facePath = FileUpLoad.upload(byteImages,"static/faceImages/",date.getTime()+".png");
+//                facePath = FileUpLoad.upload(byteImages,"C:/Users/lsj/Desktop/faceTest/faceImages/",date.getTime()+".png");
                 faceUrl = "http://175.178.147.20:8082/"+facePath;
+//                faceUrl = facePath;
+
                 user.setFacePath(facePath);
                 user.setFaceUrl(faceUrl);
 
