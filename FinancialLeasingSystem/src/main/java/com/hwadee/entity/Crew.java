@@ -66,6 +66,28 @@ public class Crew {
         this.yearlyWorkHours = yearlyWorkHours;
     }
 
+    //为了实现spring security编写
+    public String getRole(){
+        String role="ROLE_SALES";
+        switch (this.authorityId){
+            case 2:
+                role="ROLE_EVALUATOR";
+                break;
+            case 3:
+                role="ROLE_FINANCER";
+                break;
+            case 4:
+                role="ROLE_MANAGER";
+                break;
+            case 5:
+                role="ROLE_Legal";
+                break;
+            default:
+                break;
+        }
+        return role;
+    }
+
     @Override
     public String toString() {
         return "Crew{" +

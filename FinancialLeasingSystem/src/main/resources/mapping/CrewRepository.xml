@@ -38,4 +38,10 @@
         where b.staff_id = #{staffId}
     </select>
 
+    <select id="queryCrewById" parameterType="java.lang.Integer" resultType="Crew">
+        select *
+        from backstage_crew b
+        where b.staff_id = #{staffId}
+    </select>
+
 </mapper>
