@@ -1,7 +1,11 @@
 package com.hwadee.filter;
 
+import com.alibaba.fastjson.JSON;
 import com.hwadee.entity.LoginCrew;
 import com.hwadee.entity.JwtCrew;
+import com.hwadee.result.JsonResult;
+import com.hwadee.result.ResultCode;
+import com.hwadee.result.ResultTool;
 import com.hwadee.tools.JwtTokenUtils;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -9,6 +13,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import javax.servlet.FilterChain;
@@ -18,6 +23,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
@@ -68,6 +75,18 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         // 但是这里创建的token只是单纯的token
         // 按照jwt的规定，最后请求的时候应该是 `Bearer token`
         response.setHeader("token", JwtTokenUtils.TOKEN_PREFIX + token);
+
+
+        Map<String,String> results = new HashMap<>();
+        results.put("id",String.valueOf(jwtUser.getId()));
+        results.put("role",role);
+        results.put("token",token);
+////        //返回json数据
+////        JsonResult result = ResultTool.success(ResultCode.SUCCESS_login,results);
+////        //处理编码方式，防止中文乱码的情况
+////        response.setContentType("text/json;charset=utf-8");
+//        // 把Json数据放入HttpServletResponse中返回给前台
+        response.getWriter().write(JSON.toJSONString(results));
     }
 
     @Override

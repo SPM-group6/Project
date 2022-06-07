@@ -25,7 +25,9 @@
 
   <!--新增：处理ajax请求-->
   <script type= "text/javascript" >
+
     function login(){
+      var next_url="";
       var form=$("#loginForm").serializeArray();//序列化表单
       var data={};//分配内存空间
       //构造post数据
@@ -34,7 +36,7 @@
       }
       console.log("======="+form[0].value)
       data=JSON.stringify(data);//转换成json格式
-      console.log(data);
+      // console.log(data);
       //发送请求
       $.ajax({
         type:"post",
@@ -45,42 +47,66 @@
         processData:false,
         contentType:'application/json',
         //请求发送成功的回调函数 response为后端返回的响应数据
-        // success:function(response){
-        //   if(response == 1){
-        //    // alert("登录成功！");
-        //     switch (form[0].value) {
-        //       case "1":
-        //         console.log(form[0].value)
-        //         window.location.href="/hwadee/allProjects";
-        //         break
-        //       case "2":
-        //         window.location.href="/hwadee/evaluatorCenter";
-        //         break
-        //       case "3":
-        //         window.location.href="/hwadee/financerCenter";
-        //         break
-        //       case "4":
-        //         window.location.href="/hwadee/managerCenter";
-        //         break
-        //       case "5":
-        //         window.location.href="/hwadee/legalSignContract";
-        //         break
-        //     }
-        //   }
-        //   else if (response==2)
-        //   {
-        //     alert("密码错误");
-        //   }
-        //   else{
-        //     alert("无此账号");
-        //     window.location.reload();//刷新页面
-        //   }
-        // },
-        // error:function (e){
-        //   alert("由于服务器异常，请求失败！请稍后再试");
-        //   console.log(e);
-        //   window.location.reload();//刷新页面
-        // }
+        success:function(response){
+            console.log(response)
+            localStorage.setItem("token",response.token);
+          if(response.role=="ROLE_SALES") {
+            console.log(form[0].value)
+            window.location.href= "/hwadee/allProjects";
+          }else if(response.role=="ROLE_EVALUATOR"){
+            window.location.href="/hwadee/evaluatorCenter";
+          }else if(response.role=="ROLE_FINANCER"){
+            window.location.href="/hwadee/financerCenter";
+          }else if(response.role=="ROLE_MANAGER"){
+            window.location.href="/hwadee/managerCenter";
+          }else if(response.role=="ROLE_Legal"){
+            window.location.href="/hwadee/legalSignContract";
+          }
+
+            // switch (form[0].value) {
+            //   case "1":
+            //     console.log(form[0].value)
+            //     window.location.href="/hwadee/sales/allProjects";
+            //     break
+            //   case "2":
+            //     window.location.href="/hwadee/evaluatorCenter";
+            //     break
+            //   case "3":
+            //     window.location.href="/hwadee/financerCenter";
+            //     break
+            //   case "4":
+            //     window.location.href="/hwadee/managerCenter";
+            //     break
+            //   case "5":
+            //     window.location.href="/hwadee/legalSignContract";
+            //     break
+            // }
+
+        },
+        error:function (e){
+          alert("用户名或密码错误");
+          console.log("==========e")
+          console.log(e);
+          window.location.reload();//刷新页面
+        }
+      })
+
+      var token=localStorage.getItem('token');
+      console.log(token);
+      $.ajax({
+        headers:{
+          'Authorization': 'Bearer ' + token,
+        },
+        type:"post",
+        url:next_url,
+        dataType:'json',
+        async:false,//是否开启异步，true表明异步
+        processData:false,
+        contentType:'application/json',
+        //请求发送成功的回调函数 response为后端返回的响应数据
+        success:function(response){
+          console.log(response)
+          }
       })
     }
   </script>

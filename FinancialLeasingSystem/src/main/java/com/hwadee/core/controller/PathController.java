@@ -408,12 +408,6 @@ public class PathController {
 
     @PostMapping("/crewSignUp")//用于生成数据库内信息，没有前端界面
     public String crewSignUp(@RequestBody Map<String,String> registerUser){
-//        User user = new User();
-//        user.setUsername(registerUser.get("name"));
-//        user.setPassword(bCryptPasswordEncoder.encode(registerUser.get("password")));
-//        user.setRole("ROLE_USER");
-//        User save = userRepository.save(user);
-//        return save.toString();
 
         String name=registerUser.get("name");
         Integer authority_id=Integer.parseInt(registerUser.get("authority_id"));

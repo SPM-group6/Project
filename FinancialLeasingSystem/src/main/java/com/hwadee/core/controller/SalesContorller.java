@@ -39,7 +39,7 @@ public class SalesContorller {
      * @param model
      * @return
      */
-    @RequestMapping("/sales/allProjects")
+    @RequestMapping("/allProjects")
     public String allProjects(Model model) {
         List<Project> projects = SalesService.queryAllProjects();
         model.addAttribute("projects", projects);
@@ -51,7 +51,7 @@ public class SalesContorller {
      * @param model
      * @return
      */
-    @RequestMapping("/sales/application")
+    @RequestMapping("/application")
     public String application(Model model) {
         List<Project> applications = SalesService.queryProjectsByState(1);
         model.addAttribute("applications", applications);
@@ -63,7 +63,7 @@ public class SalesContorller {
      * @param model
      * @return
      */
-    @RequestMapping("/sales/riskEvaluate")
+    @RequestMapping("/riskEvaluate")
     public String riskEvaluate(Model model) {
         List<Project> projects = SalesService.queryProjectsByState(2);
         model.addAttribute("projects", projects);
@@ -75,7 +75,7 @@ public class SalesContorller {
      * @param model
      * @return
      */
-    @RequestMapping("/sales/quoteEvaluate")
+    @RequestMapping("/quoteEvaluate")
     public String quoteEvaluate(Model model) {
         List<Project> projects = SalesService.queryProjectsByState(3);
         model.addAttribute("projects", projects);
@@ -87,7 +87,7 @@ public class SalesContorller {
      * @param model
      * @return
      */
-    @RequestMapping("/sales/finalAudit")
+    @RequestMapping("/finalAudit")
     public String finalAudit(Model model) {
         List<Project> projects = SalesService.queryProjectsByState(4);
         model.addAttribute("projects", projects);
@@ -99,7 +99,7 @@ public class SalesContorller {
      * @param model
      * @return
      */
-    @RequestMapping("/sales/contract")
+    @RequestMapping("/contract")
     public String contract(Model model) {
         List<Project> projects = SalesService.queryProjectsByState(5);
         model.addAttribute("projects", projects);
@@ -111,7 +111,7 @@ public class SalesContorller {
      * @param model
      * @return
      */
-    @RequestMapping("/sales/loan")
+    @RequestMapping("/loan")
     public String loan(Model model) {
         List<Project> projects = SalesService.queryProjectsByState(6);
         model.addAttribute("projects", projects);
@@ -123,7 +123,7 @@ public class SalesContorller {
      * @param model
      * @return
      */
-    @RequestMapping("/sales/assetsCheck")
+    @RequestMapping("/assetsCheck")
     public String assetsCheck(Model model) {
         List<Project> projects7 = SalesService.queryProjectsByState(7);
         List<Project> projects8 = SalesService.queryProjectsByState(8);
@@ -139,7 +139,7 @@ public class SalesContorller {
      * @param model
      * @return
      */
-    @RequestMapping("/sales/mCheck")
+    @RequestMapping("/mCheck")
     public String mCheck(Model model) {
         List<Project> projects7 = SalesService.queryProjectsByState(7);
         List<Project> projects8 = SalesService.queryProjectsByState(8);
@@ -153,7 +153,7 @@ public class SalesContorller {
      * @param model
      * @return
      */
-    @RequestMapping("/sales/alterApplication")
+    @RequestMapping("/alterApplication")
     public String alterApplication(Model model) {
         List<Project> projects7 = SalesService.queryProjectsByState(7);
         List<Project> projects8 = SalesService.queryProjectsByState(8);
@@ -170,7 +170,7 @@ public class SalesContorller {
         return "sales/alterApplication";
     }
 
-    @RequestMapping("/sales/assetsApplication")
+    @RequestMapping("/assetsApplication")
     public String assetsApplication(Model model) {
         List<Project> projectsON = SalesService.assetsDisposal();
         model.addAttribute("projectsON", projectsON);
@@ -179,7 +179,7 @@ public class SalesContorller {
         return "sales/assetsApplication";
     }
 
-    @RequestMapping("/sales/execute")
+    @RequestMapping("/execute")
     public String execute(Model model) {
         List<ProjectDisposal> pro_disposals = SalesService.queryProjectDisposal();
         model.addAttribute("disposals", pro_disposals);
@@ -191,7 +191,7 @@ public class SalesContorller {
      * @param model
      * @return
      */
-    @RequestMapping("/sales/end")
+    @RequestMapping("/end")
     public String end(Model model) {
         List<Project> projects = SalesService.queryProjectsByState(15);
         model.addAttribute("projects", projects);
@@ -221,7 +221,7 @@ public class SalesContorller {
         return "sales/projectDetail";
     }
 
-    @RequestMapping("/sales/check")
+    @RequestMapping("/check")
     public String check(Model model,@RequestParam(name="id") Integer id) {
         List<Project> projects = SalesService.queryProjectsById(id);
         model.addAttribute("project", projects.get(0));
