@@ -13,15 +13,15 @@
 2022-06-06 09:14:30.846  INFO 64232 --- [main] com.zaxxer.hikari.HikariDataSource       : MyHikariCP - Starting...
 2022-06-06 09:14:30.847  WARN 64232 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
 2022-06-06 09:14:30.930  INFO 64232 --- [main] com.zaxxer.hikari.HikariDataSource       : MyHikariCP - Start completed.
-2022-06-06 09:14:30.933 DEBUG 64232 --- [main] c.h.c.r.UserRepository.queryUsers        : ==>  Preparing: select * from user; 
-2022-06-06 09:14:30.942 DEBUG 64232 --- [main] c.h.c.r.UserRepository.queryUsers        : ==> Parameters: 
+2022-06-06 09:14:30.933 DEBUG 64232 --- [main] c.h.c.r.UserRepository.queryUsers        : ==>  Preparing: select * from user;
+2022-06-06 09:14:30.942 DEBUG 64232 --- [main] c.h.c.r.UserRepository.queryUsers        : ==> Parameters:
 2022-06-06 09:14:30.950 DEBUG 64232 --- [main] c.h.c.r.UserRepository.queryUsers        : <==      Total: 3
-2022-06-06 09:14:30.961 DEBUG 64232 --- [main] c.h.c.r.P.queryAllProjectStates          : ==>  Preparing: select * from project_state 
-2022-06-06 09:14:30.961 DEBUG 64232 --- [main] c.h.c.r.P.queryAllProjectStates          : ==> Parameters: 
+2022-06-06 09:14:30.961 DEBUG 64232 --- [main] c.h.c.r.P.queryAllProjectStates          : ==>  Preparing: select * from project_state
+2022-06-06 09:14:30.961 DEBUG 64232 --- [main] c.h.c.r.P.queryAllProjectStates          : ==> Parameters:
 2022-06-06 09:14:30.963 DEBUG 64232 --- [main] c.h.c.r.P.queryAllProjectStates          : <==      Total: 15
 2022-06-06 09:14:30.990 DEBUG 64232 --- [main] c.hwadee.core.repository.CrewRepository  : Cache Hit Ratio [com.hwadee.core.repository.CrewRepository]: 0.0
-2022-06-06 09:14:30.990 DEBUG 64232 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==>  Preparing: select * from backstage_crew where authority_id=1 
-2022-06-06 09:14:30.990 DEBUG 64232 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==> Parameters: 
+2022-06-06 09:14:30.990 DEBUG 64232 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==>  Preparing: select * from backstage_crew where authority_id=1
+2022-06-06 09:14:30.990 DEBUG 64232 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==> Parameters:
 2022-06-06 09:14:30.991 DEBUG 64232 --- [main] c.h.c.r.CrewRepository.queryAllSales     : <==      Total: 2
 2022-06-06 09:14:31.137  INFO 64232 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
 2022-06-06 09:14:31.367  INFO 64232 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoint(s) beneath base path '/actuator'
@@ -45,15 +45,15 @@
 2022-06-06 09:20:53.300  INFO 69864 --- [main] com.zaxxer.hikari.HikariDataSource       : MyHikariCP - Starting...
 2022-06-06 09:20:53.301  WARN 69864 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
 2022-06-06 09:20:53.363  INFO 69864 --- [main] com.zaxxer.hikari.HikariDataSource       : MyHikariCP - Start completed.
-2022-06-06 09:20:53.367 DEBUG 69864 --- [main] c.h.c.r.UserRepository.queryUsers        : ==>  Preparing: select * from user; 
-2022-06-06 09:20:53.375 DEBUG 69864 --- [main] c.h.c.r.UserRepository.queryUsers        : ==> Parameters: 
+2022-06-06 09:20:53.367 DEBUG 69864 --- [main] c.h.c.r.UserRepository.queryUsers        : ==>  Preparing: select * from user;
+2022-06-06 09:20:53.375 DEBUG 69864 --- [main] c.h.c.r.UserRepository.queryUsers        : ==> Parameters:
 2022-06-06 09:20:53.383 DEBUG 69864 --- [main] c.h.c.r.UserRepository.queryUsers        : <==      Total: 3
-2022-06-06 09:20:53.400 DEBUG 69864 --- [main] c.h.c.r.P.queryAllProjectStates          : ==>  Preparing: select * from project_state 
-2022-06-06 09:20:53.400 DEBUG 69864 --- [main] c.h.c.r.P.queryAllProjectStates          : ==> Parameters: 
+2022-06-06 09:20:53.400 DEBUG 69864 --- [main] c.h.c.r.P.queryAllProjectStates          : ==>  Preparing: select * from project_state
+2022-06-06 09:20:53.400 DEBUG 69864 --- [main] c.h.c.r.P.queryAllProjectStates          : ==> Parameters:
 2022-06-06 09:20:53.402 DEBUG 69864 --- [main] c.h.c.r.P.queryAllProjectStates          : <==      Total: 15
 2022-06-06 09:20:53.424 DEBUG 69864 --- [main] c.hwadee.core.repository.CrewRepository  : Cache Hit Ratio [com.hwadee.core.repository.CrewRepository]: 0.0
-2022-06-06 09:20:53.424 DEBUG 69864 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==>  Preparing: select * from backstage_crew where authority_id=1 
-2022-06-06 09:20:53.425 DEBUG 69864 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==> Parameters: 
+2022-06-06 09:20:53.424 DEBUG 69864 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==>  Preparing: select * from backstage_crew where authority_id=1
+2022-06-06 09:20:53.425 DEBUG 69864 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==> Parameters:
 2022-06-06 09:20:53.426 DEBUG 69864 --- [main] c.h.c.r.CrewRepository.queryAllSales     : <==      Total: 2
 2022-06-06 09:20:53.562  INFO 69864 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
 2022-06-06 09:20:53.785  INFO 69864 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoint(s) beneath base path '/actuator'
@@ -77,15 +77,15 @@
 2022-06-06 09:22:03.415  INFO 31872 --- [main] com.zaxxer.hikari.HikariDataSource       : MyHikariCP - Starting...
 2022-06-06 09:22:03.417  WARN 31872 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
 2022-06-06 09:22:03.477  INFO 31872 --- [main] com.zaxxer.hikari.HikariDataSource       : MyHikariCP - Start completed.
-2022-06-06 09:22:03.481 DEBUG 31872 --- [main] c.h.c.r.UserRepository.queryUsers        : ==>  Preparing: select * from user; 
-2022-06-06 09:22:03.489 DEBUG 31872 --- [main] c.h.c.r.UserRepository.queryUsers        : ==> Parameters: 
+2022-06-06 09:22:03.481 DEBUG 31872 --- [main] c.h.c.r.UserRepository.queryUsers        : ==>  Preparing: select * from user;
+2022-06-06 09:22:03.489 DEBUG 31872 --- [main] c.h.c.r.UserRepository.queryUsers        : ==> Parameters:
 2022-06-06 09:22:03.505 DEBUG 31872 --- [main] c.h.c.r.UserRepository.queryUsers        : <==      Total: 3
-2022-06-06 09:22:03.514 DEBUG 31872 --- [main] c.h.c.r.P.queryAllProjectStates          : ==>  Preparing: select * from project_state 
-2022-06-06 09:22:03.514 DEBUG 31872 --- [main] c.h.c.r.P.queryAllProjectStates          : ==> Parameters: 
+2022-06-06 09:22:03.514 DEBUG 31872 --- [main] c.h.c.r.P.queryAllProjectStates          : ==>  Preparing: select * from project_state
+2022-06-06 09:22:03.514 DEBUG 31872 --- [main] c.h.c.r.P.queryAllProjectStates          : ==> Parameters:
 2022-06-06 09:22:03.517 DEBUG 31872 --- [main] c.h.c.r.P.queryAllProjectStates          : <==      Total: 15
 2022-06-06 09:22:03.539 DEBUG 31872 --- [main] c.hwadee.core.repository.CrewRepository  : Cache Hit Ratio [com.hwadee.core.repository.CrewRepository]: 0.0
-2022-06-06 09:22:03.539 DEBUG 31872 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==>  Preparing: select * from backstage_crew where authority_id=1 
-2022-06-06 09:22:03.539 DEBUG 31872 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==> Parameters: 
+2022-06-06 09:22:03.539 DEBUG 31872 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==>  Preparing: select * from backstage_crew where authority_id=1
+2022-06-06 09:22:03.539 DEBUG 31872 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==> Parameters:
 2022-06-06 09:22:03.540 DEBUG 31872 --- [main] c.h.c.r.CrewRepository.queryAllSales     : <==      Total: 2
 2022-06-06 09:22:03.677  INFO 31872 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
 2022-06-06 09:22:03.902  INFO 31872 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoint(s) beneath base path '/actuator'
@@ -183,19 +183,19 @@ java.sql.SQLException: Access denied for user 'root'@'localhost' (using password
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301) [spring-boot-2.6.4.jar:2.6.4]
 	at com.hwadee.DemoApplication.main(DemoApplication.java:17) [classes/:na]
 
-2022-06-06 09:45:16.562  WARN 61060 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redisHandler' defined in file [D:\Code\upload\Project\FinancialLeasingSystem\target\classes\com\hwadee\tools\RedisHandler.class]: Invocation of init method failed; nested exception is org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.PersistenceException: 
+2022-06-06 09:45:16.562  WARN 61060 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redisHandler' defined in file [D:\Code\upload\Project\FinancialLeasingSystem\target\classes\com\hwadee\tools\RedisHandler.class]: Invocation of init method failed; nested exception is org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.PersistenceException:
 ### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
 ### The error may exist in file [D:\Code\upload\Project\FinancialLeasingSystem\target\classes\mapping\UserRepository.xml]
 ### The error may involve com.hwadee.core.repository.UserRepository.queryUsers
 ### The error occurred while executing a query
 ### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
 2022-06-06 09:45:16.683  INFO 61060 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2022-06-06 09:45:16.694  INFO 61060 --- [main] ConditionEvaluationReportLoggingListener : 
+2022-06-06 09:45:16.694  INFO 61060 --- [main] ConditionEvaluationReportLoggingListener :
 
 Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
 2022-06-06 09:45:16.707 ERROR 61060 --- [main] o.s.boot.SpringApplication               : Application run failed
 
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redisHandler' defined in file [D:\Code\upload\Project\FinancialLeasingSystem\target\classes\com\hwadee\tools\RedisHandler.class]: Invocation of init method failed; nested exception is org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.PersistenceException: 
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redisHandler' defined in file [D:\Code\upload\Project\FinancialLeasingSystem\target\classes\com\hwadee\tools\RedisHandler.class]: Invocation of init method failed; nested exception is org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.PersistenceException:
 ### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
 ### The error may exist in file [D:\Code\upload\Project\FinancialLeasingSystem\target\classes\mapping\UserRepository.xml]
 ### The error may involve com.hwadee.core.repository.UserRepository.queryUsers
@@ -219,7 +219,7 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1312) [spring-boot-2.6.4.jar:2.6.4]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301) [spring-boot-2.6.4.jar:2.6.4]
 	at com.hwadee.DemoApplication.main(DemoApplication.java:17) [classes/:na]
-Caused by: org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.PersistenceException: 
+Caused by: org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.PersistenceException:
 ### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
 ### The error may exist in file [D:\Code\upload\Project\FinancialLeasingSystem\target\classes\mapping\UserRepository.xml]
 ### The error may involve com.hwadee.core.repository.UserRepository.queryUsers
@@ -249,7 +249,7 @@ Caused by: org.mybatis.spring.MyBatisSystemException: nested exception is org.ap
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.16.jar:5.3.16]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.16.jar:5.3.16]
 	... 17 common frames omitted
-Caused by: org.apache.ibatis.exceptions.PersistenceException: 
+Caused by: org.apache.ibatis.exceptions.PersistenceException:
 ### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
 ### The error may exist in file [D:\Code\upload\Project\FinancialLeasingSystem\target\classes\mapping\UserRepository.xml]
 ### The error may involve com.hwadee.core.repository.UserRepository.queryUsers
@@ -312,15 +312,15 @@ Caused by: java.sql.SQLException: Access denied for user 'root'@'localhost' (usi
 2022-06-06 09:45:21.087  INFO 49188 --- [main] com.zaxxer.hikari.HikariDataSource       : MyHikariCP - Starting...
 2022-06-06 09:45:21.088  WARN 49188 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
 2022-06-06 09:45:21.149  INFO 49188 --- [main] com.zaxxer.hikari.HikariDataSource       : MyHikariCP - Start completed.
-2022-06-06 09:45:21.152 DEBUG 49188 --- [main] c.h.c.r.UserRepository.queryUsers        : ==>  Preparing: select * from user; 
-2022-06-06 09:45:21.161 DEBUG 49188 --- [main] c.h.c.r.UserRepository.queryUsers        : ==> Parameters: 
+2022-06-06 09:45:21.152 DEBUG 49188 --- [main] c.h.c.r.UserRepository.queryUsers        : ==>  Preparing: select * from user;
+2022-06-06 09:45:21.161 DEBUG 49188 --- [main] c.h.c.r.UserRepository.queryUsers        : ==> Parameters:
 2022-06-06 09:45:21.168 DEBUG 49188 --- [main] c.h.c.r.UserRepository.queryUsers        : <==      Total: 3
-2022-06-06 09:45:21.185 DEBUG 49188 --- [main] c.h.c.r.P.queryAllProjectStates          : ==>  Preparing: select * from project_state 
-2022-06-06 09:45:21.185 DEBUG 49188 --- [main] c.h.c.r.P.queryAllProjectStates          : ==> Parameters: 
+2022-06-06 09:45:21.185 DEBUG 49188 --- [main] c.h.c.r.P.queryAllProjectStates          : ==>  Preparing: select * from project_state
+2022-06-06 09:45:21.185 DEBUG 49188 --- [main] c.h.c.r.P.queryAllProjectStates          : ==> Parameters:
 2022-06-06 09:45:21.187 DEBUG 49188 --- [main] c.h.c.r.P.queryAllProjectStates          : <==      Total: 15
 2022-06-06 09:45:21.210 DEBUG 49188 --- [main] c.hwadee.core.repository.CrewRepository  : Cache Hit Ratio [com.hwadee.core.repository.CrewRepository]: 0.0
-2022-06-06 09:45:21.210 DEBUG 49188 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==>  Preparing: select * from backstage_crew where authority_id=1 
-2022-06-06 09:45:21.210 DEBUG 49188 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==> Parameters: 
+2022-06-06 09:45:21.210 DEBUG 49188 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==>  Preparing: select * from backstage_crew where authority_id=1
+2022-06-06 09:45:21.210 DEBUG 49188 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==> Parameters:
 2022-06-06 09:45:21.211 DEBUG 49188 --- [main] c.h.c.r.CrewRepository.queryAllSales     : <==      Total: 2
 2022-06-06 09:45:21.339  INFO 49188 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
 2022-06-06 09:45:21.558  INFO 49188 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoint(s) beneath base path '/actuator'
@@ -344,15 +344,15 @@ Caused by: java.sql.SQLException: Access denied for user 'root'@'localhost' (usi
 2022-06-06 09:47:57.392  INFO 57908 --- [main] com.zaxxer.hikari.HikariDataSource       : MyHikariCP - Starting...
 2022-06-06 09:47:57.393  WARN 57908 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
 2022-06-06 09:47:57.454  INFO 57908 --- [main] com.zaxxer.hikari.HikariDataSource       : MyHikariCP - Start completed.
-2022-06-06 09:47:57.457 DEBUG 57908 --- [main] c.h.c.r.UserRepository.queryUsers        : ==>  Preparing: select * from user; 
-2022-06-06 09:47:57.466 DEBUG 57908 --- [main] c.h.c.r.UserRepository.queryUsers        : ==> Parameters: 
+2022-06-06 09:47:57.457 DEBUG 57908 --- [main] c.h.c.r.UserRepository.queryUsers        : ==>  Preparing: select * from user;
+2022-06-06 09:47:57.466 DEBUG 57908 --- [main] c.h.c.r.UserRepository.queryUsers        : ==> Parameters:
 2022-06-06 09:47:57.474 DEBUG 57908 --- [main] c.h.c.r.UserRepository.queryUsers        : <==      Total: 3
-2022-06-06 09:47:57.491 DEBUG 57908 --- [main] c.h.c.r.P.queryAllProjectStates          : ==>  Preparing: select * from project_state 
-2022-06-06 09:47:57.491 DEBUG 57908 --- [main] c.h.c.r.P.queryAllProjectStates          : ==> Parameters: 
+2022-06-06 09:47:57.491 DEBUG 57908 --- [main] c.h.c.r.P.queryAllProjectStates          : ==>  Preparing: select * from project_state
+2022-06-06 09:47:57.491 DEBUG 57908 --- [main] c.h.c.r.P.queryAllProjectStates          : ==> Parameters:
 2022-06-06 09:47:57.493 DEBUG 57908 --- [main] c.h.c.r.P.queryAllProjectStates          : <==      Total: 15
 2022-06-06 09:47:57.515 DEBUG 57908 --- [main] c.hwadee.core.repository.CrewRepository  : Cache Hit Ratio [com.hwadee.core.repository.CrewRepository]: 0.0
-2022-06-06 09:47:57.515 DEBUG 57908 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==>  Preparing: select * from backstage_crew where authority_id=1 
-2022-06-06 09:47:57.516 DEBUG 57908 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==> Parameters: 
+2022-06-06 09:47:57.515 DEBUG 57908 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==>  Preparing: select * from backstage_crew where authority_id=1
+2022-06-06 09:47:57.516 DEBUG 57908 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==> Parameters:
 2022-06-06 09:47:57.517 DEBUG 57908 --- [main] c.h.c.r.CrewRepository.queryAllSales     : <==      Total: 2
 2022-06-06 09:47:57.647  INFO 57908 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
 2022-06-06 09:47:57.867  INFO 57908 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoint(s) beneath base path '/actuator'
@@ -361,11 +361,11 @@ Caused by: java.sql.SQLException: Access denied for user 'root'@'localhost' (usi
 2022-06-06 09:47:58.771  INFO 57908 --- [RMI TCP Connection(3)-10.132.239.36] o.a.c.c.C.[.[localhost].[/hwadee]        : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2022-06-06 09:47:58.771  INFO 57908 --- [RMI TCP Connection(3)-10.132.239.36] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2022-06-06 09:47:58.773  INFO 57908 --- [RMI TCP Connection(3)-10.132.239.36] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2022-06-06 09:48:49.045 DEBUG 57908 --- [http-nio-8082-exec-4] c.h.c.r.UserRepository.registerUser      : ==>  Preparing: insert into user(name,pwd,career,id_card,assets,salary,recent_bill) values(?,?,?,?,?,?,?) 
+2022-06-06 09:48:49.045 DEBUG 57908 --- [http-nio-8082-exec-4] c.h.c.r.UserRepository.registerUser      : ==>  Preparing: insert into user(name,pwd,career,id_card,assets,salary,recent_bill) values(?,?,?,?,?,?,?)
 2022-06-06 09:48:49.046 DEBUG 57908 --- [http-nio-8082-exec-4] c.h.c.r.UserRepository.registerUser      : ==> Parameters: 廖思佳(String), 1(String), 公务员(String), 1(String), 1(Long), 1(Integer), http://175.178.147.20:8082/static/file/bill/1654480129040.(String)
 2022-06-06 09:48:49.050 DEBUG 57908 --- [http-nio-8082-exec-4] c.h.c.r.UserRepository.registerUser      : <==    Updates: 1
 2022-06-06 09:48:49.051 DEBUG 57908 --- [http-nio-8082-exec-4] c.hwadee.core.repository.UserRepository  : Cache Hit Ratio [com.hwadee.core.repository.UserRepository]: 0.0
-2022-06-06 09:48:49.051 DEBUG 57908 --- [http-nio-8082-exec-4] c.h.c.r.U.queryUserByIdCard              : ==>  Preparing: select * from user where id_card=? 
+2022-06-06 09:48:49.051 DEBUG 57908 --- [http-nio-8082-exec-4] c.h.c.r.U.queryUserByIdCard              : ==>  Preparing: select * from user where id_card=?
 2022-06-06 09:48:49.051 DEBUG 57908 --- [http-nio-8082-exec-4] c.h.c.r.U.queryUserByIdCard              : ==> Parameters: 1(String)
 2022-06-06 09:48:49.052 DEBUG 57908 --- [http-nio-8082-exec-4] c.h.c.r.U.queryUserByIdCard              : <==      Total: 1
 2022-06-06 10:44:43.300  INFO 68620 --- [main] com.hwadee.DemoApplication               : Starting DemoApplication using Java 1.8.0_40 on LAPTOP-T858PT23 with PID 68620 (D:\Code\upload\Project\FinancialLeasingSystem\target\classes started by lsj in D:\Code\upload\Project\FinancialLeasingSystem)
@@ -383,15 +383,15 @@ Caused by: java.sql.SQLException: Access denied for user 'root'@'localhost' (usi
 2022-06-06 10:44:45.266  INFO 68620 --- [main] com.zaxxer.hikari.HikariDataSource       : MyHikariCP - Starting...
 2022-06-06 10:44:45.267  WARN 68620 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
 2022-06-06 10:44:45.336  INFO 68620 --- [main] com.zaxxer.hikari.HikariDataSource       : MyHikariCP - Start completed.
-2022-06-06 10:44:45.340 DEBUG 68620 --- [main] c.h.c.r.UserRepository.queryUsers        : ==>  Preparing: select * from user; 
-2022-06-06 10:44:45.353 DEBUG 68620 --- [main] c.h.c.r.UserRepository.queryUsers        : ==> Parameters: 
+2022-06-06 10:44:45.340 DEBUG 68620 --- [main] c.h.c.r.UserRepository.queryUsers        : ==>  Preparing: select * from user;
+2022-06-06 10:44:45.353 DEBUG 68620 --- [main] c.h.c.r.UserRepository.queryUsers        : ==> Parameters:
 2022-06-06 10:44:45.361 DEBUG 68620 --- [main] c.h.c.r.UserRepository.queryUsers        : <==      Total: 4
-2022-06-06 10:44:45.370 DEBUG 68620 --- [main] c.h.c.r.P.queryAllProjectStates          : ==>  Preparing: select * from project_state 
-2022-06-06 10:44:45.370 DEBUG 68620 --- [main] c.h.c.r.P.queryAllProjectStates          : ==> Parameters: 
+2022-06-06 10:44:45.370 DEBUG 68620 --- [main] c.h.c.r.P.queryAllProjectStates          : ==>  Preparing: select * from project_state
+2022-06-06 10:44:45.370 DEBUG 68620 --- [main] c.h.c.r.P.queryAllProjectStates          : ==> Parameters:
 2022-06-06 10:44:45.372 DEBUG 68620 --- [main] c.h.c.r.P.queryAllProjectStates          : <==      Total: 15
 2022-06-06 10:44:45.395 DEBUG 68620 --- [main] c.hwadee.core.repository.CrewRepository  : Cache Hit Ratio [com.hwadee.core.repository.CrewRepository]: 0.0
-2022-06-06 10:44:45.395 DEBUG 68620 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==>  Preparing: select * from backstage_crew where authority_id=1 
-2022-06-06 10:44:45.395 DEBUG 68620 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==> Parameters: 
+2022-06-06 10:44:45.395 DEBUG 68620 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==>  Preparing: select * from backstage_crew where authority_id=1
+2022-06-06 10:44:45.395 DEBUG 68620 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==> Parameters:
 2022-06-06 10:44:45.396 DEBUG 68620 --- [main] c.h.c.r.CrewRepository.queryAllSales     : <==      Total: 2
 2022-06-06 10:44:45.529  INFO 68620 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
 2022-06-06 10:44:45.757  INFO 68620 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoint(s) beneath base path '/actuator'
@@ -400,11 +400,11 @@ Caused by: java.sql.SQLException: Access denied for user 'root'@'localhost' (usi
 2022-06-06 10:44:46.579  INFO 68620 --- [RMI TCP Connection(3)-10.132.239.36] o.a.c.c.C.[.[localhost].[/hwadee]        : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2022-06-06 10:44:46.579  INFO 68620 --- [RMI TCP Connection(3)-10.132.239.36] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2022-06-06 10:44:46.580  INFO 68620 --- [RMI TCP Connection(3)-10.132.239.36] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2022-06-06 10:45:34.355 DEBUG 68620 --- [http-nio-8082-exec-4] c.h.c.r.UserRepository.registerUser      : ==>  Preparing: insert into user(name,pwd,career,id_card,assets,salary,recent_bill) values(?,?,?,?,?,?,?) 
+2022-06-06 10:45:34.355 DEBUG 68620 --- [http-nio-8082-exec-4] c.h.c.r.UserRepository.registerUser      : ==>  Preparing: insert into user(name,pwd,career,id_card,assets,salary,recent_bill) values(?,?,?,?,?,?,?)
 2022-06-06 10:45:34.355 DEBUG 68620 --- [http-nio-8082-exec-4] c.h.c.r.UserRepository.registerUser      : ==> Parameters: 2(String), 2(String), 公务员(String), 2(String), 2(Long), 2(Integer), http://175.178.147.20:8082/static/file/bill/1654483534350.pdf(String)
 2022-06-06 10:45:34.359 DEBUG 68620 --- [http-nio-8082-exec-4] c.h.c.r.UserRepository.registerUser      : <==    Updates: 1
 2022-06-06 10:45:34.359 DEBUG 68620 --- [http-nio-8082-exec-4] c.hwadee.core.repository.UserRepository  : Cache Hit Ratio [com.hwadee.core.repository.UserRepository]: 0.0
-2022-06-06 10:45:34.359 DEBUG 68620 --- [http-nio-8082-exec-4] c.h.c.r.U.queryUserByIdCard              : ==>  Preparing: select * from user where id_card=? 
+2022-06-06 10:45:34.359 DEBUG 68620 --- [http-nio-8082-exec-4] c.h.c.r.U.queryUserByIdCard              : ==>  Preparing: select * from user where id_card=?
 2022-06-06 10:45:34.359 DEBUG 68620 --- [http-nio-8082-exec-4] c.h.c.r.U.queryUserByIdCard              : ==> Parameters: 2(String)
 2022-06-06 10:45:34.360 DEBUG 68620 --- [http-nio-8082-exec-4] c.h.c.r.U.queryUserByIdCard              : <==      Total: 1
 2022-06-06 11:11:56.831  INFO 54920 --- [main] com.hwadee.DemoApplication               : Starting DemoApplication using Java 1.8.0_40 on LAPTOP-T858PT23 with PID 54920 (D:\Code\upload\Project\FinancialLeasingSystem\target\classes started by lsj in D:\Code\upload\Project\FinancialLeasingSystem)
@@ -422,15 +422,15 @@ Caused by: java.sql.SQLException: Access denied for user 'root'@'localhost' (usi
 2022-06-06 11:11:58.789  INFO 54920 --- [main] com.zaxxer.hikari.HikariDataSource       : MyHikariCP - Starting...
 2022-06-06 11:11:58.790  WARN 54920 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
 2022-06-06 11:11:58.860  INFO 54920 --- [main] com.zaxxer.hikari.HikariDataSource       : MyHikariCP - Start completed.
-2022-06-06 11:11:58.864 DEBUG 54920 --- [main] c.h.c.r.UserRepository.queryUsers        : ==>  Preparing: select * from user; 
-2022-06-06 11:11:58.872 DEBUG 54920 --- [main] c.h.c.r.UserRepository.queryUsers        : ==> Parameters: 
+2022-06-06 11:11:58.864 DEBUG 54920 --- [main] c.h.c.r.UserRepository.queryUsers        : ==>  Preparing: select * from user;
+2022-06-06 11:11:58.872 DEBUG 54920 --- [main] c.h.c.r.UserRepository.queryUsers        : ==> Parameters:
 2022-06-06 11:11:58.879 DEBUG 54920 --- [main] c.h.c.r.UserRepository.queryUsers        : <==      Total: 5
-2022-06-06 11:11:58.888 DEBUG 54920 --- [main] c.h.c.r.P.queryAllProjectStates          : ==>  Preparing: select * from project_state 
-2022-06-06 11:11:58.888 DEBUG 54920 --- [main] c.h.c.r.P.queryAllProjectStates          : ==> Parameters: 
+2022-06-06 11:11:58.888 DEBUG 54920 --- [main] c.h.c.r.P.queryAllProjectStates          : ==>  Preparing: select * from project_state
+2022-06-06 11:11:58.888 DEBUG 54920 --- [main] c.h.c.r.P.queryAllProjectStates          : ==> Parameters:
 2022-06-06 11:11:58.890 DEBUG 54920 --- [main] c.h.c.r.P.queryAllProjectStates          : <==      Total: 15
 2022-06-06 11:11:58.911 DEBUG 54920 --- [main] c.hwadee.core.repository.CrewRepository  : Cache Hit Ratio [com.hwadee.core.repository.CrewRepository]: 0.0
-2022-06-06 11:11:58.911 DEBUG 54920 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==>  Preparing: select * from backstage_crew where authority_id=1 
-2022-06-06 11:11:58.911 DEBUG 54920 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==> Parameters: 
+2022-06-06 11:11:58.911 DEBUG 54920 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==>  Preparing: select * from backstage_crew where authority_id=1
+2022-06-06 11:11:58.911 DEBUG 54920 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==> Parameters:
 2022-06-06 11:11:58.912 DEBUG 54920 --- [main] c.h.c.r.CrewRepository.queryAllSales     : <==      Total: 2
 2022-06-06 11:11:59.054  INFO 54920 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
 2022-06-06 11:11:59.279  INFO 54920 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoint(s) beneath base path '/actuator'
@@ -440,13 +440,13 @@ Caused by: java.sql.SQLException: Access denied for user 'root'@'localhost' (usi
 2022-06-06 11:11:59.950  INFO 54920 --- [RMI TCP Connection(2)-10.132.239.36] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2022-06-06 11:11:59.951  INFO 54920 --- [RMI TCP Connection(2)-10.132.239.36] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
 2022-06-06 11:12:14.171 DEBUG 54920 --- [http-nio-8082-exec-8] c.hwadee.core.repository.CrewRepository  : Cache Hit Ratio [com.hwadee.core.repository.CrewRepository]: 0.0
-2022-06-06 11:12:14.172 DEBUG 54920 --- [http-nio-8082-exec-8] c.h.c.r.CrewRepository.queryPassword     : ==>  Preparing: select password from backstage_crew b where b.staff_id = ? 
+2022-06-06 11:12:14.172 DEBUG 54920 --- [http-nio-8082-exec-8] c.h.c.r.CrewRepository.queryPassword     : ==>  Preparing: select password from backstage_crew b where b.staff_id = ?
 2022-06-06 11:12:14.172 DEBUG 54920 --- [http-nio-8082-exec-8] c.h.c.r.CrewRepository.queryPassword     : ==> Parameters: 1(Integer)
 2022-06-06 11:12:14.173 DEBUG 54920 --- [http-nio-8082-exec-8] c.h.c.r.CrewRepository.queryPassword     : <==      Total: 1
-2022-06-06 11:12:14.191 DEBUG 54920 --- [http-nio-8082-exec-9] c.h.c.r.P.queryAllProjects               : ==>  Preparing: select * from project_info 
-2022-06-06 11:12:14.192 DEBUG 54920 --- [http-nio-8082-exec-9] c.h.c.r.P.queryAllProjects               : ==> Parameters: 
+2022-06-06 11:12:14.191 DEBUG 54920 --- [http-nio-8082-exec-9] c.h.c.r.P.queryAllProjects               : ==>  Preparing: select * from project_info
+2022-06-06 11:12:14.192 DEBUG 54920 --- [http-nio-8082-exec-9] c.h.c.r.P.queryAllProjects               : ==> Parameters:
 2022-06-06 11:12:14.200 DEBUG 54920 --- [http-nio-8082-exec-9] c.h.c.r.P.queryAllProjects               : <==      Total: 18
-2022-06-06 11:13:03.410 DEBUG 54920 --- [http-nio-8082-exec-10] c.h.c.r.P.insertProApplication           : ==>  Preparing: insert into project_info(applicant_id,project_name,project_time,leased_asset,supplier,price,lease_schedule_unit_price,lease_schedule_unit_time,lease_schedule_duration,pawn_name,pawn_type,pawn_value,certificate) values(?,?,?,?,?,?,?,?,?,?,?,?,?) 
+2022-06-06 11:13:03.410 DEBUG 54920 --- [http-nio-8082-exec-10] c.h.c.r.P.insertProApplication           : ==>  Preparing: insert into project_info(applicant_id,project_name,project_time,leased_asset,supplier,price,lease_schedule_unit_price,lease_schedule_unit_time,lease_schedule_duration,pawn_name,pawn_type,pawn_value,certificate) values(?,?,?,?,?,?,?,?,?,?,?,?,?)
 2022-06-06 11:13:03.412 DEBUG 54920 --- [http-nio-8082-exec-10] c.h.c.r.P.insertProApplication           : ==> Parameters: 1(Integer), lsj(String), 2022-06-06 11:12:00.0(Timestamp), 11(String), 11(String), 11(Integer), 11(Integer), 日(String), 11(Integer), 11(String), 11(String), 11(Integer), http://175.178.147.20:8082/static/file/certificate/1654485183407.pdf(String)
 2022-06-06 11:13:03.416 DEBUG 54920 --- [http-nio-8082-exec-10] c.h.c.r.P.insertProApplication           : <==    Updates: 1
 2022-06-06 12:38:37.364  INFO 68168 --- [main] com.hwadee.DemoApplication               : Starting DemoApplication using Java 1.8.0_40 on LAPTOP-T858PT23 with PID 68168 (D:\Code\upload\Project\FinancialLeasingSystem\target\classes started by lsj in D:\Code\upload\Project\FinancialLeasingSystem)
@@ -464,15 +464,15 @@ Caused by: java.sql.SQLException: Access denied for user 'root'@'localhost' (usi
 2022-06-06 12:38:39.481  INFO 68168 --- [main] com.zaxxer.hikari.HikariDataSource       : MyHikariCP - Starting...
 2022-06-06 12:38:39.482  WARN 68168 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
 2022-06-06 12:38:39.557  INFO 68168 --- [main] com.zaxxer.hikari.HikariDataSource       : MyHikariCP - Start completed.
-2022-06-06 12:38:39.562 DEBUG 68168 --- [main] c.h.c.r.UserRepository.queryUsers        : ==>  Preparing: select * from user; 
-2022-06-06 12:38:39.579 DEBUG 68168 --- [main] c.h.c.r.UserRepository.queryUsers        : ==> Parameters: 
+2022-06-06 12:38:39.562 DEBUG 68168 --- [main] c.h.c.r.UserRepository.queryUsers        : ==>  Preparing: select * from user;
+2022-06-06 12:38:39.579 DEBUG 68168 --- [main] c.h.c.r.UserRepository.queryUsers        : ==> Parameters:
 2022-06-06 12:38:39.587 DEBUG 68168 --- [main] c.h.c.r.UserRepository.queryUsers        : <==      Total: 5
-2022-06-06 12:38:39.596 DEBUG 68168 --- [main] c.h.c.r.P.queryAllProjectStates          : ==>  Preparing: select * from project_state 
-2022-06-06 12:38:39.596 DEBUG 68168 --- [main] c.h.c.r.P.queryAllProjectStates          : ==> Parameters: 
+2022-06-06 12:38:39.596 DEBUG 68168 --- [main] c.h.c.r.P.queryAllProjectStates          : ==>  Preparing: select * from project_state
+2022-06-06 12:38:39.596 DEBUG 68168 --- [main] c.h.c.r.P.queryAllProjectStates          : ==> Parameters:
 2022-06-06 12:38:39.598 DEBUG 68168 --- [main] c.h.c.r.P.queryAllProjectStates          : <==      Total: 15
 2022-06-06 12:38:39.621 DEBUG 68168 --- [main] c.hwadee.core.repository.CrewRepository  : Cache Hit Ratio [com.hwadee.core.repository.CrewRepository]: 0.0
-2022-06-06 12:38:39.622 DEBUG 68168 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==>  Preparing: select * from backstage_crew where authority_id=1 
-2022-06-06 12:38:39.622 DEBUG 68168 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==> Parameters: 
+2022-06-06 12:38:39.622 DEBUG 68168 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==>  Preparing: select * from backstage_crew where authority_id=1
+2022-06-06 12:38:39.622 DEBUG 68168 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==> Parameters:
 2022-06-06 12:38:39.623 DEBUG 68168 --- [main] c.h.c.r.CrewRepository.queryAllSales     : <==      Total: 2
 2022-06-06 12:38:39.769  INFO 68168 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
 2022-06-06 12:38:40.002  INFO 68168 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoint(s) beneath base path '/actuator'
@@ -481,13 +481,13 @@ Caused by: java.sql.SQLException: Access denied for user 'root'@'localhost' (usi
 2022-06-06 12:38:40.424  INFO 68168 --- [RMI TCP Connection(2)-10.132.239.36] o.a.c.c.C.[.[localhost].[/hwadee]        : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2022-06-06 12:38:40.424  INFO 68168 --- [RMI TCP Connection(2)-10.132.239.36] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2022-06-06 12:38:40.425  INFO 68168 --- [RMI TCP Connection(2)-10.132.239.36] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2022-06-06 12:38:50.535 DEBUG 68168 --- [http-nio-8082-exec-1] c.h.c.r.P.queryAllProjects               : ==>  Preparing: select * from project_info 
-2022-06-06 12:38:50.535 DEBUG 68168 --- [http-nio-8082-exec-1] c.h.c.r.P.queryAllProjects               : ==> Parameters: 
+2022-06-06 12:38:50.535 DEBUG 68168 --- [http-nio-8082-exec-1] c.h.c.r.P.queryAllProjects               : ==>  Preparing: select * from project_info
+2022-06-06 12:38:50.535 DEBUG 68168 --- [http-nio-8082-exec-1] c.h.c.r.P.queryAllProjects               : ==> Parameters:
 2022-06-06 12:38:50.544 DEBUG 68168 --- [http-nio-8082-exec-1] c.h.c.r.P.queryAllProjects               : <==      Total: 19
-2022-06-06 12:41:00.668 DEBUG 68168 --- [http-nio-8082-exec-5] c.h.c.r.P.insertProApplication           : ==>  Preparing: insert into project_info(applicant_id,project_name,project_time,leased_asset,supplier,price,lease_schedule_unit_price,lease_schedule_unit_time,lease_schedule_duration,pawn_name,pawn_type,pawn_value,certificate) values(?,?,?,?,?,?,?,?,?,?,?,?,?) 
+2022-06-06 12:41:00.668 DEBUG 68168 --- [http-nio-8082-exec-5] c.h.c.r.P.insertProApplication           : ==>  Preparing: insert into project_info(applicant_id,project_name,project_time,leased_asset,supplier,price,lease_schedule_unit_price,lease_schedule_unit_time,lease_schedule_duration,pawn_name,pawn_type,pawn_value,certificate) values(?,?,?,?,?,?,?,?,?,?,?,?,?)
 2022-06-06 12:41:00.670 DEBUG 68168 --- [http-nio-8082-exec-5] c.h.c.r.P.insertProApplication           : ==> Parameters: 22(Integer), lsj2(String), 2022-06-06 12:40:00.0(Timestamp), 22(String), 22(String), 22(Integer), 22(Integer), 日(String), 2(Integer), 22(String), 22(String), 22(Integer), http://175.178.147.20:8082/static/file/certificate/1654490460664.pdf(String)
 2022-06-06 12:41:00.674 DEBUG 68168 --- [http-nio-8082-exec-5] c.h.c.r.P.insertProApplication           : <==    Updates: 1
-2022-06-06 12:41:00.674 DEBUG 68168 --- [http-nio-8082-exec-5] c.h.c.r.P.queryProjectByUIdTime          : ==>  Preparing: select * from project_info where applicant_id = ? and project_time = ? 
+2022-06-06 12:41:00.674 DEBUG 68168 --- [http-nio-8082-exec-5] c.h.c.r.P.queryProjectByUIdTime          : ==>  Preparing: select * from project_info where applicant_id = ? and project_time = ?
 2022-06-06 12:41:00.674 DEBUG 68168 --- [http-nio-8082-exec-5] c.h.c.r.P.queryProjectByUIdTime          : ==> Parameters: 22(Integer), 2022-06-06T12:40(String)
 2022-06-06 12:41:00.684 ERROR 68168 --- [http-nio-8082-exec-5] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] in context with path [/hwadee] threw exception [Request processing failed; nested exception is org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.executor.ExecutorException: A query was run and no Result Maps were found for the Mapped Statement 'com.hwadee.core.repository.ProjectRepository.queryProjectByUIdTime'.  It's likely that neither a Result Type nor a Result Map was specified.] with root cause
 
@@ -597,15 +597,15 @@ org.apache.ibatis.executor.ExecutorException: A query was run and no Result Maps
 2022-06-06 12:42:35.155  INFO 60296 --- [main] com.zaxxer.hikari.HikariDataSource       : MyHikariCP - Starting...
 2022-06-06 12:42:35.156  WARN 60296 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
 2022-06-06 12:42:35.221  INFO 60296 --- [main] com.zaxxer.hikari.HikariDataSource       : MyHikariCP - Start completed.
-2022-06-06 12:42:35.225 DEBUG 60296 --- [main] c.h.c.r.UserRepository.queryUsers        : ==>  Preparing: select * from user; 
-2022-06-06 12:42:35.235 DEBUG 60296 --- [main] c.h.c.r.UserRepository.queryUsers        : ==> Parameters: 
+2022-06-06 12:42:35.225 DEBUG 60296 --- [main] c.h.c.r.UserRepository.queryUsers        : ==>  Preparing: select * from user;
+2022-06-06 12:42:35.235 DEBUG 60296 --- [main] c.h.c.r.UserRepository.queryUsers        : ==> Parameters:
 2022-06-06 12:42:35.253 DEBUG 60296 --- [main] c.h.c.r.UserRepository.queryUsers        : <==      Total: 5
-2022-06-06 12:42:35.262 DEBUG 60296 --- [main] c.h.c.r.P.queryAllProjectStates          : ==>  Preparing: select * from project_state 
-2022-06-06 12:42:35.262 DEBUG 60296 --- [main] c.h.c.r.P.queryAllProjectStates          : ==> Parameters: 
+2022-06-06 12:42:35.262 DEBUG 60296 --- [main] c.h.c.r.P.queryAllProjectStates          : ==>  Preparing: select * from project_state
+2022-06-06 12:42:35.262 DEBUG 60296 --- [main] c.h.c.r.P.queryAllProjectStates          : ==> Parameters:
 2022-06-06 12:42:35.265 DEBUG 60296 --- [main] c.h.c.r.P.queryAllProjectStates          : <==      Total: 15
 2022-06-06 12:42:35.288 DEBUG 60296 --- [main] c.hwadee.core.repository.CrewRepository  : Cache Hit Ratio [com.hwadee.core.repository.CrewRepository]: 0.0
-2022-06-06 12:42:35.288 DEBUG 60296 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==>  Preparing: select * from backstage_crew where authority_id=1 
-2022-06-06 12:42:35.288 DEBUG 60296 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==> Parameters: 
+2022-06-06 12:42:35.288 DEBUG 60296 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==>  Preparing: select * from backstage_crew where authority_id=1
+2022-06-06 12:42:35.288 DEBUG 60296 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==> Parameters:
 2022-06-06 12:42:35.289 DEBUG 60296 --- [main] c.h.c.r.CrewRepository.queryAllSales     : <==      Total: 2
 2022-06-06 12:42:35.441  INFO 60296 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
 2022-06-06 12:42:35.689  INFO 60296 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoint(s) beneath base path '/actuator'
@@ -614,13 +614,13 @@ org.apache.ibatis.executor.ExecutorException: A query was run and no Result Maps
 2022-06-06 12:42:36.139  INFO 60296 --- [RMI TCP Connection(1)-10.132.239.36] o.a.c.c.C.[.[localhost].[/hwadee]        : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2022-06-06 12:42:36.140  INFO 60296 --- [RMI TCP Connection(1)-10.132.239.36] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2022-06-06 12:42:36.141  INFO 60296 --- [RMI TCP Connection(1)-10.132.239.36] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2022-06-06 12:42:39.074 DEBUG 60296 --- [http-nio-8082-exec-1] c.h.c.r.P.queryAllProjects               : ==>  Preparing: select * from project_info 
-2022-06-06 12:42:39.074 DEBUG 60296 --- [http-nio-8082-exec-1] c.h.c.r.P.queryAllProjects               : ==> Parameters: 
+2022-06-06 12:42:39.074 DEBUG 60296 --- [http-nio-8082-exec-1] c.h.c.r.P.queryAllProjects               : ==>  Preparing: select * from project_info
+2022-06-06 12:42:39.074 DEBUG 60296 --- [http-nio-8082-exec-1] c.h.c.r.P.queryAllProjects               : ==> Parameters:
 2022-06-06 12:42:39.080 DEBUG 60296 --- [http-nio-8082-exec-1] c.h.c.r.P.queryAllProjects               : <==      Total: 20
-2022-06-06 12:43:51.087 DEBUG 60296 --- [http-nio-8082-exec-4] c.h.c.r.P.insertProApplication           : ==>  Preparing: insert into project_info(applicant_id,project_name,project_time,leased_asset,supplier,price,lease_schedule_unit_price,lease_schedule_unit_time,lease_schedule_duration,pawn_name,pawn_type,pawn_value,certificate) values(?,?,?,?,?,?,?,?,?,?,?,?,?) 
+2022-06-06 12:43:51.087 DEBUG 60296 --- [http-nio-8082-exec-4] c.h.c.r.P.insertProApplication           : ==>  Preparing: insert into project_info(applicant_id,project_name,project_time,leased_asset,supplier,price,lease_schedule_unit_price,lease_schedule_unit_time,lease_schedule_duration,pawn_name,pawn_type,pawn_value,certificate) values(?,?,?,?,?,?,?,?,?,?,?,?,?)
 2022-06-06 12:43:51.090 DEBUG 60296 --- [http-nio-8082-exec-4] c.h.c.r.P.insertProApplication           : ==> Parameters: 1(Integer), lsj3(String), 2022-06-06 12:43:00.0(Timestamp), 33(String), 33(String), 33(Integer), 33(Integer), 日(String), 33(Integer), 33(String), 33(String), 33(Integer), http://175.178.147.20:8082/static/file/certificate/1654490631083.pdf(String)
 2022-06-06 12:43:51.093 DEBUG 60296 --- [http-nio-8082-exec-4] c.h.c.r.P.insertProApplication           : <==    Updates: 1
-2022-06-06 12:43:51.094 DEBUG 60296 --- [http-nio-8082-exec-4] c.h.c.r.P.queryProjectByUIdTime          : ==>  Preparing: select * from project_info where applicant_id = ? and project_time = ? 
+2022-06-06 12:43:51.094 DEBUG 60296 --- [http-nio-8082-exec-4] c.h.c.r.P.queryProjectByUIdTime          : ==>  Preparing: select * from project_info where applicant_id = ? and project_time = ?
 2022-06-06 12:43:51.094 DEBUG 60296 --- [http-nio-8082-exec-4] c.h.c.r.P.queryProjectByUIdTime          : ==> Parameters: 1(Integer), 2022-06-06T12:43(String)
 2022-06-06 12:43:51.095 DEBUG 60296 --- [http-nio-8082-exec-4] c.h.c.r.P.queryProjectByUIdTime          : <==      Total: 1
 2022-06-06 14:59:16.016  INFO 41516 --- [main] com.hwadee.DemoApplication               : Starting DemoApplication using Java 1.8.0_40 on LAPTOP-T858PT23 with PID 41516 (D:\Code\upload\Project\FinancialLeasingSystem\target\classes started by lsj in D:\Code\upload\Project\FinancialLeasingSystem)
@@ -638,15 +638,15 @@ org.apache.ibatis.executor.ExecutorException: A query was run and no Result Maps
 2022-06-06 14:59:18.331  INFO 41516 --- [main] com.zaxxer.hikari.HikariDataSource       : MyHikariCP - Starting...
 2022-06-06 14:59:18.333  WARN 41516 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
 2022-06-06 14:59:18.405  INFO 41516 --- [main] com.zaxxer.hikari.HikariDataSource       : MyHikariCP - Start completed.
-2022-06-06 14:59:18.410 DEBUG 41516 --- [main] c.h.c.r.UserRepository.queryUsers        : ==>  Preparing: select * from user; 
-2022-06-06 14:59:18.420 DEBUG 41516 --- [main] c.h.c.r.UserRepository.queryUsers        : ==> Parameters: 
+2022-06-06 14:59:18.410 DEBUG 41516 --- [main] c.h.c.r.UserRepository.queryUsers        : ==>  Preparing: select * from user;
+2022-06-06 14:59:18.420 DEBUG 41516 --- [main] c.h.c.r.UserRepository.queryUsers        : ==> Parameters:
 2022-06-06 14:59:18.429 DEBUG 41516 --- [main] c.h.c.r.UserRepository.queryUsers        : <==      Total: 5
-2022-06-06 14:59:18.440 DEBUG 41516 --- [main] c.h.c.r.P.queryAllProjectStates          : ==>  Preparing: select * from project_state 
-2022-06-06 14:59:18.440 DEBUG 41516 --- [main] c.h.c.r.P.queryAllProjectStates          : ==> Parameters: 
+2022-06-06 14:59:18.440 DEBUG 41516 --- [main] c.h.c.r.P.queryAllProjectStates          : ==>  Preparing: select * from project_state
+2022-06-06 14:59:18.440 DEBUG 41516 --- [main] c.h.c.r.P.queryAllProjectStates          : ==> Parameters:
 2022-06-06 14:59:18.442 DEBUG 41516 --- [main] c.h.c.r.P.queryAllProjectStates          : <==      Total: 15
 2022-06-06 14:59:18.477 DEBUG 41516 --- [main] c.hwadee.core.repository.CrewRepository  : Cache Hit Ratio [com.hwadee.core.repository.CrewRepository]: 0.0
-2022-06-06 14:59:18.477 DEBUG 41516 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==>  Preparing: select * from backstage_crew where authority_id=1 
-2022-06-06 14:59:18.477 DEBUG 41516 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==> Parameters: 
+2022-06-06 14:59:18.477 DEBUG 41516 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==>  Preparing: select * from backstage_crew where authority_id=1
+2022-06-06 14:59:18.477 DEBUG 41516 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==> Parameters:
 2022-06-06 14:59:18.478 DEBUG 41516 --- [main] c.h.c.r.CrewRepository.queryAllSales     : <==      Total: 2
 2022-06-06 14:59:18.688  INFO 41516 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
 2022-06-06 14:59:18.954  INFO 41516 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoint(s) beneath base path '/actuator'
@@ -655,11 +655,11 @@ org.apache.ibatis.executor.ExecutorException: A query was run and no Result Maps
 2022-06-06 14:59:19.363  INFO 41516 --- [RMI TCP Connection(1)-10.132.239.36] o.a.c.c.C.[.[localhost].[/hwadee]        : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2022-06-06 14:59:19.363  INFO 41516 --- [RMI TCP Connection(1)-10.132.239.36] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2022-06-06 14:59:19.364  INFO 41516 --- [RMI TCP Connection(1)-10.132.239.36] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2022-06-06 14:59:39.960 DEBUG 41516 --- [http-nio-8082-exec-1] c.h.c.r.UserRepository.registerUser      : ==>  Preparing: insert into user(name,pwd,career,id_card,assets,salary,recent_bill) values(?,?,?,?,?,?,?) 
+2022-06-06 14:59:39.960 DEBUG 41516 --- [http-nio-8082-exec-1] c.h.c.r.UserRepository.registerUser      : ==>  Preparing: insert into user(name,pwd,career,id_card,assets,salary,recent_bill) values(?,?,?,?,?,?,?)
 2022-06-06 14:59:39.961 DEBUG 41516 --- [http-nio-8082-exec-1] c.h.c.r.UserRepository.registerUser      : ==> Parameters: 3(String), 3(String), 公务员(String), 3(String), 3(Long), 3(Integer), http://175.178.147.20:8082/static/file/bill/1654498779954.pdf(String)
 2022-06-06 14:59:39.965 DEBUG 41516 --- [http-nio-8082-exec-1] c.h.c.r.UserRepository.registerUser      : <==    Updates: 1
 2022-06-06 14:59:39.965 DEBUG 41516 --- [http-nio-8082-exec-1] c.hwadee.core.repository.UserRepository  : Cache Hit Ratio [com.hwadee.core.repository.UserRepository]: 0.0
-2022-06-06 14:59:39.965 DEBUG 41516 --- [http-nio-8082-exec-1] c.h.c.r.U.queryUserByIdCard              : ==>  Preparing: select * from user where id_card=? 
+2022-06-06 14:59:39.965 DEBUG 41516 --- [http-nio-8082-exec-1] c.h.c.r.U.queryUserByIdCard              : ==>  Preparing: select * from user where id_card=?
 2022-06-06 14:59:39.966 DEBUG 41516 --- [http-nio-8082-exec-1] c.h.c.r.U.queryUserByIdCard              : ==> Parameters: 3(String)
 2022-06-06 14:59:39.967 DEBUG 41516 --- [http-nio-8082-exec-1] c.h.c.r.U.queryUserByIdCard              : <==      Total: 1
 2022-06-06 15:02:24.133  INFO 75936 --- [main] com.hwadee.DemoApplication               : Starting DemoApplication using Java 1.8.0_40 on LAPTOP-T858PT23 with PID 75936 (D:\Code\upload\Project\FinancialLeasingSystem\target\classes started by lsj in D:\Code\upload\Project\FinancialLeasingSystem)
@@ -677,15 +677,15 @@ org.apache.ibatis.executor.ExecutorException: A query was run and no Result Maps
 2022-06-06 15:02:26.235  INFO 75936 --- [main] com.zaxxer.hikari.HikariDataSource       : MyHikariCP - Starting...
 2022-06-06 15:02:26.236  WARN 75936 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
 2022-06-06 15:02:26.302  INFO 75936 --- [main] com.zaxxer.hikari.HikariDataSource       : MyHikariCP - Start completed.
-2022-06-06 15:02:26.306 DEBUG 75936 --- [main] c.h.c.r.UserRepository.queryUsers        : ==>  Preparing: select * from user; 
-2022-06-06 15:02:26.316 DEBUG 75936 --- [main] c.h.c.r.UserRepository.queryUsers        : ==> Parameters: 
+2022-06-06 15:02:26.306 DEBUG 75936 --- [main] c.h.c.r.UserRepository.queryUsers        : ==>  Preparing: select * from user;
+2022-06-06 15:02:26.316 DEBUG 75936 --- [main] c.h.c.r.UserRepository.queryUsers        : ==> Parameters:
 2022-06-06 15:02:26.324 DEBUG 75936 --- [main] c.h.c.r.UserRepository.queryUsers        : <==      Total: 6
-2022-06-06 15:02:26.342 DEBUG 75936 --- [main] c.h.c.r.P.queryAllProjectStates          : ==>  Preparing: select * from project_state 
-2022-06-06 15:02:26.343 DEBUG 75936 --- [main] c.h.c.r.P.queryAllProjectStates          : ==> Parameters: 
+2022-06-06 15:02:26.342 DEBUG 75936 --- [main] c.h.c.r.P.queryAllProjectStates          : ==>  Preparing: select * from project_state
+2022-06-06 15:02:26.343 DEBUG 75936 --- [main] c.h.c.r.P.queryAllProjectStates          : ==> Parameters:
 2022-06-06 15:02:26.345 DEBUG 75936 --- [main] c.h.c.r.P.queryAllProjectStates          : <==      Total: 15
 2022-06-06 15:02:26.382 DEBUG 75936 --- [main] c.hwadee.core.repository.CrewRepository  : Cache Hit Ratio [com.hwadee.core.repository.CrewRepository]: 0.0
-2022-06-06 15:02:26.382 DEBUG 75936 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==>  Preparing: select * from backstage_crew where authority_id=1 
-2022-06-06 15:02:26.382 DEBUG 75936 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==> Parameters: 
+2022-06-06 15:02:26.382 DEBUG 75936 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==>  Preparing: select * from backstage_crew where authority_id=1
+2022-06-06 15:02:26.382 DEBUG 75936 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==> Parameters:
 2022-06-06 15:02:26.383 DEBUG 75936 --- [main] c.h.c.r.CrewRepository.queryAllSales     : <==      Total: 2
 2022-06-06 15:02:26.551  INFO 75936 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
 2022-06-06 15:02:26.824  INFO 75936 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoint(s) beneath base path '/actuator'
@@ -933,15 +933,15 @@ org.thymeleaf.exceptions.TemplateInputException: Error resolving template [regis
 2022-06-06 15:02:51.498  INFO 73012 --- [main] com.zaxxer.hikari.HikariDataSource       : MyHikariCP - Starting...
 2022-06-06 15:02:51.500  WARN 73012 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
 2022-06-06 15:02:51.565  INFO 73012 --- [main] com.zaxxer.hikari.HikariDataSource       : MyHikariCP - Start completed.
-2022-06-06 15:02:51.569 DEBUG 73012 --- [main] c.h.c.r.UserRepository.queryUsers        : ==>  Preparing: select * from user; 
-2022-06-06 15:02:51.578 DEBUG 73012 --- [main] c.h.c.r.UserRepository.queryUsers        : ==> Parameters: 
+2022-06-06 15:02:51.569 DEBUG 73012 --- [main] c.h.c.r.UserRepository.queryUsers        : ==>  Preparing: select * from user;
+2022-06-06 15:02:51.578 DEBUG 73012 --- [main] c.h.c.r.UserRepository.queryUsers        : ==> Parameters:
 2022-06-06 15:02:51.586 DEBUG 73012 --- [main] c.h.c.r.UserRepository.queryUsers        : <==      Total: 6
-2022-06-06 15:02:51.595 DEBUG 73012 --- [main] c.h.c.r.P.queryAllProjectStates          : ==>  Preparing: select * from project_state 
-2022-06-06 15:02:51.595 DEBUG 73012 --- [main] c.h.c.r.P.queryAllProjectStates          : ==> Parameters: 
+2022-06-06 15:02:51.595 DEBUG 73012 --- [main] c.h.c.r.P.queryAllProjectStates          : ==>  Preparing: select * from project_state
+2022-06-06 15:02:51.595 DEBUG 73012 --- [main] c.h.c.r.P.queryAllProjectStates          : ==> Parameters:
 2022-06-06 15:02:51.597 DEBUG 73012 --- [main] c.h.c.r.P.queryAllProjectStates          : <==      Total: 15
 2022-06-06 15:02:51.630 DEBUG 73012 --- [main] c.hwadee.core.repository.CrewRepository  : Cache Hit Ratio [com.hwadee.core.repository.CrewRepository]: 0.0
-2022-06-06 15:02:51.630 DEBUG 73012 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==>  Preparing: select * from backstage_crew where authority_id=1 
-2022-06-06 15:02:51.630 DEBUG 73012 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==> Parameters: 
+2022-06-06 15:02:51.630 DEBUG 73012 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==>  Preparing: select * from backstage_crew where authority_id=1
+2022-06-06 15:02:51.630 DEBUG 73012 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==> Parameters:
 2022-06-06 15:02:51.631 DEBUG 73012 --- [main] c.h.c.r.CrewRepository.queryAllSales     : <==      Total: 2
 2022-06-06 15:02:51.772  INFO 73012 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
 2022-06-06 15:02:52.008  INFO 73012 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoint(s) beneath base path '/actuator'
@@ -1301,15 +1301,15 @@ org.thymeleaf.exceptions.TemplateInputException: Error resolving template [regis
 2022-06-06 15:07:42.523  INFO 61760 --- [main] com.zaxxer.hikari.HikariDataSource       : MyHikariCP - Starting...
 2022-06-06 15:07:42.524  WARN 61760 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
 2022-06-06 15:07:42.591  INFO 61760 --- [main] com.zaxxer.hikari.HikariDataSource       : MyHikariCP - Start completed.
-2022-06-06 15:07:42.595 DEBUG 61760 --- [main] c.h.c.r.UserRepository.queryUsers        : ==>  Preparing: select * from user; 
-2022-06-06 15:07:42.605 DEBUG 61760 --- [main] c.h.c.r.UserRepository.queryUsers        : ==> Parameters: 
+2022-06-06 15:07:42.595 DEBUG 61760 --- [main] c.h.c.r.UserRepository.queryUsers        : ==>  Preparing: select * from user;
+2022-06-06 15:07:42.605 DEBUG 61760 --- [main] c.h.c.r.UserRepository.queryUsers        : ==> Parameters:
 2022-06-06 15:07:42.613 DEBUG 61760 --- [main] c.h.c.r.UserRepository.queryUsers        : <==      Total: 6
-2022-06-06 15:07:42.623 DEBUG 61760 --- [main] c.h.c.r.P.queryAllProjectStates          : ==>  Preparing: select * from project_state 
-2022-06-06 15:07:42.623 DEBUG 61760 --- [main] c.h.c.r.P.queryAllProjectStates          : ==> Parameters: 
+2022-06-06 15:07:42.623 DEBUG 61760 --- [main] c.h.c.r.P.queryAllProjectStates          : ==>  Preparing: select * from project_state
+2022-06-06 15:07:42.623 DEBUG 61760 --- [main] c.h.c.r.P.queryAllProjectStates          : ==> Parameters:
 2022-06-06 15:07:42.625 DEBUG 61760 --- [main] c.h.c.r.P.queryAllProjectStates          : <==      Total: 15
 2022-06-06 15:07:42.659 DEBUG 61760 --- [main] c.hwadee.core.repository.CrewRepository  : Cache Hit Ratio [com.hwadee.core.repository.CrewRepository]: 0.0
-2022-06-06 15:07:42.659 DEBUG 61760 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==>  Preparing: select * from backstage_crew where authority_id=1 
-2022-06-06 15:07:42.659 DEBUG 61760 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==> Parameters: 
+2022-06-06 15:07:42.659 DEBUG 61760 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==>  Preparing: select * from backstage_crew where authority_id=1
+2022-06-06 15:07:42.659 DEBUG 61760 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==> Parameters:
 2022-06-06 15:07:42.660 DEBUG 61760 --- [main] c.h.c.r.CrewRepository.queryAllSales     : <==      Total: 2
 2022-06-06 15:07:42.801  INFO 61760 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
 2022-06-06 15:07:43.035  INFO 61760 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoint(s) beneath base path '/actuator'
@@ -1445,15 +1445,15 @@ org.thymeleaf.exceptions.TemplateInputException: Error resolving template [regis
 2022-06-06 15:12:25.612  INFO 76084 --- [main] com.zaxxer.hikari.HikariDataSource       : MyHikariCP - Starting...
 2022-06-06 15:12:25.613  WARN 76084 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
 2022-06-06 15:12:25.678  INFO 76084 --- [main] com.zaxxer.hikari.HikariDataSource       : MyHikariCP - Start completed.
-2022-06-06 15:12:25.682 DEBUG 76084 --- [main] c.h.c.r.UserRepository.queryUsers        : ==>  Preparing: select * from user; 
-2022-06-06 15:12:25.691 DEBUG 76084 --- [main] c.h.c.r.UserRepository.queryUsers        : ==> Parameters: 
+2022-06-06 15:12:25.682 DEBUG 76084 --- [main] c.h.c.r.UserRepository.queryUsers        : ==>  Preparing: select * from user;
+2022-06-06 15:12:25.691 DEBUG 76084 --- [main] c.h.c.r.UserRepository.queryUsers        : ==> Parameters:
 2022-06-06 15:12:25.699 DEBUG 76084 --- [main] c.h.c.r.UserRepository.queryUsers        : <==      Total: 6
-2022-06-06 15:12:25.715 DEBUG 76084 --- [main] c.h.c.r.P.queryAllProjectStates          : ==>  Preparing: select * from project_state 
-2022-06-06 15:12:25.716 DEBUG 76084 --- [main] c.h.c.r.P.queryAllProjectStates          : ==> Parameters: 
+2022-06-06 15:12:25.715 DEBUG 76084 --- [main] c.h.c.r.P.queryAllProjectStates          : ==>  Preparing: select * from project_state
+2022-06-06 15:12:25.716 DEBUG 76084 --- [main] c.h.c.r.P.queryAllProjectStates          : ==> Parameters:
 2022-06-06 15:12:25.719 DEBUG 76084 --- [main] c.h.c.r.P.queryAllProjectStates          : <==      Total: 15
 2022-06-06 15:12:25.743 DEBUG 76084 --- [main] c.hwadee.core.repository.CrewRepository  : Cache Hit Ratio [com.hwadee.core.repository.CrewRepository]: 0.0
-2022-06-06 15:12:25.743 DEBUG 76084 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==>  Preparing: select * from backstage_crew where authority_id=1 
-2022-06-06 15:12:25.743 DEBUG 76084 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==> Parameters: 
+2022-06-06 15:12:25.743 DEBUG 76084 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==>  Preparing: select * from backstage_crew where authority_id=1
+2022-06-06 15:12:25.743 DEBUG 76084 --- [main] c.h.c.r.CrewRepository.queryAllSales     : ==> Parameters:
 2022-06-06 15:12:25.744 DEBUG 76084 --- [main] c.h.c.r.CrewRepository.queryAllSales     : <==      Total: 2
 2022-06-06 15:12:25.878  INFO 76084 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
 2022-06-06 15:12:26.106  INFO 76084 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoint(s) beneath base path '/actuator'
