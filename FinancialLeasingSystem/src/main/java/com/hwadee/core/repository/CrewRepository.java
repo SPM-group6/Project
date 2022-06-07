@@ -1,6 +1,8 @@
 package com.hwadee.core.repository;
 
 import com.hwadee.entity.Crew;
+import com.hwadee.entity.LoginCrew;
+import com.hwadee.entity.TemCrew;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -37,5 +39,11 @@ public interface CrewRepository {
      * 查询职员密码
      */
     String queryPassword(@Param("staffId") int staffId);
+
+    /**
+     * 新建职员记录（仅后端建立数据使用，无前端）
+     */
+    int crewSignUp(@Param("crew") TemCrew crew);
+
 
 }

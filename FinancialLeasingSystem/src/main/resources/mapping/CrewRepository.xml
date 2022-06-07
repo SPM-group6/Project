@@ -6,6 +6,12 @@
 <mapper namespace="com.hwadee.core.repository.CrewRepository">
     <cache eviction="LRU" flushInterval="100000" readOnly="true" size="1024"></cache>
 
+    <insert id="crewSignUp">
+        insert
+        into backstage_crew(staff_name,authority_id,password)
+        values(#{crew.staffName},#{crew.authorityId},#{crew.password})
+    </insert>
+
     <select id="queryAllSales" resultType="Crew">
         select *
         from backstage_crew

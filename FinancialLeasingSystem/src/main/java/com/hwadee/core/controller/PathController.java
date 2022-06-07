@@ -1,12 +1,17 @@
 package com.hwadee.core.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.hwadee.core.repository.CrewRepository;
 import com.hwadee.core.service.UserService;
+import com.hwadee.entity.Crew;
+import com.hwadee.entity.LoginCrew;
+import com.hwadee.entity.TemCrew;
 import com.hwadee.entity.User;
 import com.hwadee.tools.FaceUtils;
 import com.hwadee.tools.FileUpLoad;
 import com.hwadee.tools.ImageBase64Utils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.ClassUtils;
@@ -22,6 +27,8 @@ import java.util.*;
 public class PathController {
     @Autowired
     private UserService userService;
+    @Autowired
+    private CrewRepository crewRepository;
 
 
     /**
@@ -396,21 +403,26 @@ public class PathController {
         }
     }
 
-//    @RequestMapping("/submitBill")
-//    public String submitBill(@RequestParam(name="bill")MultipartFile bill){
-//        //处理图片上传
-//        byte[] bytes=new byte[0];
-//        System.out.println("***************************************");
-//        System.out.println(bill == null);
-//        try{
-//            bytes=bill.getBytes();
-//        }catch(Exception e){
-//            e.printStackTrace();
-//        }
-////        //更新数据库
-////        if(userService.updateBill(bytes) != 1){
-////            System.out.println("in PathController--submitBill error: 数据库更新失败！");
-////        }
-//        return "login";
-//    }
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    @PostMapping("/crewSignUp")//用于生成数据库内信息，没有前端界面
+    public String crewSignUp(@RequestBody Map<String,String> registerUser){
+//        User user = new User();
+//        user.setUsername(registerUser.get("name"));
+//        user.setPassword(bCryptPasswordEncoder.encode(registerUser.get("password")));
+//        user.setRole("ROLE_USER");
+//        User save = userRepository.save(user);
+//        return save.toString();
+
+        String name=registerUser.get("name");
+        Integer authority_id=Integer.parseInt(registerUser.get("authority_id"));
+        String psw=bCryptPasswordEncoder.encode(registerUser.get("password"));
+        TemCrew crew=new TemCrew();
+        crew.setAuthorityId(authority_id);
+        crew.setPassword(psw);
+        crew.setStaffName(name);
+        crewRepository.crewSignUp(crew);
+        return "login";
+    }
 }
