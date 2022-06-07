@@ -164,12 +164,6 @@ public class PathController {
 
         System.out.println("in faceLogin controller");
         try {
-//            JSONObject image=JSONObject.parseObject(images);
-//            JSONObject imageObject2=images.getJSONObject("data");
-//            List<String> imagesBase64=new ArrayList<>();
-//            imagesBase64.add(imageObject2.getString("0"));
-//            imagesBase64.add(imageObject2.getString("1"));
-
             // 获取所有承租人
             List<User> userList = userService.queryUsers();
 
@@ -317,14 +311,9 @@ public class PathController {
         // 构造响应体
         Map<String, String> resultmap = new HashMap<>();
         System.out.println("in faceRegister controller");
+        // 将图片保存到文件夹中
+
         try{
-//            JSONObject dataJson=JSONObject.parseObject(data);
-//            dataJson=dataJson.getJSONObject("data");
-//            JSONObject imageObject=dataJson.getJSONObject("images");
-//            int id = dataJson.getInteger("id");
-//            List<String> imageObjects=new ArrayList<>();
-//            imageObjects.add(imageObject.getString("0"));
-//            imageObjects.add(imageObject.getString("1"));
 
             User user = userService.queryUserById(id);
             String faceUrl=null;
